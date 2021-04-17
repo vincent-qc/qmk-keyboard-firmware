@@ -174,15 +174,16 @@
  122               		.file 22 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdlib.h"
  123               		.file 23 "quantum/process_keycode/process_unicode_common.h"
  124               		.file 24 "quantum/process_keycode/process_unicodemap.h"
+ 125               		.file 25 "quantum/process_keycode/process_tap_dance.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 backlight_driver_common.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccaHIQOI.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccaHIQOI.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccaHIQOI.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccaHIQOI.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccaHIQOI.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccaHIQOI.s:13     .text.backlight_pins_init:0000000000000000 backlight_pins_init
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccaHIQOI.s:45     .text.backlight_pins_on:0000000000000000 backlight_pins_on
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccaHIQOI.s:74     .text.backlight_pins_off:0000000000000000 backlight_pins_off
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccFkK3qb.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccFkK3qb.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccFkK3qb.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccFkK3qb.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccFkK3qb.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccFkK3qb.s:13     .text.backlight_pins_init:0000000000000000 backlight_pins_init
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccFkK3qb.s:45     .text.backlight_pins_on:0000000000000000 backlight_pins_on
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccFkK3qb.s:74     .text.backlight_pins_off:0000000000000000 backlight_pins_off
 
 NO UNDEFINED SYMBOLS

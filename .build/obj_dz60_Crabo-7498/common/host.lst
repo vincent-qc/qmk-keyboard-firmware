@@ -447,24 +447,24 @@
  371               		.file 13 "quantum/keycode_config.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 host.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2hGOPv.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2hGOPv.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2hGOPv.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2hGOPv.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2hGOPv.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2hGOPv.s:13     .text.host_set_driver:0000000000000000 host_set_driver
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2hGOPv.s:356    .bss.driver:0000000000000000 driver
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2hGOPv.s:36     .text.host_get_driver:0000000000000000 host_get_driver
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2hGOPv.s:56     .text.host_keyboard_leds:0000000000000000 host_keyboard_leds
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2hGOPv.s:89     .text.host_keyboard_led_state:0000000000000000 host_keyboard_led_state
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2hGOPv.s:125    .text.host_keyboard_send:0000000000000000 host_keyboard_send
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2hGOPv.s:180    .text.host_mouse_send:0000000000000000 host_mouse_send
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2hGOPv.s:218    .text.host_system_send:0000000000000000 host_system_send
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2hGOPv.s:351    .bss.last_system_report:0000000000000000 last_system_report
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2hGOPv.s:262    .text.host_consumer_send:0000000000000000 host_consumer_send
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2hGOPv.s:346    .bss.last_consumer_report:0000000000000000 last_consumer_report
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2hGOPv.s:306    .text.host_last_system_report:0000000000000000 host_last_system_report
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2hGOPv.s:326    .text.host_last_consumer_report:0000000000000000 host_last_consumer_report
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsLIQ09.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsLIQ09.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsLIQ09.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsLIQ09.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsLIQ09.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsLIQ09.s:13     .text.host_set_driver:0000000000000000 host_set_driver
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsLIQ09.s:356    .bss.driver:0000000000000000 driver
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsLIQ09.s:36     .text.host_get_driver:0000000000000000 host_get_driver
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsLIQ09.s:56     .text.host_keyboard_leds:0000000000000000 host_keyboard_leds
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsLIQ09.s:89     .text.host_keyboard_led_state:0000000000000000 host_keyboard_led_state
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsLIQ09.s:125    .text.host_keyboard_send:0000000000000000 host_keyboard_send
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsLIQ09.s:180    .text.host_mouse_send:0000000000000000 host_mouse_send
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsLIQ09.s:218    .text.host_system_send:0000000000000000 host_system_send
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsLIQ09.s:351    .bss.last_system_report:0000000000000000 last_system_report
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsLIQ09.s:262    .text.host_consumer_send:0000000000000000 host_consumer_send
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsLIQ09.s:346    .bss.last_consumer_report:0000000000000000 last_consumer_report
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsLIQ09.s:306    .text.host_last_system_report:0000000000000000 host_last_system_report
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsLIQ09.s:326    .text.host_last_consumer_report:0000000000000000 host_last_consumer_report
 
 UNDEFINED SYMBOLS
 keyboard_protocol

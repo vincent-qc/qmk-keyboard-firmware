@@ -668,16 +668,17 @@
  427               		.file 22 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdlib.h"
  428               		.file 23 "quantum/process_keycode/process_unicode_common.h"
  429               		.file 24 "quantum/process_keycode/process_unicodemap.h"
- 430               		.file 25 "tmk_core/common/eeconfig.h"
- 431               		.file 26 "quantum/quantum_keycodes.h"
+ 430               		.file 25 "quantum/process_keycode/process_tap_dance.h"
+ 431               		.file 26 "tmk_core/common/eeconfig.h"
+ 432               		.file 27 "quantum/quantum_keycodes.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 process_magic.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2mmIut.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2mmIut.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2mmIut.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2mmIut.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2mmIut.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc2mmIut.s:13     .text.process_magic:0000000000000000 process_magic
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ktDEw.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ktDEw.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ktDEw.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ktDEw.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ktDEw.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ktDEw.s:13     .text.process_magic:0000000000000000 process_magic
 
 UNDEFINED SYMBOLS
 eeconfig_read_keymap

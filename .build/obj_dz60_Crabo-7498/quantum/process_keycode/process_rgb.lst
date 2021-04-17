@@ -800,28 +800,29 @@
  555               		.file 25 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdlib.h"
  556               		.file 26 "quantum/process_keycode/process_unicode_common.h"
  557               		.file 27 "quantum/process_keycode/process_unicodemap.h"
+ 558               		.file 28 "quantum/process_keycode/process_tap_dance.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 process_rgb.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:13     .text.rgblight_step:0000000000000000 rgblight_step
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:13     .text.rgblight_step:0000000000000000 rgblight_step.localalias.0
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:32     .text.handleKeycodeRGB:0000000000000000 handleKeycodeRGB
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:60     .text.handleKeycodeRGBMode:0000000000000000 handleKeycodeRGBMode
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:124    .text.rgblight_step_reverse:0000000000000000 rgblight_step_reverse
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:139    .text.rgblight_increase_hue:0000000000000000 rgblight_increase_hue
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:154    .text.rgblight_decrease_hue:0000000000000000 rgblight_decrease_hue
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:169    .text.rgblight_increase_sat:0000000000000000 rgblight_increase_sat
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:184    .text.rgblight_decrease_sat:0000000000000000 rgblight_decrease_sat
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:199    .text.rgblight_increase_val:0000000000000000 rgblight_increase_val
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:214    .text.rgblight_decrease_val:0000000000000000 rgblight_decrease_val
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:229    .text.rgblight_increase_speed:0000000000000000 rgblight_increase_speed
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:244    .text.rgblight_decrease_speed:0000000000000000 rgblight_decrease_speed
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:259    .text.rgblight_toggle:0000000000000000 rgblight_toggle
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccRjv5rW.s:274    .text.process_rgb:0000000000000000 process_rgb
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:13     .text.rgblight_step:0000000000000000 rgblight_step
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:13     .text.rgblight_step:0000000000000000 rgblight_step.localalias.0
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:32     .text.handleKeycodeRGB:0000000000000000 handleKeycodeRGB
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:60     .text.handleKeycodeRGBMode:0000000000000000 handleKeycodeRGBMode
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:124    .text.rgblight_step_reverse:0000000000000000 rgblight_step_reverse
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:139    .text.rgblight_increase_hue:0000000000000000 rgblight_increase_hue
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:154    .text.rgblight_decrease_hue:0000000000000000 rgblight_decrease_hue
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:169    .text.rgblight_increase_sat:0000000000000000 rgblight_increase_sat
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:184    .text.rgblight_decrease_sat:0000000000000000 rgblight_decrease_sat
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:199    .text.rgblight_increase_val:0000000000000000 rgblight_increase_val
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:214    .text.rgblight_decrease_val:0000000000000000 rgblight_decrease_val
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:229    .text.rgblight_increase_speed:0000000000000000 rgblight_increase_speed
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:244    .text.rgblight_decrease_speed:0000000000000000 rgblight_decrease_speed
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:259    .text.rgblight_toggle:0000000000000000 rgblight_toggle
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9SMn5h.s:274    .text.process_rgb:0000000000000000 process_rgb
 
 UNDEFINED SYMBOLS
 rgblight_get_mode

@@ -1744,18 +1744,18 @@
  598               		.file 12 "tmk_core/protocol/usb_descriptor.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 usb_descriptor.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYeINSz.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYeINSz.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYeINSz.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYeINSz.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYeINSz.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYeINSz.s:13     .text.get_usb_descriptor:0000000000000000 get_usb_descriptor
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYeINSz.s:521    .progmem.data.KeyboardReport:0000000000000000 KeyboardReport
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYeINSz.s:334    .progmem.data.SharedReport:0000000000000000 SharedReport
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYeINSz.s:221    .progmem.data.ProductString:0000000000000000 ProductString
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYeINSz.s:250    .progmem.data.LanguageString:0000000000000000 LanguageString
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYeINSz.s:234    .progmem.data.ManufacturerString:0000000000000000 ManufacturerString
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYeINSz.s:258    .progmem.data.ConfigurationDescriptor:0000000000000000 ConfigurationDescriptor
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYeINSz.s:315    .progmem.data.DeviceDescriptor:0000000000000000 DeviceDescriptor
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccL0zLZt.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccL0zLZt.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccL0zLZt.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccL0zLZt.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccL0zLZt.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccL0zLZt.s:13     .text.get_usb_descriptor:0000000000000000 get_usb_descriptor
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccL0zLZt.s:521    .progmem.data.KeyboardReport:0000000000000000 KeyboardReport
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccL0zLZt.s:334    .progmem.data.SharedReport:0000000000000000 SharedReport
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccL0zLZt.s:221    .progmem.data.ProductString:0000000000000000 ProductString
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccL0zLZt.s:250    .progmem.data.LanguageString:0000000000000000 LanguageString
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccL0zLZt.s:234    .progmem.data.ManufacturerString:0000000000000000 ManufacturerString
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccL0zLZt.s:258    .progmem.data.ConfigurationDescriptor:0000000000000000 ConfigurationDescriptor
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccL0zLZt.s:315    .progmem.data.DeviceDescriptor:0000000000000000 DeviceDescriptor
 
 NO UNDEFINED SYMBOLS

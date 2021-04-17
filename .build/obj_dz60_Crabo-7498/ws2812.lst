@@ -605,12 +605,12 @@
  149               		.file 4 "./quantum/color.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 ws2812.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYcsMzC.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYcsMzC.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYcsMzC.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYcsMzC.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYcsMzC.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYcsMzC.s:13     .text.ws2812_setleds:0000000000000000 ws2812_setleds
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYcsMzC.s:120    .text.ws2812_setleds:000000000000003a loop106
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsgQWbL.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsgQWbL.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsgQWbL.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsgQWbL.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsgQWbL.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsgQWbL.s:13     .text.ws2812_setleds:0000000000000000 ws2812_setleds
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccsgQWbL.s:120    .text.ws2812_setleds:000000000000003a loop106
 
 NO UNDEFINED SYMBOLS

@@ -744,18 +744,19 @@
  288               		.file 21 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdlib.h"
  289               		.file 22 "quantum/process_keycode/process_unicode_common.h"
  290               		.file 23 "quantum/process_keycode/process_unicodemap.h"
- 291               		.file 24 "quantum/backlight/backlight_driver_common.h"
- 292               		.file 25 "quantum/backlight/backlight.h"
+ 291               		.file 24 "quantum/process_keycode/process_tap_dance.h"
+ 292               		.file 25 "quantum/backlight/backlight_driver_common.h"
+ 293               		.file 26 "quantum/backlight/backlight.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 backlight_avr.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjT5Pkm.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjT5Pkm.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjT5Pkm.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjT5Pkm.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjT5Pkm.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjT5Pkm.s:13     .text.backlight_set:0000000000000000 backlight_set
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjT5Pkm.s:218    .text.backlight_task:0000000000000000 backlight_task
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjT5Pkm.s:236    .text.backlight_init_ports:0000000000000000 backlight_init_ports
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPnNXXX.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPnNXXX.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPnNXXX.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPnNXXX.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPnNXXX.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPnNXXX.s:13     .text.backlight_set:0000000000000000 backlight_set
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPnNXXX.s:218    .text.backlight_task:0000000000000000 backlight_task
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPnNXXX.s:236    .text.backlight_init_ports:0000000000000000 backlight_init_ports
 
 UNDEFINED SYMBOLS
 backlight_pins_off

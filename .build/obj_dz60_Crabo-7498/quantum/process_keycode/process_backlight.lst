@@ -184,16 +184,17 @@
  134               		.file 22 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdlib.h"
  135               		.file 23 "quantum/process_keycode/process_unicode_common.h"
  136               		.file 24 "quantum/process_keycode/process_unicodemap.h"
- 137               		.file 25 "quantum/backlight/backlight.h"
- 138               		.file 26 "quantum/quantum_keycodes.h"
+ 137               		.file 25 "quantum/process_keycode/process_tap_dance.h"
+ 138               		.file 26 "quantum/backlight/backlight.h"
+ 139               		.file 27 "quantum/quantum_keycodes.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 process_backlight.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccWWB4yv.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccWWB4yv.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccWWB4yv.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccWWB4yv.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccWWB4yv.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccWWB4yv.s:13     .text.process_backlight:0000000000000000 process_backlight
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpy0M4q.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpy0M4q.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpy0M4q.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpy0M4q.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpy0M4q.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpy0M4q.s:13     .text.process_backlight:0000000000000000 process_backlight
 
 UNDEFINED SYMBOLS
 backlight_level

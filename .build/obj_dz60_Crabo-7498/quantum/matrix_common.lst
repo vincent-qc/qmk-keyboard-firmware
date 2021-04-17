@@ -1041,37 +1041,38 @@
  654               		.file 23 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdlib.h"
  655               		.file 24 "quantum/process_keycode/process_unicode_common.h"
  656               		.file 25 "quantum/process_keycode/process_unicodemap.h"
- 657               		.file 26 "quantum/debounce.h"
- 658               		.file 27 "quantum/bitwise.h"
+ 657               		.file 26 "quantum/process_keycode/process_tap_dance.h"
+ 658               		.file 27 "quantum/debounce.h"
+ 659               		.file 28 "quantum/bitwise.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 matrix_common.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:13     .text.matrix_init_user:0000000000000000 matrix_init_user
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:13     .text.matrix_init_user:0000000000000000 matrix_init_user.localalias.0
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:33     .text.matrix_init_kb:0000000000000000 matrix_init_kb
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:50     .text.matrix_scan_user:0000000000000000 matrix_scan_user
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:65     .text.matrix_scan_kb:0000000000000000 matrix_scan_kb
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:82     .text.matrix_rows:0000000000000000 matrix_rows
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:101    .text.matrix_cols:0000000000000000 matrix_cols
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:120    .text.matrix_is_on:0000000000000000 matrix_is_on
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:13     .text.matrix_init_user:0000000000000000 matrix_init_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:13     .text.matrix_init_user:0000000000000000 matrix_init_user.localalias.0
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:33     .text.matrix_init_kb:0000000000000000 matrix_init_kb
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:50     .text.matrix_scan_user:0000000000000000 matrix_scan_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:65     .text.matrix_scan_kb:0000000000000000 matrix_scan_kb
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:82     .text.matrix_rows:0000000000000000 matrix_rows
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:101    .text.matrix_cols:0000000000000000 matrix_cols
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:120    .text.matrix_is_on:0000000000000000 matrix_is_on
                             *COM*:000000000000000a matrix
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:168    .text.matrix_get_row:0000000000000000 matrix_get_row
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:198    .text.matrix_is_modified:0000000000000000 matrix_is_modified
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:221    .text.matrix_print:0000000000000000 matrix_print
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:243    .text.matrix_key_count:0000000000000000 matrix_key_count
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:319    .text.matrix_io_delay:0000000000000000 matrix_io_delay
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:356    .text.matrix_output_select_delay:0000000000000000 matrix_output_select_delay
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:375    .text.matrix_output_unselect_delay:0000000000000000 matrix_output_unselect_delay
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:392    .text.matrix_init_custom:0000000000000000 matrix_init_custom
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:407    .text.matrix_scan_custom:0000000000000000 matrix_scan_custom
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:429    .text.matrix_init:0000000000000000 matrix_init
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:168    .text.matrix_get_row:0000000000000000 matrix_get_row
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:198    .text.matrix_is_modified:0000000000000000 matrix_is_modified
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:221    .text.matrix_print:0000000000000000 matrix_print
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:243    .text.matrix_key_count:0000000000000000 matrix_key_count
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:319    .text.matrix_io_delay:0000000000000000 matrix_io_delay
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:356    .text.matrix_output_select_delay:0000000000000000 matrix_output_select_delay
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:375    .text.matrix_output_unselect_delay:0000000000000000 matrix_output_unselect_delay
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:392    .text.matrix_init_custom:0000000000000000 matrix_init_custom
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:407    .text.matrix_scan_custom:0000000000000000 matrix_scan_custom
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:429    .text.matrix_init:0000000000000000 matrix_init
                             *COM*:000000000000000a raw_matrix
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:526    .text.matrix_scan:0000000000000000 matrix_scan
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0EOHyT.s:574    .text.peek_matrix:0000000000000000 peek_matrix
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:526    .text.matrix_scan:0000000000000000 matrix_scan
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cclXBNYu.s:574    .text.peek_matrix:0000000000000000 peek_matrix
 
 UNDEFINED SYMBOLS
 debounce_active

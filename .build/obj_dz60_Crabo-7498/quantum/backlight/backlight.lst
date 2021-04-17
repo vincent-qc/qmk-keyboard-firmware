@@ -875,30 +875,31 @@
  562               		.file 22 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdlib.h"
  563               		.file 23 "quantum/process_keycode/process_unicode_common.h"
  564               		.file 24 "quantum/process_keycode/process_unicodemap.h"
- 565               		.file 25 "tmk_core/common/eeconfig.h"
+ 565               		.file 25 "quantum/process_keycode/process_tap_dance.h"
+ 566               		.file 26 "tmk_core/common/eeconfig.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 backlight.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:13     .text.is_backlight_enabled:0000000000000000 is_backlight_enabled
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:13     .text.is_backlight_enabled:0000000000000000 is_backlight_enabled
                             *COM*:0000000000000001 backlight_config
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:35     .text.eeconfig_update_backlight_current:0000000000000000 eeconfig_update_backlight_current
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:53     .text.get_backlight_level:0000000000000000 get_backlight_level
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:76     .text.backlight_init_ports:0000000000000000 backlight_init_ports
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:94     .text.backlight_set:0000000000000000 backlight_set
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:113    .text.backlight_init:0000000000000000 backlight_init
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:171    .text.backlight_increase:0000000000000000 backlight_increase
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:223    .text.backlight_decrease:0000000000000000 backlight_decrease
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:274    .text.backlight_enable:0000000000000000 backlight_enable
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:325    .text.backlight_disable:0000000000000000 backlight_disable
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:361    .text.backlight_toggle:0000000000000000 backlight_toggle
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:391    .text.backlight_step:0000000000000000 backlight_step
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:458    .text.backlight_level_noeeprom:0000000000000000 backlight_level_noeeprom
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:505    .text.backlight_level:0000000000000000 backlight_level
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccjqZl1e.s:527    .text.backlight_task:0000000000000000 backlight_task
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:35     .text.eeconfig_update_backlight_current:0000000000000000 eeconfig_update_backlight_current
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:53     .text.get_backlight_level:0000000000000000 get_backlight_level
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:76     .text.backlight_init_ports:0000000000000000 backlight_init_ports
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:94     .text.backlight_set:0000000000000000 backlight_set
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:113    .text.backlight_init:0000000000000000 backlight_init
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:171    .text.backlight_increase:0000000000000000 backlight_increase
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:223    .text.backlight_decrease:0000000000000000 backlight_decrease
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:274    .text.backlight_enable:0000000000000000 backlight_enable
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:325    .text.backlight_disable:0000000000000000 backlight_disable
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:361    .text.backlight_toggle:0000000000000000 backlight_toggle
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:391    .text.backlight_step:0000000000000000 backlight_step
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:458    .text.backlight_level_noeeprom:0000000000000000 backlight_level_noeeprom
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:505    .text.backlight_level:0000000000000000 backlight_level
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc7fq9WX.s:527    .text.backlight_task:0000000000000000 backlight_task
 
 UNDEFINED SYMBOLS
 eeconfig_update_backlight

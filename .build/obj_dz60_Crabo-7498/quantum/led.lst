@@ -331,18 +331,19 @@
  201               		.file 23 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdlib.h"
  202               		.file 24 "quantum/process_keycode/process_unicode_common.h"
  203               		.file 25 "quantum/process_keycode/process_unicodemap.h"
+ 204               		.file 26 "quantum/process_keycode/process_tap_dance.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 led.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVb7R1z.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVb7R1z.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVb7R1z.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVb7R1z.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVb7R1z.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVb7R1z.s:13     .text.led_set_user:0000000000000000 led_set_user
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVb7R1z.s:33     .text.led_set_kb:0000000000000000 led_set_kb
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVb7R1z.s:52     .text.led_update_user:0000000000000000 led_update_user
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVb7R1z.s:74     .text.led_update_kb:0000000000000000 led_update_kb
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVb7R1z.s:126    .text.led_init_ports:0000000000000000 led_init_ports
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVb7R1z.s:147    .text.led_set:0000000000000000 led_set
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYWA2EZ.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYWA2EZ.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYWA2EZ.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYWA2EZ.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYWA2EZ.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYWA2EZ.s:13     .text.led_set_user:0000000000000000 led_set_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYWA2EZ.s:33     .text.led_set_kb:0000000000000000 led_set_kb
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYWA2EZ.s:52     .text.led_update_user:0000000000000000 led_update_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYWA2EZ.s:74     .text.led_update_kb:0000000000000000 led_update_kb
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYWA2EZ.s:126    .text.led_init_ports:0000000000000000 led_init_ports
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccYWA2EZ.s:147    .text.led_set:0000000000000000 led_set
 
 NO UNDEFINED SYMBOLS
