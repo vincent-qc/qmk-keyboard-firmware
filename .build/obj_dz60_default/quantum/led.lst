@@ -1,0 +1,346 @@
+   1               		.file	"led.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               		.section	.text.led_set_user,"ax",@progbits
+  11               		.weak	led_set_user
+  13               	led_set_user:
+  14               	.LVL0:
+  15               	.LFB117:
+  16               		.file 1 "quantum/led.c"
+   1:quantum/led.c **** /* Copyright 2020 zvecr<git@zvecr.com>
+   2:quantum/led.c ****  *
+   3:quantum/led.c ****  * This program is free software: you can redistribute it and/or modify
+   4:quantum/led.c ****  * it under the terms of the GNU General Public License as published by
+   5:quantum/led.c ****  * the Free Software Foundation, either version 2 of the License, or
+   6:quantum/led.c ****  * (at your option) any later version.
+   7:quantum/led.c ****  *
+   8:quantum/led.c ****  * This program is distributed in the hope that it will be useful,
+   9:quantum/led.c ****  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  10:quantum/led.c ****  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  11:quantum/led.c ****  * GNU General Public License for more details.
+  12:quantum/led.c ****  *
+  13:quantum/led.c ****  * You should have received a copy of the GNU General Public License
+  14:quantum/led.c ****  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  15:quantum/led.c ****  */
+  16:quantum/led.c **** #include "quantum.h"
+  17:quantum/led.c **** 
+  18:quantum/led.c **** #ifdef BACKLIGHT_ENABLE
+  19:quantum/led.c **** #    include "backlight.h"
+  20:quantum/led.c **** extern backlight_config_t backlight_config;
+  21:quantum/led.c **** #else
+  22:quantum/led.c **** // Cannot use BACKLIGHT_CAPS_LOCK without backlight being enabled
+  23:quantum/led.c **** #    undef BACKLIGHT_CAPS_LOCK
+  24:quantum/led.c **** #endif
+  25:quantum/led.c **** 
+  26:quantum/led.c **** #ifndef LED_PIN_ON_STATE
+  27:quantum/led.c **** #    define LED_PIN_ON_STATE 1
+  28:quantum/led.c **** #endif
+  29:quantum/led.c **** 
+  30:quantum/led.c **** #if defined(BACKLIGHT_CAPS_LOCK)
+  31:quantum/led.c **** /** \brief Caps Lock indicator using backlight (for keyboards without dedicated LED)
+  32:quantum/led.c ****  */
+  33:quantum/led.c **** static void handle_backlight_caps_lock(led_t led_state) {
+  34:quantum/led.c ****     // Use backlight as Caps Lock indicator
+  35:quantum/led.c ****     uint8_t bl_toggle_lvl = 0;
+  36:quantum/led.c **** 
+  37:quantum/led.c ****     if (led_state.caps_lock && !backlight_config.enable) {
+  38:quantum/led.c ****         // Turning Caps Lock ON and backlight is disabled in config
+  39:quantum/led.c ****         // Toggling backlight to the brightest level
+  40:quantum/led.c ****         bl_toggle_lvl = BACKLIGHT_LEVELS;
+  41:quantum/led.c ****     } else if (!led_state.caps_lock && backlight_config.enable) {
+  42:quantum/led.c ****         // Turning Caps Lock OFF and backlight is enabled in config
+  43:quantum/led.c ****         // Toggling backlight and restoring config level
+  44:quantum/led.c ****         bl_toggle_lvl = backlight_config.level;
+  45:quantum/led.c ****     }
+  46:quantum/led.c **** 
+  47:quantum/led.c ****     // Set level without modify backlight_config to keep ability to restore state
+  48:quantum/led.c ****     backlight_set(bl_toggle_lvl);
+  49:quantum/led.c **** }
+  50:quantum/led.c **** #endif
+  51:quantum/led.c **** 
+  52:quantum/led.c **** /** \brief Lock LED set callback - keymap/user level
+  53:quantum/led.c ****  *
+  54:quantum/led.c ****  * \deprecated Use led_update_user() instead.
+  55:quantum/led.c ****  */
+  56:quantum/led.c **** __attribute__((weak)) void led_set_user(uint8_t usb_led) {}
+  17               		.loc 1 56 58 view -0
+  18               		.cfi_startproc
+  19               	/* prologue: function */
+  20               	/* frame size = 0 */
+  21               	/* stack size = 0 */
+  22               	.L__stack_usage = 0
+  23               		.loc 1 56 59 view .LVU1
+  24               	/* epilogue start */
+  25               		.loc 1 56 1 is_stmt 0 view .LVU2
+  26 0000 0895      		ret
+  27               		.cfi_endproc
+  28               	.LFE117:
+  30               		.section	.text.led_set_kb,"ax",@progbits
+  31               		.weak	led_set_kb
+  33               	led_set_kb:
+  34               	.LVL1:
+  35               	.LFB118:
+  57:quantum/led.c **** 
+  58:quantum/led.c **** /** \brief Lock LED set callback - keyboard level
+  59:quantum/led.c ****  *
+  60:quantum/led.c ****  * \deprecated Use led_update_kb() instead.
+  61:quantum/led.c ****  */
+  62:quantum/led.c **** __attribute__((weak)) void led_set_kb(uint8_t usb_led) { led_set_user(usb_led); }
+  36               		.loc 1 62 56 is_stmt 1 view -0
+  37               		.cfi_startproc
+  38               	/* prologue: function */
+  39               	/* frame size = 0 */
+  40               	/* stack size = 0 */
+  41               	.L__stack_usage = 0
+  42               		.loc 1 62 58 view .LVU4
+  43 0000 0C94 0000 		jmp led_set_user
+  44               	.LVL2:
+  45               		.loc 1 62 58 is_stmt 0 view .LVU5
+  46               		.cfi_endproc
+  47               	.LFE118:
+  49               		.section	.text.led_update_user,"ax",@progbits
+  50               		.weak	led_update_user
+  52               	led_update_user:
+  53               	.LVL3:
+  54               	.LFB119:
+  63:quantum/led.c **** 
+  64:quantum/led.c **** /** \brief Lock LED update callback - keymap/user level
+  65:quantum/led.c ****  *
+  66:quantum/led.c ****  * \return True if led_update_kb() should run its own code, false otherwise.
+  67:quantum/led.c ****  */
+  68:quantum/led.c **** __attribute__((weak)) bool led_update_user(led_t led_state) { return true; }
+  55               		.loc 1 68 61 is_stmt 1 view -0
+  56               		.cfi_startproc
+  57               	/* prologue: function */
+  58               	/* frame size = 0 */
+  59               	/* stack size = 0 */
+  60               	.L__stack_usage = 0
+  61               		.loc 1 68 63 view .LVU7
+  62               		.loc 1 68 1 is_stmt 0 view .LVU8
+  63 0000 81E0      		ldi r24,lo8(1)
+  64               	.LVL4:
+  65               	/* epilogue start */
+  66               		.loc 1 68 1 view .LVU9
+  67 0002 0895      		ret
+  68               		.cfi_endproc
+  69               	.LFE119:
+  71               		.section	.text.led_update_kb,"ax",@progbits
+  72               		.weak	led_update_kb
+  74               	led_update_kb:
+  75               	.LVL5:
+  76               	.LFB120:
+  69:quantum/led.c **** 
+  70:quantum/led.c **** /** \brief Lock LED update callback - keyboard level
+  71:quantum/led.c ****  *
+  72:quantum/led.c ****  * \return Ignored for now.
+  73:quantum/led.c ****  */
+  74:quantum/led.c **** __attribute__((weak)) bool led_update_kb(led_t led_state) {
+  77               		.loc 1 74 59 is_stmt 1 view -0
+  78               		.cfi_startproc
+  79               		.loc 1 74 59 is_stmt 0 view .LVU11
+  80 0000 CF93      		push r28
+  81               	.LCFI0:
+  82               		.cfi_def_cfa_offset 3
+  83               		.cfi_offset 28, -2
+  84               	/* prologue: function */
+  85               	/* frame size = 0 */
+  86               	/* stack size = 1 */
+  87               	.L__stack_usage = 1
+  88 0002 C82F      		mov r28,r24
+  89               	.LVL6:
+  75:quantum/led.c ****     bool res = led_update_user(led_state);
+  90               		.loc 1 75 5 is_stmt 1 view .LVU12
+  91               		.loc 1 75 16 is_stmt 0 view .LVU13
+  92 0004 0E94 0000 		call led_update_user
+  93               	.LVL7:
+  76:quantum/led.c ****     if (res) {
+  94               		.loc 1 76 5 is_stmt 1 view .LVU14
+  95               		.loc 1 76 8 is_stmt 0 view .LVU15
+  96 0008 8823      		tst r24
+  97 000a 01F0      		breq .L4
+  77:quantum/led.c **** #if defined(LED_NUM_LOCK_PIN) || defined(LED_CAPS_LOCK_PIN) || defined(LED_SCROLL_LOCK_PIN) || defi
+  78:quantum/led.c **** #    if LED_PIN_ON_STATE == 0
+  79:quantum/led.c ****         // invert the whole thing to avoid having to conditionally !led_state.x later
+  80:quantum/led.c ****         led_state.raw = ~led_state.raw;
+  98               		.loc 1 80 9 is_stmt 1 view .LVU16
+  99               	.LVL8:
+  81:quantum/led.c **** #    endif
+  82:quantum/led.c **** 
+  83:quantum/led.c **** #    ifdef LED_NUM_LOCK_PIN
+  84:quantum/led.c ****         writePin(LED_NUM_LOCK_PIN, led_state.num_lock);
+  85:quantum/led.c **** #    endif
+  86:quantum/led.c **** #    ifdef LED_CAPS_LOCK_PIN
+  87:quantum/led.c ****         writePin(LED_CAPS_LOCK_PIN, led_state.caps_lock);
+ 100               		.loc 1 87 9 view .LVU17
+ 101 000c C1FD      		sbrc r28,1
+ 102 000e 00C0      		rjmp .L6
+ 103               		.loc 1 87 9 is_stmt 0 discriminator 1 view .LVU18
+ 104 0010 2A9A      		sbi 0x5,2
+ 105               	.LVL9:
+ 106               	.L4:
+ 107               	/* epilogue start */
+  88:quantum/led.c **** #    endif
+  89:quantum/led.c **** #    ifdef LED_SCROLL_LOCK_PIN
+  90:quantum/led.c ****         writePin(LED_SCROLL_LOCK_PIN, led_state.scroll_lock);
+  91:quantum/led.c **** #    endif
+  92:quantum/led.c **** #    ifdef LED_COMPOSE_PIN
+  93:quantum/led.c ****         writePin(LED_COMPOSE_PIN, led_state.compose);
+  94:quantum/led.c **** #    endif
+  95:quantum/led.c **** #    ifdef LED_KANA_PIN
+  96:quantum/led.c ****         writePin(LED_KANA_PIN, led_state.kana);
+  97:quantum/led.c **** #    endif
+  98:quantum/led.c **** #endif
+  99:quantum/led.c ****     }
+ 100:quantum/led.c ****     return res;
+ 101:quantum/led.c **** }
+ 108               		.loc 1 101 1 view .LVU19
+ 109 0012 CF91      		pop r28
+ 110               	.LVL10:
+ 111               		.loc 1 101 1 view .LVU20
+ 112 0014 0895      		ret
+ 113               	.LVL11:
+ 114               	.L6:
+  87:quantum/led.c **** #    endif
+ 115               		.loc 1 87 9 discriminator 2 view .LVU21
+ 116 0016 2A98      		cbi 0x5,2
+ 100:quantum/led.c **** }
+ 117               		.loc 1 100 5 is_stmt 1 discriminator 2 view .LVU22
+ 100:quantum/led.c **** }
+ 118               		.loc 1 100 12 is_stmt 0 discriminator 2 view .LVU23
+ 119 0018 00C0      		rjmp .L4
+ 120               		.cfi_endproc
+ 121               	.LFE120:
+ 123               		.section	.text.led_init_ports,"ax",@progbits
+ 124               		.weak	led_init_ports
+ 126               	led_init_ports:
+ 127               	.LFB121:
+ 102:quantum/led.c **** 
+ 103:quantum/led.c **** /** \brief Initialise any LED related hardware and/or state
+ 104:quantum/led.c ****  */
+ 105:quantum/led.c **** __attribute__((weak)) void led_init_ports(void) {
+ 128               		.loc 1 105 49 is_stmt 1 view -0
+ 129               		.cfi_startproc
+ 130               	/* prologue: function */
+ 131               	/* frame size = 0 */
+ 132               	/* stack size = 0 */
+ 133               	.L__stack_usage = 0
+ 106:quantum/led.c **** #ifdef LED_NUM_LOCK_PIN
+ 107:quantum/led.c ****     setPinOutput(LED_NUM_LOCK_PIN);
+ 108:quantum/led.c ****     writePin(LED_NUM_LOCK_PIN, !LED_PIN_ON_STATE);
+ 109:quantum/led.c **** #endif
+ 110:quantum/led.c **** #ifdef LED_CAPS_LOCK_PIN
+ 111:quantum/led.c ****     setPinOutput(LED_CAPS_LOCK_PIN);
+ 134               		.loc 1 111 5 view .LVU25
+ 135 0000 229A      		sbi 0x4,2
+ 112:quantum/led.c ****     writePin(LED_CAPS_LOCK_PIN, !LED_PIN_ON_STATE);
+ 136               		.loc 1 112 5 view .LVU26
+ 137 0002 2A9A      		sbi 0x5,2
+ 138               	/* epilogue start */
+ 113:quantum/led.c **** #endif
+ 114:quantum/led.c **** #ifdef LED_SCROLL_LOCK_PIN
+ 115:quantum/led.c ****     setPinOutput(LED_SCROLL_LOCK_PIN);
+ 116:quantum/led.c ****     writePin(LED_SCROLL_LOCK_PIN, !LED_PIN_ON_STATE);
+ 117:quantum/led.c **** #endif
+ 118:quantum/led.c **** #ifdef LED_COMPOSE_PIN
+ 119:quantum/led.c ****     setPinOutput(LED_COMPOSE_PIN);
+ 120:quantum/led.c ****     writePin(LED_COMPOSE_PIN, !LED_PIN_ON_STATE);
+ 121:quantum/led.c **** #endif
+ 122:quantum/led.c **** #ifdef LED_KANA_PIN
+ 123:quantum/led.c ****     setPinOutput(LED_KANA_PIN);
+ 124:quantum/led.c ****     writePin(LED_KANA_PIN, !LED_PIN_ON_STATE);
+ 125:quantum/led.c **** #endif
+ 126:quantum/led.c **** }
+ 139               		.loc 1 126 1 is_stmt 0 view .LVU27
+ 140 0004 0895      		ret
+ 141               		.cfi_endproc
+ 142               	.LFE121:
+ 144               		.section	.text.led_set,"ax",@progbits
+ 145               		.weak	led_set
+ 147               	led_set:
+ 148               	.LVL12:
+ 149               	.LFB122:
+ 127:quantum/led.c **** 
+ 128:quantum/led.c **** /** \brief Entrypoint for protocol to LED binding
+ 129:quantum/led.c ****  */
+ 130:quantum/led.c **** __attribute__((weak)) void led_set(uint8_t usb_led) {
+ 150               		.loc 1 130 53 is_stmt 1 view -0
+ 151               		.cfi_startproc
+ 152               		.loc 1 130 53 is_stmt 0 view .LVU29
+ 153 0000 CF93      		push r28
+ 154               	.LCFI1:
+ 155               		.cfi_def_cfa_offset 3
+ 156               		.cfi_offset 28, -2
+ 157               	/* prologue: function */
+ 158               	/* frame size = 0 */
+ 159               	/* stack size = 1 */
+ 160               	.L__stack_usage = 1
+ 161 0002 C82F      		mov r28,r24
+ 131:quantum/led.c **** #ifdef BACKLIGHT_CAPS_LOCK
+ 132:quantum/led.c ****     handle_backlight_caps_lock((led_t)usb_led);
+ 133:quantum/led.c **** #endif
+ 134:quantum/led.c **** 
+ 135:quantum/led.c ****     led_set_kb(usb_led);
+ 162               		.loc 1 135 5 is_stmt 1 view .LVU30
+ 163 0004 0E94 0000 		call led_set_kb
+ 164               	.LVL13:
+ 136:quantum/led.c ****     led_update_kb((led_t)usb_led);
+ 165               		.loc 1 136 5 view .LVU31
+ 166 0008 8C2F      		mov r24,r28
+ 167               	/* epilogue start */
+ 137:quantum/led.c **** }
+ 168               		.loc 1 137 1 is_stmt 0 view .LVU32
+ 169 000a CF91      		pop r28
+ 170               	.LVL14:
+ 136:quantum/led.c ****     led_update_kb((led_t)usb_led);
+ 171               		.loc 1 136 5 view .LVU33
+ 172 000c 0C94 0000 		jmp led_update_kb
+ 173               	.LVL15:
+ 136:quantum/led.c ****     led_update_kb((led_t)usb_led);
+ 174               		.loc 1 136 5 view .LVU34
+ 175               		.cfi_endproc
+ 176               	.LFE122:
+ 178               		.text
+ 179               	.Letext0:
+ 180               		.file 2 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdint.h"
+ 181               		.file 3 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/lib/avr-gcc/8/gcc/avr/8.4.0/include/stddef.h"
+ 182               		.file 4 "lib/lufa/LUFA/Drivers/USB/Core/AVR8/../StdRequestType.h"
+ 183               		.file 5 "tmk_core/common/action.h"
+ 184               		.file 6 "lib/lufa/LUFA/Drivers/USB/Core/AVR8/../DeviceStandardReq.h"
+ 185               		.file 7 "lib/lufa/LUFA/Drivers/USB/Core/USBTask.h"
+ 186               		.file 8 "lib/lufa/LUFA/Drivers/USB/Core/HostStandardReq.h"
+ 187               		.file 9 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdio.h"
+ 188               		.file 10 "tmk_core/common/report.h"
+ 189               		.file 11 "quantum/led.h"
+ 190               		.file 12 "tmk_core/common/host.h"
+ 191               		.file 13 "tmk_core/common/debug.h"
+ 192               		.file 14 "quantum/keycode_config.h"
+ 193               		.file 15 "quantum/keymap.h"
+ 194               		.file 16 "quantum/backlight/backlight.h"
+ 195               		.file 17 "./quantum/color.h"
+ 196               		.file 18 "quantum/rgblight.h"
+ 197               		.file 19 "tmk_core/common/action_layer.h"
+ 198               		.file 20 "tmk_core/common/timer.h"
+ 199               		.file 21 "tmk_core/common/action_util.h"
+ 200               		.file 22 "quantum/send_string.h"
+ 201               		.file 23 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdlib.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 led.c
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0JI3GU.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0JI3GU.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0JI3GU.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0JI3GU.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0JI3GU.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0JI3GU.s:13     .text.led_set_user:0000000000000000 led_set_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0JI3GU.s:33     .text.led_set_kb:0000000000000000 led_set_kb
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0JI3GU.s:52     .text.led_update_user:0000000000000000 led_update_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0JI3GU.s:74     .text.led_update_kb:0000000000000000 led_update_kb
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0JI3GU.s:126    .text.led_init_ports:0000000000000000 led_init_ports
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0JI3GU.s:147    .text.led_set:0000000000000000 led_set
+
+NO UNDEFINED SYMBOLS
