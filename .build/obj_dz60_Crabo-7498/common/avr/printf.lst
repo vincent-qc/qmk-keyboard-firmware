@@ -1,0 +1,65 @@
+   1               		.file	"printf.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               		.section	.text.print_set_sendchar,"ax",@progbits
+  11               	.global	print_set_sendchar
+  13               	print_set_sendchar:
+  14               	.LVL0:
+  15               	.LFB1:
+  16               		.file 1 "tmk_core/common/avr/printf.c"
+   1:tmk_core/common/avr/printf.c **** /*
+   2:tmk_core/common/avr/printf.c **** Copyright 2011 Jun Wako <wakojun@gmail.com>
+   3:tmk_core/common/avr/printf.c **** 
+   4:tmk_core/common/avr/printf.c **** This program is free software: you can redistribute it and/or modify
+   5:tmk_core/common/avr/printf.c **** it under the terms of the GNU General Public License as published by
+   6:tmk_core/common/avr/printf.c **** the Free Software Foundation, either version 2 of the License, or
+   7:tmk_core/common/avr/printf.c **** (at your option) any later version.
+   8:tmk_core/common/avr/printf.c **** 
+   9:tmk_core/common/avr/printf.c **** This program is distributed in the hope that it will be useful,
+  10:tmk_core/common/avr/printf.c **** but WITHOUT ANY WARRANTY; without even the implied warranty of
+  11:tmk_core/common/avr/printf.c **** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  12:tmk_core/common/avr/printf.c **** GNU General Public License for more details.
+  13:tmk_core/common/avr/printf.c **** 
+  14:tmk_core/common/avr/printf.c **** You should have received a copy of the GNU General Public License
+  15:tmk_core/common/avr/printf.c **** along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  16:tmk_core/common/avr/printf.c **** */
+  17:tmk_core/common/avr/printf.c **** #include "xprintf.h"
+  18:tmk_core/common/avr/printf.c **** #include "sendchar.h"
+  19:tmk_core/common/avr/printf.c **** 
+  20:tmk_core/common/avr/printf.c **** void print_set_sendchar(sendchar_func_t func) { xdev_out(func); }
+  17               		.loc 1 20 47 view -0
+  18               		.cfi_startproc
+  19               	/* prologue: function */
+  20               	/* frame size = 0 */
+  21               	/* stack size = 0 */
+  22               	.L__stack_usage = 0
+  23               		.loc 1 20 49 view .LVU1
+  24 0000 9093 0000 		sts xfunc_out+1,r25
+  25 0004 8093 0000 		sts xfunc_out,r24
+  26               	/* epilogue start */
+  27               		.loc 1 20 1 is_stmt 0 view .LVU2
+  28 0008 0895      		ret
+  29               		.cfi_endproc
+  30               	.LFE1:
+  32               		.text
+  33               	.Letext0:
+  34               		.file 2 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdint.h"
+  35               		.file 3 "tmk_core/common/sendchar.h"
+  36               		.file 4 "tmk_core/common/avr/xprintf.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 printf.c
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccSV3rlM.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccSV3rlM.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccSV3rlM.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccSV3rlM.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccSV3rlM.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccSV3rlM.s:13     .text.print_set_sendchar:0000000000000000 print_set_sendchar
+
+UNDEFINED SYMBOLS
+xfunc_out

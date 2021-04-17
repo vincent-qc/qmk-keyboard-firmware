@@ -1,0 +1,2236 @@
+   1               		.file	"process_unicode_common.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               		.section	.text.unicode_input_mode_init,"ax",@progbits
+  11               	.global	unicode_input_mode_init
+  13               	unicode_input_mode_init:
+  14               	.LFB117:
+  15               		.file 1 "quantum/process_keycode/process_unicode_common.c"
+   1:quantum/process_keycode/process_unicode_common.c **** /* Copyright 2017 Jack Humbert
+   2:quantum/process_keycode/process_unicode_common.c ****  *
+   3:quantum/process_keycode/process_unicode_common.c ****  * This program is free software: you can redistribute it and/or modify
+   4:quantum/process_keycode/process_unicode_common.c ****  * it under the terms of the GNU General Public License as published by
+   5:quantum/process_keycode/process_unicode_common.c ****  * the Free Software Foundation, either version 2 of the License, or
+   6:quantum/process_keycode/process_unicode_common.c ****  * (at your option) any later version.
+   7:quantum/process_keycode/process_unicode_common.c ****  *
+   8:quantum/process_keycode/process_unicode_common.c ****  * This program is distributed in the hope that it will be useful,
+   9:quantum/process_keycode/process_unicode_common.c ****  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  10:quantum/process_keycode/process_unicode_common.c ****  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  11:quantum/process_keycode/process_unicode_common.c ****  * GNU General Public License for more details.
+  12:quantum/process_keycode/process_unicode_common.c ****  *
+  13:quantum/process_keycode/process_unicode_common.c ****  * You should have received a copy of the GNU General Public License
+  14:quantum/process_keycode/process_unicode_common.c ****  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  15:quantum/process_keycode/process_unicode_common.c ****  */
+  16:quantum/process_keycode/process_unicode_common.c **** 
+  17:quantum/process_keycode/process_unicode_common.c **** #include "process_unicode_common.h"
+  18:quantum/process_keycode/process_unicode_common.c **** #include "eeprom.h"
+  19:quantum/process_keycode/process_unicode_common.c **** #include <ctype.h>
+  20:quantum/process_keycode/process_unicode_common.c **** #include <string.h>
+  21:quantum/process_keycode/process_unicode_common.c **** 
+  22:quantum/process_keycode/process_unicode_common.c **** unicode_config_t unicode_config;
+  23:quantum/process_keycode/process_unicode_common.c **** uint8_t          unicode_saved_mods;
+  24:quantum/process_keycode/process_unicode_common.c **** bool             unicode_saved_caps_lock;
+  25:quantum/process_keycode/process_unicode_common.c **** 
+  26:quantum/process_keycode/process_unicode_common.c **** #if UNICODE_SELECTED_MODES != -1
+  27:quantum/process_keycode/process_unicode_common.c **** static uint8_t selected[]     = {UNICODE_SELECTED_MODES};
+  28:quantum/process_keycode/process_unicode_common.c **** static int8_t  selected_count = sizeof selected / sizeof *selected;
+  29:quantum/process_keycode/process_unicode_common.c **** static int8_t  selected_index;
+  30:quantum/process_keycode/process_unicode_common.c **** #endif
+  31:quantum/process_keycode/process_unicode_common.c **** 
+  32:quantum/process_keycode/process_unicode_common.c **** void unicode_input_mode_init(void) {
+  16               		.loc 1 32 36 view -0
+  17               		.cfi_startproc
+  18               	/* prologue: function */
+  19               	/* frame size = 0 */
+  20               	/* stack size = 0 */
+  21               	.L__stack_usage = 0
+  33:quantum/process_keycode/process_unicode_common.c ****     unicode_config.raw = eeprom_read_byte(EECONFIG_UNICODEMODE);
+  22               		.loc 1 33 5 view .LVU1
+  23               		.loc 1 33 26 is_stmt 0 view .LVU2
+  24 0000 8CE0      		ldi r24,lo8(12)
+  25 0002 90E0      		ldi r25,0
+  26 0004 0E94 0000 		call eeprom_read_byte
+  27               	.LVL0:
+  28 0008 482F      		mov r20,r24
+  29 000a 50E0      		ldi r21,0
+  30 000c 70E0      		ldi r23,0
+  31 000e 60E0      		ldi r22,0
+  32 0010 4093 0000 		sts unicode_config,r20
+  33 0014 5093 0000 		sts unicode_config+1,r21
+  34 0018 6093 0000 		sts unicode_config+2,r22
+  35 001c 7093 0000 		sts unicode_config+3,r23
+  34:quantum/process_keycode/process_unicode_common.c **** #if UNICODE_SELECTED_MODES != -1
+  35:quantum/process_keycode/process_unicode_common.c **** #    if UNICODE_CYCLE_PERSIST
+  36:quantum/process_keycode/process_unicode_common.c ****     // Find input_mode in selected modes
+  37:quantum/process_keycode/process_unicode_common.c ****     int8_t i;
+  36               		.loc 1 37 5 is_stmt 1 view .LVU3
+  38:quantum/process_keycode/process_unicode_common.c ****     for (i = 0; i < selected_count; i++) {
+  37               		.loc 1 38 5 view .LVU4
+  38               	.LVL1:
+  39               		.loc 1 38 17 view .LVU5
+  39:quantum/process_keycode/process_unicode_common.c ****         if (selected[i] == unicode_config.input_mode) {
+  40               		.loc 1 39 9 view .LVU6
+  40:quantum/process_keycode/process_unicode_common.c ****             selected_index = i;
+  41               		.loc 1 40 28 is_stmt 0 view .LVU7
+  42 0020 1092 0000 		sts selected_index,__zero_reg__
+  39:quantum/process_keycode/process_unicode_common.c ****         if (selected[i] == unicode_config.input_mode) {
+  43               		.loc 1 39 12 view .LVU8
+  44 0024 8111      		cpse r24,__zero_reg__
+  45 0026 00C0      		rjmp .L2
+  46               		.loc 1 40 13 is_stmt 1 view .LVU9
+  41:quantum/process_keycode/process_unicode_common.c ****             break;
+  47               		.loc 1 41 13 view .LVU10
+  42:quantum/process_keycode/process_unicode_common.c ****         }
+  43:quantum/process_keycode/process_unicode_common.c ****     }
+  44:quantum/process_keycode/process_unicode_common.c ****     if (i == selected_count) {
+  48               		.loc 1 44 5 view .LVU11
+  49 0028 0895      		ret
+  50               	.L2:
+  51               		.loc 1 44 5 view .LVU12
+  45:quantum/process_keycode/process_unicode_common.c ****         // Not found: input_mode isn't selected, change to one that is
+  46:quantum/process_keycode/process_unicode_common.c ****         unicode_config.input_mode = selected[selected_index = 0];
+  52               		.loc 1 46 9 view .LVU13
+  53               		.loc 1 46 35 is_stmt 0 view .LVU14
+  54 002a 1092 0000 		sts unicode_config,__zero_reg__
+  47:quantum/process_keycode/process_unicode_common.c ****     }
+  48:quantum/process_keycode/process_unicode_common.c **** #    else
+  49:quantum/process_keycode/process_unicode_common.c ****     // Always change to the first selected input mode
+  50:quantum/process_keycode/process_unicode_common.c ****     unicode_config.input_mode = selected[selected_index = 0];
+  51:quantum/process_keycode/process_unicode_common.c **** #    endif
+  52:quantum/process_keycode/process_unicode_common.c **** #endif
+  53:quantum/process_keycode/process_unicode_common.c ****     dprintf("Unicode input mode init to: %u\n", unicode_config.input_mode);
+  55               		.loc 1 53 75 is_stmt 1 view .LVU15
+  56               	/* epilogue start */
+  54:quantum/process_keycode/process_unicode_common.c **** }
+  57               		.loc 1 54 1 is_stmt 0 view .LVU16
+  58 002e 0895      		ret
+  59               		.cfi_endproc
+  60               	.LFE117:
+  62               		.section	.text.get_unicode_input_mode,"ax",@progbits
+  63               	.global	get_unicode_input_mode
+  65               	get_unicode_input_mode:
+  66               	.LFB118:
+  55:quantum/process_keycode/process_unicode_common.c **** 
+  56:quantum/process_keycode/process_unicode_common.c **** uint8_t get_unicode_input_mode(void) { return unicode_config.input_mode; }
+  67               		.loc 1 56 38 is_stmt 1 view -0
+  68               		.cfi_startproc
+  69               	/* prologue: function */
+  70               	/* frame size = 0 */
+  71               	/* stack size = 0 */
+  72               	.L__stack_usage = 0
+  73               		.loc 1 56 40 view .LVU18
+  74               		.loc 1 56 1 is_stmt 0 view .LVU19
+  75 0000 8091 0000 		lds r24,unicode_config
+  76               	/* epilogue start */
+  77 0004 0895      		ret
+  78               		.cfi_endproc
+  79               	.LFE118:
+  81               		.section	.text.persist_unicode_input_mode,"ax",@progbits
+  82               	.global	persist_unicode_input_mode
+  84               	persist_unicode_input_mode:
+  85               	.LFB121:
+  57:quantum/process_keycode/process_unicode_common.c **** 
+  58:quantum/process_keycode/process_unicode_common.c **** void set_unicode_input_mode(uint8_t mode) {
+  59:quantum/process_keycode/process_unicode_common.c ****     unicode_config.input_mode = mode;
+  60:quantum/process_keycode/process_unicode_common.c ****     persist_unicode_input_mode();
+  61:quantum/process_keycode/process_unicode_common.c ****     dprintf("Unicode input mode set to: %u\n", unicode_config.input_mode);
+  62:quantum/process_keycode/process_unicode_common.c **** }
+  63:quantum/process_keycode/process_unicode_common.c **** 
+  64:quantum/process_keycode/process_unicode_common.c **** void cycle_unicode_input_mode(int8_t offset) {
+  65:quantum/process_keycode/process_unicode_common.c **** #if UNICODE_SELECTED_MODES != -1
+  66:quantum/process_keycode/process_unicode_common.c ****     selected_index = (selected_index + offset) % selected_count;
+  67:quantum/process_keycode/process_unicode_common.c ****     if (selected_index < 0) {
+  68:quantum/process_keycode/process_unicode_common.c ****         selected_index += selected_count;
+  69:quantum/process_keycode/process_unicode_common.c ****     }
+  70:quantum/process_keycode/process_unicode_common.c ****     unicode_config.input_mode = selected[selected_index];
+  71:quantum/process_keycode/process_unicode_common.c **** #    if UNICODE_CYCLE_PERSIST
+  72:quantum/process_keycode/process_unicode_common.c ****     persist_unicode_input_mode();
+  73:quantum/process_keycode/process_unicode_common.c **** #    endif
+  74:quantum/process_keycode/process_unicode_common.c ****     dprintf("Unicode input mode cycle to: %u\n", unicode_config.input_mode);
+  75:quantum/process_keycode/process_unicode_common.c **** #endif
+  76:quantum/process_keycode/process_unicode_common.c **** }
+  77:quantum/process_keycode/process_unicode_common.c **** 
+  78:quantum/process_keycode/process_unicode_common.c **** void persist_unicode_input_mode(void) { eeprom_update_byte(EECONFIG_UNICODEMODE, unicode_config.inp
+  86               		.loc 1 78 39 is_stmt 1 view -0
+  87               		.cfi_startproc
+  88               	/* prologue: function */
+  89               	/* frame size = 0 */
+  90               	/* stack size = 0 */
+  91               	.L__stack_usage = 0
+  92               		.loc 1 78 41 view .LVU21
+  93 0000 6091 0000 		lds r22,unicode_config
+  94 0004 8CE0      		ldi r24,lo8(12)
+  95 0006 90E0      		ldi r25,0
+  96 0008 0C94 0000 		jmp eeprom_update_byte
+  97               	.LVL2:
+  98               		.cfi_endproc
+  99               	.LFE121:
+ 101               		.section	.text.set_unicode_input_mode,"ax",@progbits
+ 102               	.global	set_unicode_input_mode
+ 104               	set_unicode_input_mode:
+ 105               	.LVL3:
+ 106               	.LFB119:
+  58:quantum/process_keycode/process_unicode_common.c ****     unicode_config.input_mode = mode;
+ 107               		.loc 1 58 43 view -0
+ 108               		.cfi_startproc
+ 109               	/* prologue: function */
+ 110               	/* frame size = 0 */
+ 111               	/* stack size = 0 */
+ 112               	.L__stack_usage = 0
+  59:quantum/process_keycode/process_unicode_common.c ****     persist_unicode_input_mode();
+ 113               		.loc 1 59 5 view .LVU23
+  59:quantum/process_keycode/process_unicode_common.c ****     persist_unicode_input_mode();
+ 114               		.loc 1 59 31 is_stmt 0 view .LVU24
+ 115 0000 8093 0000 		sts unicode_config,r24
+  60:quantum/process_keycode/process_unicode_common.c ****     dprintf("Unicode input mode set to: %u\n", unicode_config.input_mode);
+ 116               		.loc 1 60 5 is_stmt 1 view .LVU25
+ 117 0004 0C94 0000 		jmp persist_unicode_input_mode
+ 118               	.LVL4:
+  60:quantum/process_keycode/process_unicode_common.c ****     dprintf("Unicode input mode set to: %u\n", unicode_config.input_mode);
+ 119               		.loc 1 60 5 is_stmt 0 view .LVU26
+ 120               		.cfi_endproc
+ 121               	.LFE119:
+ 123               		.section	.text.cycle_unicode_input_mode,"ax",@progbits
+ 124               	.global	cycle_unicode_input_mode
+ 126               	cycle_unicode_input_mode:
+ 127               	.LVL5:
+ 128               	.LFB120:
+  64:quantum/process_keycode/process_unicode_common.c **** #if UNICODE_SELECTED_MODES != -1
+ 129               		.loc 1 64 46 is_stmt 1 view -0
+ 130               		.cfi_startproc
+ 131               	/* prologue: function */
+ 132               	/* frame size = 0 */
+ 133               	/* stack size = 0 */
+ 134               	.L__stack_usage = 0
+  66:quantum/process_keycode/process_unicode_common.c ****     if (selected_index < 0) {
+ 135               		.loc 1 66 5 view .LVU28
+  66:quantum/process_keycode/process_unicode_common.c ****     if (selected_index < 0) {
+ 136               		.loc 1 66 20 is_stmt 0 view .LVU29
+ 137 0000 1092 0000 		sts selected_index,__zero_reg__
+  67:quantum/process_keycode/process_unicode_common.c ****         selected_index += selected_count;
+ 138               		.loc 1 67 5 is_stmt 1 view .LVU30
+  70:quantum/process_keycode/process_unicode_common.c **** #    if UNICODE_CYCLE_PERSIST
+ 139               		.loc 1 70 5 view .LVU31
+  70:quantum/process_keycode/process_unicode_common.c **** #    if UNICODE_CYCLE_PERSIST
+ 140               		.loc 1 70 31 is_stmt 0 view .LVU32
+ 141 0004 1092 0000 		sts unicode_config,__zero_reg__
+  72:quantum/process_keycode/process_unicode_common.c **** #    endif
+ 142               		.loc 1 72 5 is_stmt 1 view .LVU33
+ 143 0008 0C94 0000 		jmp persist_unicode_input_mode
+ 144               	.LVL6:
+  72:quantum/process_keycode/process_unicode_common.c **** #    endif
+ 145               		.loc 1 72 5 is_stmt 0 view .LVU34
+ 146               		.cfi_endproc
+ 147               	.LFE120:
+ 149               		.section	.text.unicode_input_start,"ax",@progbits
+ 150               		.weak	unicode_input_start
+ 152               	unicode_input_start:
+ 153               	.LFB122:
+  79:quantum/process_keycode/process_unicode_common.c **** 
+  80:quantum/process_keycode/process_unicode_common.c **** __attribute__((weak)) void unicode_input_start(void) {
+ 154               		.loc 1 80 54 is_stmt 1 view -0
+ 155               		.cfi_startproc
+ 156               	/* prologue: function */
+ 157               	/* frame size = 0 */
+ 158               	/* stack size = 0 */
+ 159               	.L__stack_usage = 0
+  81:quantum/process_keycode/process_unicode_common.c ****     unicode_saved_caps_lock = host_keyboard_led_state().caps_lock;
+ 160               		.loc 1 81 5 view .LVU36
+ 161               		.loc 1 81 31 is_stmt 0 view .LVU37
+ 162 0000 0E94 0000 		call host_keyboard_led_state
+ 163               	.LVL7:
+ 164               		.loc 1 81 56 view .LVU38
+ 165 0004 8695      		lsr r24
+ 166 0006 8170      		andi r24,1
+ 167               		.loc 1 81 29 view .LVU39
+ 168 0008 8093 0000 		sts unicode_saved_caps_lock,r24
+  82:quantum/process_keycode/process_unicode_common.c **** 
+  83:quantum/process_keycode/process_unicode_common.c ****     // Note the order matters here!
+  84:quantum/process_keycode/process_unicode_common.c ****     // Need to do this before we mess around with the mods, or else
+  85:quantum/process_keycode/process_unicode_common.c ****     // UNICODE_KEY_LNX (which is usually Ctrl-Shift-U) might not work
+  86:quantum/process_keycode/process_unicode_common.c ****     // correctly in the shifted case.
+  87:quantum/process_keycode/process_unicode_common.c ****     if (unicode_config.input_mode == UC_LNX && unicode_saved_caps_lock) {
+ 169               		.loc 1 87 5 is_stmt 1 view .LVU40
+ 170               		.loc 1 87 8 is_stmt 0 view .LVU41
+ 171 000c 9091 0000 		lds r25,unicode_config
+ 172 0010 9130      		cpi r25,lo8(1)
+ 173 0012 01F4      		brne .L9
+ 174               		.loc 1 87 45 discriminator 1 view .LVU42
+ 175 0014 8823      		tst r24
+ 176 0016 01F0      		breq .L9
+  88:quantum/process_keycode/process_unicode_common.c ****         tap_code(KC_CAPS);
+ 177               		.loc 1 88 9 is_stmt 1 view .LVU43
+ 178 0018 89E3      		ldi r24,lo8(57)
+ 179 001a 0E94 0000 		call tap_code
+ 180               	.LVL8:
+ 181               	.L9:
+  89:quantum/process_keycode/process_unicode_common.c ****     }
+  90:quantum/process_keycode/process_unicode_common.c **** 
+  91:quantum/process_keycode/process_unicode_common.c ****     unicode_saved_mods = get_mods();  // Save current mods
+ 182               		.loc 1 91 5 view .LVU44
+ 183               		.loc 1 91 26 is_stmt 0 view .LVU45
+ 184 001e 0E94 0000 		call get_mods
+ 185               	.LVL9:
+ 186               		.loc 1 91 24 view .LVU46
+ 187 0022 8093 0000 		sts unicode_saved_mods,r24
+  92:quantum/process_keycode/process_unicode_common.c ****     clear_mods();                     // Unregister mods to start from a clean state
+ 188               		.loc 1 92 5 is_stmt 1 view .LVU47
+ 189 0026 0E94 0000 		call clear_mods
+ 190               	.LVL10:
+  93:quantum/process_keycode/process_unicode_common.c **** 
+  94:quantum/process_keycode/process_unicode_common.c ****     switch (unicode_config.input_mode) {
+ 191               		.loc 1 94 5 view .LVU48
+ 192               		.loc 1 94 27 is_stmt 0 view .LVU49
+ 193 002a 8091 0000 		lds r24,unicode_config
+ 194               		.loc 1 94 5 view .LVU50
+ 195 002e 8130      		cpi r24,lo8(1)
+ 196 0030 01F0      		breq .L10
+ 197 0032 8823      		tst r24
+ 198 0034 01F0      		breq .L11
+ 199 0036 8230      		cpi r24,lo8(2)
+ 200 0038 01F0      		breq .L12
+ 201 003a 8430      		cpi r24,lo8(4)
+ 202 003c 01F0      		breq .L13
+ 203               	.L14:
+  95:quantum/process_keycode/process_unicode_common.c ****         case UC_MAC:
+  96:quantum/process_keycode/process_unicode_common.c ****             register_code(UNICODE_KEY_MAC);
+  97:quantum/process_keycode/process_unicode_common.c ****             break;
+  98:quantum/process_keycode/process_unicode_common.c ****         case UC_LNX:
+  99:quantum/process_keycode/process_unicode_common.c ****             tap_code16(UNICODE_KEY_LNX);
+ 100:quantum/process_keycode/process_unicode_common.c ****             break;
+ 101:quantum/process_keycode/process_unicode_common.c ****         case UC_WIN:
+ 102:quantum/process_keycode/process_unicode_common.c ****             register_code(KC_LALT);
+ 103:quantum/process_keycode/process_unicode_common.c ****             tap_code(KC_PPLS);
+ 104:quantum/process_keycode/process_unicode_common.c ****             break;
+ 105:quantum/process_keycode/process_unicode_common.c ****         case UC_WINC:
+ 106:quantum/process_keycode/process_unicode_common.c ****             tap_code(UNICODE_KEY_WINC);
+ 107:quantum/process_keycode/process_unicode_common.c ****             tap_code(KC_U);
+ 108:quantum/process_keycode/process_unicode_common.c ****             break;
+ 109:quantum/process_keycode/process_unicode_common.c ****     }
+ 110:quantum/process_keycode/process_unicode_common.c **** 
+ 111:quantum/process_keycode/process_unicode_common.c ****     wait_ms(UNICODE_TYPE_DELAY);
+ 204               		.loc 1 111 5 is_stmt 1 view .LVU51
+ 205               	.LVL11:
+ 206               	.LBB4:
+ 207               	.LBI4:
+ 208               		.file 2 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h"
+   1:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** /* Copyright (c) 2002, Marek Michalkiewicz
+   2:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    Copyright (c) 2004,2005,2007 Joerg Wunsch
+   3:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    Copyright (c) 2007  Florin-Viorel Petrov
+   4:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    All rights reserved.
+   5:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+   6:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    Redistribution and use in source and binary forms, with or without
+   7:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    modification, are permitted provided that the following conditions are met:
+   8:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+   9:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    * Redistributions of source code must retain the above copyright
+  10:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****      notice, this list of conditions and the following disclaimer.
+  11:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+  12:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    * Redistributions in binary form must reproduce the above copyright
+  13:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****      notice, this list of conditions and the following disclaimer in
+  14:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****      the documentation and/or other materials provided with the
+  15:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****      distribution.
+  16:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+  17:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    * Neither the name of the copyright holders nor the names of
+  18:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****      contributors may be used to endorse or promote products derived
+  19:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****      from this software without specific prior written permission.
+  20:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+  21:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  22:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****   AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  23:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  24:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****   ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+  25:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****   LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  26:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****   CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  27:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****   SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  28:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****   INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  29:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****   CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  30:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  31:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****   POSSIBILITY OF SUCH DAMAGE. */
+  32:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+  33:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** /* $Id: delay.h.in 2506 2016-02-08 10:05:45Z joerg_wunsch $ */
+  34:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+  35:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #ifndef _UTIL_DELAY_H_
+  36:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #define _UTIL_DELAY_H_ 1
+  37:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+  38:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #ifndef __DOXYGEN__
+  39:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #  ifndef __HAS_DELAY_CYCLES
+  40:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #    define __HAS_DELAY_CYCLES 1
+  41:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #  endif
+  42:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #endif  /* __DOXYGEN__ */
+  43:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+  44:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #include <inttypes.h>
+  45:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #include <util/delay_basic.h>
+  46:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #include <math.h>
+  47:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+  48:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** /** \file */
+  49:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** /** \defgroup util_delay <util/delay.h>: Convenience functions for busy-wait delay loops
+  50:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     \code
+  51:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     #define F_CPU 1000000UL  // 1 MHz
+  52:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     //#define F_CPU 14.7456E6
+  53:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     #include <util/delay.h>
+  54:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     \endcode
+  55:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+  56:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     \note As an alternative method, it is possible to pass the
+  57:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     F_CPU macro down to the compiler from the Makefile.
+  58:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     Obviously, in that case, no \c \#define statement should be
+  59:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     used.
+  60:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+  61:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     The functions in this header file are wrappers around the basic
+  62:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     busy-wait functions from <util/delay_basic.h>.  They are meant as
+  63:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     convenience functions where actual time values can be specified
+  64:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     rather than a number of cycles to wait for.  The idea behind is
+  65:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     that compile-time constant expressions will be eliminated by
+  66:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     compiler optimization so floating-point expressions can be used
+  67:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     to calculate the number of delay cycles needed based on the CPU
+  68:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     frequency passed by the macro F_CPU.
+  69:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+  70:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     \note In order for these functions to work as intended, compiler
+  71:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     optimizations <em>must</em> be enabled, and the delay time
+  72:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     <em>must</em> be an expression that is a known constant at
+  73:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     compile-time.  If these requirements are not met, the resulting
+  74:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     delay will be much longer (and basically unpredictable), and
+  75:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     applications that otherwise do not use floating-point calculations
+  76:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     will experience severe code bloat by the floating-point library
+  77:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     routines linked into the application.
+  78:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+  79:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     The functions available allow the specification of microsecond, and
+  80:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     millisecond delays directly, using the application-supplied macro
+  81:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     F_CPU as the CPU clock frequency (in Hertz).
+  82:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+  83:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** */
+  84:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+  85:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #if !defined(__DOXYGEN__)
+  86:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** static __inline__ void _delay_us(double __us) __attribute__((__always_inline__));
+  87:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** static __inline__ void _delay_ms(double __ms) __attribute__((__always_inline__));
+  88:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #endif
+  89:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+  90:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #ifndef F_CPU
+  91:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** /* prevent compiler error by supplying a default */
+  92:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** # warning "F_CPU not defined for <util/delay.h>"
+  93:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** /** \ingroup util_delay
+  94:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     \def F_CPU
+  95:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     \brief CPU frequency in Hz
+  96:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+  97:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     The macro F_CPU specifies the CPU frequency to be considered by
+  98:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     the delay macros.  This macro is normally supplied by the
+  99:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     environment (e.g. from within a project header, or the project's
+ 100:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     Makefile).  The value 1 MHz here is only provided as a "vanilla"
+ 101:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     fallback if no such user-provided definition could be found.
+ 102:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+ 103:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     In terms of the delay functions, the CPU frequency can be given as
+ 104:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     a floating-point constant (e.g. 3.6864E6 for 3.6864 MHz).
+ 105:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     However, the macros in <util/setbaud.h> require it to be an
+ 106:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****     integer value.
+ 107:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****  */
+ 108:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** # define F_CPU 1000000UL
+ 109:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #endif
+ 110:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+ 111:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #ifndef __OPTIMIZE__
+ 112:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** # warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+ 113:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #endif
+ 114:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+ 115:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__) && \
+ 116:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****   !defined(__DELAY_BACKWARD_COMPATIBLE__) &&	   \
+ 117:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****   __STDC_HOSTED__
+ 118:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #  include <math.h>
+ 119:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #endif
+ 120:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+ 121:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** /**
+ 122:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    \ingroup util_delay
+ 123:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+ 124:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    Perform a delay of \c __ms milliseconds, using _delay_loop_2().
+ 125:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+ 126:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    The macro F_CPU is supposed to be defined to a
+ 127:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    constant defining the CPU clock frequency (in Hertz).
+ 128:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+ 129:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    The maximal possible delay is 262.14 ms / F_CPU in MHz.
+ 130:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+ 131:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    When the user request delay which exceed the maximum possible one,
+ 132:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    _delay_ms() provides a decreased resolution functionality. In this
+ 133:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    mode _delay_ms() will work with a resolution of 1/10 ms, providing
+ 134:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    delays up to 6.5535 seconds (independent from CPU frequency).  The
+ 135:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    user will not be informed about decreased resolution.
+ 136:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+ 137:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    If the avr-gcc toolchain has __builtin_avr_delay_cycles()
+ 138:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    support, maximal possible delay is 4294967.295 ms/ F_CPU in MHz. For
+ 139:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    values greater than the maximal possible delay, overflows results in
+ 140:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    no delay i.e., 0ms.
+ 141:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+ 142:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    Conversion of \c __ms into clock cycles may not always result in
+ 143:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    integer.  By default, the clock cycles rounded up to next
+ 144:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    integer. This ensures that the user gets at least \c __ms
+ 145:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    microseconds of delay.
+ 146:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+ 147:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    Alternatively, by defining the macro \c __DELAY_ROUND_DOWN__, or
+ 148:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    \c __DELAY_ROUND_CLOSEST__, before including this header file, the
+ 149:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    algorithm can be made to round down, or round to closest integer,
+ 150:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    respectively.
+ 151:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+ 152:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    \note
+ 153:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+ 154:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    The implementation of _delay_ms() based on
+ 155:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    __builtin_avr_delay_cycles() is not backward compatible with older
+ 156:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    implementations.  In order to get functionality backward compatible
+ 157:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    with previous versions, the macro \c "__DELAY_BACKWARD_COMPATIBLE__"
+ 158:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    must be defined before including this header file. Also, the
+ 159:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    backward compatible algorithm will be chosen if the code is
+ 160:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    compiled in a <em>freestanding environment</em> (GCC option
+ 161:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    \c -ffreestanding), as the math functions required for rounding are
+ 162:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****    not available to the compiler then.
+ 163:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+ 164:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****  */
+ 165:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** void
+ 166:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** _delay_ms(double __ms)
+ 209               		.loc 2 166 1 view .LVU52
+ 210               	.LBB5:
+ 167:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** {
+ 168:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 	double __tmp ;
+ 211               		.loc 2 168 2 view .LVU53
+ 169:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** #if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__) && \
+ 170:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****   !defined(__DELAY_BACKWARD_COMPATIBLE__) &&	   \
+ 171:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h ****   __STDC_HOSTED__
+ 172:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 	uint32_t __ticks_dc;
+ 212               		.loc 2 172 2 view .LVU54
+ 173:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 	extern void __builtin_avr_delay_cycles(unsigned long);
+ 213               		.loc 2 173 2 view .LVU55
+ 174:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 	__tmp = ((F_CPU) / 1e3) * __ms;
+ 214               		.loc 2 174 2 view .LVU56
+ 175:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+ 176:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 	#if defined(__DELAY_ROUND_DOWN__)
+ 177:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 		__ticks_dc = (uint32_t)fabs(__tmp);
+ 178:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+ 179:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 	#elif defined(__DELAY_ROUND_CLOSEST__)
+ 180:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 		__ticks_dc = (uint32_t)(fabs(__tmp)+0.5);
+ 181:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+ 182:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 	#else
+ 183:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 		//round up by default
+ 184:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+ 215               		.loc 2 184 3 view .LVU57
+ 185:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 	#endif
+ 186:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 
+ 187:/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/util/delay.h **** 	__builtin_avr_delay_cycles(__ticks_dc);
+ 216               		.loc 2 187 2 view .LVU58
+ 217 003e 8FE3      		ldi r24,lo8(-25537)
+ 218 0040 9CE9      		ldi r25,hi8(-25537)
+ 219 0042 0197      	1:	sbiw r24,1
+ 220 0044 01F4      		brne 1b
+ 221 0046 00C0      		rjmp .
+ 222 0048 0000      		nop
+ 223               	.LVL12:
+ 224               	/* epilogue start */
+ 225               		.loc 2 187 2 is_stmt 0 view .LVU59
+ 226               	.LBE5:
+ 227               	.LBE4:
+ 112:quantum/process_keycode/process_unicode_common.c **** }
+ 228               		.loc 1 112 1 view .LVU60
+ 229 004a 0895      		ret
+ 230               	.L11:
+  96:quantum/process_keycode/process_unicode_common.c ****             break;
+ 231               		.loc 1 96 13 is_stmt 1 view .LVU61
+ 232 004c 82EE      		ldi r24,lo8(-30)
+ 233 004e 0E94 0000 		call register_code
+ 234               	.LVL13:
+  97:quantum/process_keycode/process_unicode_common.c ****         case UC_LNX:
+ 235               		.loc 1 97 13 view .LVU62
+ 236 0052 00C0      		rjmp .L14
+ 237               	.L10:
+  99:quantum/process_keycode/process_unicode_common.c ****             break;
+ 238               		.loc 1 99 13 view .LVU63
+ 239 0054 88E1      		ldi r24,lo8(24)
+ 240 0056 93E0      		ldi r25,lo8(3)
+ 241 0058 0E94 0000 		call tap_code16
+ 242               	.LVL14:
+ 100:quantum/process_keycode/process_unicode_common.c ****         case UC_WIN:
+ 243               		.loc 1 100 13 view .LVU64
+ 244 005c 00C0      		rjmp .L14
+ 245               	.L12:
+ 102:quantum/process_keycode/process_unicode_common.c ****             tap_code(KC_PPLS);
+ 246               		.loc 1 102 13 view .LVU65
+ 247 005e 82EE      		ldi r24,lo8(-30)
+ 248 0060 0E94 0000 		call register_code
+ 249               	.LVL15:
+ 103:quantum/process_keycode/process_unicode_common.c ****             break;
+ 250               		.loc 1 103 13 view .LVU66
+ 251 0064 87E5      		ldi r24,lo8(87)
+ 252               	.L18:
+ 107:quantum/process_keycode/process_unicode_common.c ****             break;
+ 253               		.loc 1 107 13 is_stmt 0 view .LVU67
+ 254 0066 0E94 0000 		call tap_code
+ 255               	.LVL16:
+ 108:quantum/process_keycode/process_unicode_common.c ****     }
+ 256               		.loc 1 108 13 is_stmt 1 view .LVU68
+ 257 006a 00C0      		rjmp .L14
+ 258               	.L13:
+ 106:quantum/process_keycode/process_unicode_common.c ****             tap_code(KC_U);
+ 259               		.loc 1 106 13 view .LVU69
+ 260 006c 86EE      		ldi r24,lo8(-26)
+ 261 006e 0E94 0000 		call tap_code
+ 262               	.LVL17:
+ 107:quantum/process_keycode/process_unicode_common.c ****             break;
+ 263               		.loc 1 107 13 view .LVU70
+ 264 0072 88E1      		ldi r24,lo8(24)
+ 265 0074 00C0      		rjmp .L18
+ 266               		.cfi_endproc
+ 267               	.LFE122:
+ 269               		.section	.text.unicode_input_finish,"ax",@progbits
+ 270               		.weak	unicode_input_finish
+ 272               	unicode_input_finish:
+ 273               	.LFB123:
+ 113:quantum/process_keycode/process_unicode_common.c **** 
+ 114:quantum/process_keycode/process_unicode_common.c **** __attribute__((weak)) void unicode_input_finish(void) {
+ 274               		.loc 1 114 55 view -0
+ 275               		.cfi_startproc
+ 276               	/* prologue: function */
+ 277               	/* frame size = 0 */
+ 278               	/* stack size = 0 */
+ 279               	.L__stack_usage = 0
+ 115:quantum/process_keycode/process_unicode_common.c ****     switch (unicode_config.input_mode) {
+ 280               		.loc 1 115 5 view .LVU72
+ 281               		.loc 1 115 27 is_stmt 0 view .LVU73
+ 282 0000 8091 0000 		lds r24,unicode_config
+ 283               		.loc 1 115 5 view .LVU74
+ 284 0004 8130      		cpi r24,lo8(1)
+ 285 0006 01F0      		breq .L20
+ 286 0008 8823      		tst r24
+ 287 000a 01F0      		breq .L21
+ 288 000c 8230      		cpi r24,lo8(2)
+ 289 000e 01F0      		breq .L21
+ 290 0010 8430      		cpi r24,lo8(4)
+ 291 0012 01F0      		breq .L22
+ 292               	.L23:
+ 116:quantum/process_keycode/process_unicode_common.c ****         case UC_MAC:
+ 117:quantum/process_keycode/process_unicode_common.c ****             unregister_code(UNICODE_KEY_MAC);
+ 118:quantum/process_keycode/process_unicode_common.c ****             break;
+ 119:quantum/process_keycode/process_unicode_common.c ****         case UC_LNX:
+ 120:quantum/process_keycode/process_unicode_common.c ****             tap_code(KC_SPC);
+ 121:quantum/process_keycode/process_unicode_common.c ****             if (unicode_saved_caps_lock) {
+ 122:quantum/process_keycode/process_unicode_common.c ****                 tap_code(KC_CAPS);
+ 123:quantum/process_keycode/process_unicode_common.c ****             }
+ 124:quantum/process_keycode/process_unicode_common.c ****             break;
+ 125:quantum/process_keycode/process_unicode_common.c ****         case UC_WIN:
+ 126:quantum/process_keycode/process_unicode_common.c ****             unregister_code(KC_LALT);
+ 127:quantum/process_keycode/process_unicode_common.c ****             break;
+ 128:quantum/process_keycode/process_unicode_common.c ****         case UC_WINC:
+ 129:quantum/process_keycode/process_unicode_common.c ****             tap_code(KC_ENTER);
+ 130:quantum/process_keycode/process_unicode_common.c ****             break;
+ 131:quantum/process_keycode/process_unicode_common.c ****     }
+ 132:quantum/process_keycode/process_unicode_common.c **** 
+ 133:quantum/process_keycode/process_unicode_common.c ****     set_mods(unicode_saved_mods);  // Reregister previously set mods
+ 293               		.loc 1 133 5 is_stmt 1 view .LVU75
+ 294 0014 8091 0000 		lds r24,unicode_saved_mods
+ 295 0018 0C94 0000 		jmp set_mods
+ 296               	.LVL18:
+ 297               	.L21:
+ 117:quantum/process_keycode/process_unicode_common.c ****             break;
+ 298               		.loc 1 117 13 view .LVU76
+ 299 001c 82EE      		ldi r24,lo8(-30)
+ 300 001e 0E94 0000 		call unregister_code
+ 301               	.LVL19:
+ 118:quantum/process_keycode/process_unicode_common.c ****         case UC_LNX:
+ 302               		.loc 1 118 13 view .LVU77
+ 303 0022 00C0      		rjmp .L23
+ 304               	.L20:
+ 120:quantum/process_keycode/process_unicode_common.c ****             if (unicode_saved_caps_lock) {
+ 305               		.loc 1 120 13 view .LVU78
+ 306 0024 8CE2      		ldi r24,lo8(44)
+ 307 0026 0E94 0000 		call tap_code
+ 308               	.LVL20:
+ 121:quantum/process_keycode/process_unicode_common.c ****                 tap_code(KC_CAPS);
+ 309               		.loc 1 121 13 view .LVU79
+ 121:quantum/process_keycode/process_unicode_common.c ****                 tap_code(KC_CAPS);
+ 310               		.loc 1 121 16 is_stmt 0 view .LVU80
+ 311 002a 8091 0000 		lds r24,unicode_saved_caps_lock
+ 312 002e 8823      		tst r24
+ 313 0030 01F0      		breq .L23
+ 122:quantum/process_keycode/process_unicode_common.c ****             }
+ 314               		.loc 1 122 17 is_stmt 1 view .LVU81
+ 315 0032 89E3      		ldi r24,lo8(57)
+ 316               	.L33:
+ 129:quantum/process_keycode/process_unicode_common.c ****             break;
+ 317               		.loc 1 129 13 is_stmt 0 view .LVU82
+ 318 0034 0E94 0000 		call tap_code
+ 319               	.LVL21:
+ 130:quantum/process_keycode/process_unicode_common.c ****     }
+ 320               		.loc 1 130 13 is_stmt 1 view .LVU83
+ 321 0038 00C0      		rjmp .L23
+ 322               	.L22:
+ 129:quantum/process_keycode/process_unicode_common.c ****             break;
+ 323               		.loc 1 129 13 view .LVU84
+ 324 003a 88E2      		ldi r24,lo8(40)
+ 325 003c 00C0      		rjmp .L33
+ 326               		.cfi_endproc
+ 327               	.LFE123:
+ 329               		.section	.text.unicode_input_cancel,"ax",@progbits
+ 330               		.weak	unicode_input_cancel
+ 332               	unicode_input_cancel:
+ 333               	.LFB124:
+ 134:quantum/process_keycode/process_unicode_common.c **** }
+ 135:quantum/process_keycode/process_unicode_common.c **** 
+ 136:quantum/process_keycode/process_unicode_common.c **** __attribute__((weak)) void unicode_input_cancel(void) {
+ 334               		.loc 1 136 55 view -0
+ 335               		.cfi_startproc
+ 336               	/* prologue: function */
+ 337               	/* frame size = 0 */
+ 338               	/* stack size = 0 */
+ 339               	.L__stack_usage = 0
+ 137:quantum/process_keycode/process_unicode_common.c ****     switch (unicode_config.input_mode) {
+ 340               		.loc 1 137 5 view .LVU86
+ 341               		.loc 1 137 27 is_stmt 0 view .LVU87
+ 342 0000 8091 0000 		lds r24,unicode_config
+ 343               		.loc 1 137 5 view .LVU88
+ 344 0004 8130      		cpi r24,lo8(1)
+ 345 0006 01F0      		breq .L35
+ 346 0008 8823      		tst r24
+ 347 000a 01F0      		breq .L36
+ 348 000c 8230      		cpi r24,lo8(2)
+ 349 000e 01F0      		breq .L36
+ 350 0010 8430      		cpi r24,lo8(4)
+ 351 0012 01F0      		breq .L37
+ 352               	.L38:
+ 138:quantum/process_keycode/process_unicode_common.c ****         case UC_MAC:
+ 139:quantum/process_keycode/process_unicode_common.c ****             unregister_code(UNICODE_KEY_MAC);
+ 140:quantum/process_keycode/process_unicode_common.c ****             break;
+ 141:quantum/process_keycode/process_unicode_common.c ****         case UC_LNX:
+ 142:quantum/process_keycode/process_unicode_common.c ****             tap_code(KC_ESC);
+ 143:quantum/process_keycode/process_unicode_common.c ****             if (unicode_saved_caps_lock) {
+ 144:quantum/process_keycode/process_unicode_common.c ****                 tap_code(KC_CAPS);
+ 145:quantum/process_keycode/process_unicode_common.c ****             }
+ 146:quantum/process_keycode/process_unicode_common.c ****             break;
+ 147:quantum/process_keycode/process_unicode_common.c ****         case UC_WINC:
+ 148:quantum/process_keycode/process_unicode_common.c ****             tap_code(KC_ESC);
+ 149:quantum/process_keycode/process_unicode_common.c ****             break;
+ 150:quantum/process_keycode/process_unicode_common.c ****         case UC_WIN:
+ 151:quantum/process_keycode/process_unicode_common.c ****             unregister_code(KC_LALT);
+ 152:quantum/process_keycode/process_unicode_common.c ****             break;
+ 153:quantum/process_keycode/process_unicode_common.c ****     }
+ 154:quantum/process_keycode/process_unicode_common.c **** 
+ 155:quantum/process_keycode/process_unicode_common.c ****     set_mods(unicode_saved_mods);  // Reregister previously set mods
+ 353               		.loc 1 155 5 is_stmt 1 view .LVU89
+ 354 0014 8091 0000 		lds r24,unicode_saved_mods
+ 355 0018 0C94 0000 		jmp set_mods
+ 356               	.LVL22:
+ 357               	.L36:
+ 139:quantum/process_keycode/process_unicode_common.c ****             break;
+ 358               		.loc 1 139 13 view .LVU90
+ 359 001c 82EE      		ldi r24,lo8(-30)
+ 360 001e 0E94 0000 		call unregister_code
+ 361               	.LVL23:
+ 140:quantum/process_keycode/process_unicode_common.c ****         case UC_LNX:
+ 362               		.loc 1 140 13 view .LVU91
+ 363 0022 00C0      		rjmp .L38
+ 364               	.L35:
+ 142:quantum/process_keycode/process_unicode_common.c ****             if (unicode_saved_caps_lock) {
+ 365               		.loc 1 142 13 view .LVU92
+ 366 0024 89E2      		ldi r24,lo8(41)
+ 367 0026 0E94 0000 		call tap_code
+ 368               	.LVL24:
+ 143:quantum/process_keycode/process_unicode_common.c ****                 tap_code(KC_CAPS);
+ 369               		.loc 1 143 13 view .LVU93
+ 143:quantum/process_keycode/process_unicode_common.c ****                 tap_code(KC_CAPS);
+ 370               		.loc 1 143 16 is_stmt 0 view .LVU94
+ 371 002a 8091 0000 		lds r24,unicode_saved_caps_lock
+ 372 002e 8823      		tst r24
+ 373 0030 01F0      		breq .L38
+ 144:quantum/process_keycode/process_unicode_common.c ****             }
+ 374               		.loc 1 144 17 is_stmt 1 view .LVU95
+ 375 0032 89E3      		ldi r24,lo8(57)
+ 376               	.L48:
+ 148:quantum/process_keycode/process_unicode_common.c ****             break;
+ 377               		.loc 1 148 13 is_stmt 0 view .LVU96
+ 378 0034 0E94 0000 		call tap_code
+ 379               	.LVL25:
+ 149:quantum/process_keycode/process_unicode_common.c ****         case UC_WIN:
+ 380               		.loc 1 149 13 is_stmt 1 view .LVU97
+ 381 0038 00C0      		rjmp .L38
+ 382               	.L37:
+ 148:quantum/process_keycode/process_unicode_common.c ****             break;
+ 383               		.loc 1 148 13 view .LVU98
+ 384 003a 89E2      		ldi r24,lo8(41)
+ 385 003c 00C0      		rjmp .L48
+ 386               		.cfi_endproc
+ 387               	.LFE124:
+ 389               		.section	.text.register_hex,"ax",@progbits
+ 390               	.global	register_hex
+ 392               	register_hex:
+ 393               	.LVL26:
+ 394               	.LFB125:
+ 156:quantum/process_keycode/process_unicode_common.c **** }
+ 157:quantum/process_keycode/process_unicode_common.c **** 
+ 158:quantum/process_keycode/process_unicode_common.c **** void register_hex(uint16_t hex) {
+ 395               		.loc 1 158 33 view -0
+ 396               		.cfi_startproc
+ 397               		.loc 1 158 33 is_stmt 0 view .LVU100
+ 398 0000 0F93      		push r16
+ 399               	.LCFI0:
+ 400               		.cfi_def_cfa_offset 3
+ 401               		.cfi_offset 16, -2
+ 402 0002 1F93      		push r17
+ 403               	.LCFI1:
+ 404               		.cfi_def_cfa_offset 4
+ 405               		.cfi_offset 17, -3
+ 406 0004 CF93      		push r28
+ 407               	.LCFI2:
+ 408               		.cfi_def_cfa_offset 5
+ 409               		.cfi_offset 28, -4
+ 410 0006 DF93      		push r29
+ 411               	.LCFI3:
+ 412               		.cfi_def_cfa_offset 6
+ 413               		.cfi_offset 29, -5
+ 414               	/* prologue: function */
+ 415               	/* frame size = 0 */
+ 416               	/* stack size = 4 */
+ 417               	.L__stack_usage = 4
+ 418 0008 8C01      		movw r16,r24
+ 159:quantum/process_keycode/process_unicode_common.c ****     for (int i = 3; i >= 0; i--) {
+ 419               		.loc 1 159 5 is_stmt 1 view .LVU101
+ 420               	.LBB6:
+ 421               		.loc 1 159 10 view .LVU102
+ 422               	.LVL27:
+ 423               		.loc 1 159 21 view .LVU103
+ 424               	.LBE6:
+ 158:quantum/process_keycode/process_unicode_common.c ****     for (int i = 3; i >= 0; i--) {
+ 425               		.loc 1 158 33 is_stmt 0 view .LVU104
+ 426 000a CCE0      		ldi r28,lo8(12)
+ 427 000c D0E0      		ldi r29,0
+ 428               	.LVL28:
+ 429               	.L50:
+ 430               	.LBB8:
+ 431               	.LBB7:
+ 160:quantum/process_keycode/process_unicode_common.c ****         uint8_t digit = ((hex >> (i * 4)) & 0xF);
+ 432               		.loc 1 160 9 is_stmt 1 discriminator 3 view .LVU105
+ 161:quantum/process_keycode/process_unicode_common.c ****         send_nibble(digit);
+ 433               		.loc 1 161 9 discriminator 3 view .LVU106
+ 160:quantum/process_keycode/process_unicode_common.c ****         uint8_t digit = ((hex >> (i * 4)) & 0xF);
+ 434               		.loc 1 160 31 is_stmt 0 discriminator 3 view .LVU107
+ 435 000e C801      		movw r24,r16
+ 436 0010 0C2E      		mov r0,r28
+ 437 0012 00C0      		rjmp 2f
+ 438               		1:
+ 439 0014 9695      		lsr r25
+ 440 0016 8795      		ror r24
+ 441               		2:
+ 442 0018 0A94      		dec r0
+ 443 001a 02F4      		brpl 1b
+ 444               		.loc 1 161 9 discriminator 3 view .LVU108
+ 445 001c 8F70      		andi r24,lo8(15)
+ 446 001e 0E94 0000 		call send_nibble
+ 447               	.LVL29:
+ 448               	.LBE7:
+ 159:quantum/process_keycode/process_unicode_common.c ****         uint8_t digit = ((hex >> (i * 4)) & 0xF);
+ 449               		.loc 1 159 29 is_stmt 1 discriminator 3 view .LVU109
+ 159:quantum/process_keycode/process_unicode_common.c ****         uint8_t digit = ((hex >> (i * 4)) & 0xF);
+ 450               		.loc 1 159 21 discriminator 3 view .LVU110
+ 451 0022 2497      		sbiw r28,4
+ 452               	.LVL30:
+ 159:quantum/process_keycode/process_unicode_common.c ****         uint8_t digit = ((hex >> (i * 4)) & 0xF);
+ 453               		.loc 1 159 5 is_stmt 0 discriminator 3 view .LVU111
+ 454 0024 CC3F      		cpi r28,-4
+ 455 0026 8FEF      		ldi r24,-1
+ 456 0028 D807      		cpc r29,r24
+ 457 002a 01F4      		brne .L50
+ 458               	/* epilogue start */
+ 459               	.LBE8:
+ 162:quantum/process_keycode/process_unicode_common.c ****     }
+ 163:quantum/process_keycode/process_unicode_common.c **** }
+ 460               		.loc 1 163 1 view .LVU112
+ 461 002c DF91      		pop r29
+ 462 002e CF91      		pop r28
+ 463               	.LVL31:
+ 464               		.loc 1 163 1 view .LVU113
+ 465 0030 1F91      		pop r17
+ 466 0032 0F91      		pop r16
+ 467               	.LVL32:
+ 468               		.loc 1 163 1 view .LVU114
+ 469 0034 0895      		ret
+ 470               		.cfi_endproc
+ 471               	.LFE125:
+ 473               		.section	.text.register_hex32,"ax",@progbits
+ 474               	.global	register_hex32
+ 476               	register_hex32:
+ 477               	.LVL33:
+ 478               	.LFB126:
+ 164:quantum/process_keycode/process_unicode_common.c **** 
+ 165:quantum/process_keycode/process_unicode_common.c **** void register_hex32(uint32_t hex) {
+ 479               		.loc 1 165 35 is_stmt 1 view -0
+ 480               		.cfi_startproc
+ 481               		.loc 1 165 35 is_stmt 0 view .LVU116
+ 482 0000 BF92      		push r11
+ 483               	.LCFI4:
+ 484               		.cfi_def_cfa_offset 3
+ 485               		.cfi_offset 11, -2
+ 486 0002 CF92      		push r12
+ 487               	.LCFI5:
+ 488               		.cfi_def_cfa_offset 4
+ 489               		.cfi_offset 12, -3
+ 490 0004 DF92      		push r13
+ 491               	.LCFI6:
+ 492               		.cfi_def_cfa_offset 5
+ 493               		.cfi_offset 13, -4
+ 494 0006 EF92      		push r14
+ 495               	.LCFI7:
+ 496               		.cfi_def_cfa_offset 6
+ 497               		.cfi_offset 14, -5
+ 498 0008 FF92      		push r15
+ 499               	.LCFI8:
+ 500               		.cfi_def_cfa_offset 7
+ 501               		.cfi_offset 15, -6
+ 502 000a 0F93      		push r16
+ 503               	.LCFI9:
+ 504               		.cfi_def_cfa_offset 8
+ 505               		.cfi_offset 16, -7
+ 506 000c 1F93      		push r17
+ 507               	.LCFI10:
+ 508               		.cfi_def_cfa_offset 9
+ 509               		.cfi_offset 17, -8
+ 510 000e CF93      		push r28
+ 511               	.LCFI11:
+ 512               		.cfi_def_cfa_offset 10
+ 513               		.cfi_offset 28, -9
+ 514 0010 DF93      		push r29
+ 515               	.LCFI12:
+ 516               		.cfi_def_cfa_offset 11
+ 517               		.cfi_offset 29, -10
+ 518               	/* prologue: function */
+ 519               	/* frame size = 0 */
+ 520               	/* stack size = 9 */
+ 521               	.L__stack_usage = 9
+ 522 0012 6B01      		movw r12,r22
+ 523 0014 7C01      		movw r14,r24
+ 166:quantum/process_keycode/process_unicode_common.c ****     bool onzerostart = true;
+ 524               		.loc 1 166 5 is_stmt 1 view .LVU117
+ 525               	.LVL34:
+ 167:quantum/process_keycode/process_unicode_common.c ****     for (int i = 7; i >= 0; i--) {
+ 526               		.loc 1 167 5 view .LVU118
+ 527               	.LBB9:
+ 528               		.loc 1 167 10 view .LVU119
+ 529               		.loc 1 167 21 view .LVU120
+ 530               	.LBB10:
+ 168:quantum/process_keycode/process_unicode_common.c ****         if (i <= 3) {
+ 531               		.loc 1 168 9 view .LVU121
+ 532               	.LBE10:
+ 167:quantum/process_keycode/process_unicode_common.c ****     for (int i = 7; i >= 0; i--) {
+ 533               		.loc 1 167 14 is_stmt 0 view .LVU122
+ 534 0016 C7E0      		ldi r28,lo8(7)
+ 535 0018 D0E0      		ldi r29,0
+ 536 001a 0CE1      		ldi r16,lo8(28)
+ 537 001c 10E0      		ldi r17,0
+ 538               	.LBE9:
+ 166:quantum/process_keycode/process_unicode_common.c ****     bool onzerostart = true;
+ 539               		.loc 1 166 10 view .LVU123
+ 540 001e BB24      		clr r11
+ 541 0020 B394      		inc r11
+ 542               	.LVL35:
+ 543               	.L53:
+ 544               	.LBB13:
+ 545               	.LBB11:
+ 169:quantum/process_keycode/process_unicode_common.c ****             onzerostart = false;
+ 170:quantum/process_keycode/process_unicode_common.c ****         }
+ 171:quantum/process_keycode/process_unicode_common.c ****         uint8_t digit = ((hex >> (i * 4)) & 0xF);
+ 546               		.loc 1 171 9 is_stmt 1 view .LVU124
+ 547               		.loc 1 171 31 is_stmt 0 view .LVU125
+ 548 0022 D701      		movw r26,r14
+ 549 0024 C601      		movw r24,r12
+ 550 0026 002E      		mov r0,r16
+ 551 0028 00C0      		rjmp 2f
+ 552               		1:
+ 553 002a B695      		lsr r27
+ 554 002c A795      		ror r26
+ 555 002e 9795      		ror r25
+ 556 0030 8795      		ror r24
+ 557               		2:
+ 558 0032 0A94      		dec r0
+ 559 0034 02F4      		brpl 1b
+ 560               		.loc 1 171 17 view .LVU126
+ 561 0036 8F70      		andi r24,lo8(15)
+ 562               	.LVL36:
+ 172:quantum/process_keycode/process_unicode_common.c ****         if (digit == 0) {
+ 563               		.loc 1 172 9 is_stmt 1 view .LVU127
+ 564               		.loc 1 172 12 is_stmt 0 view .LVU128
+ 565 0038 01F4      		brne .L55
+ 173:quantum/process_keycode/process_unicode_common.c ****             if (!onzerostart) {
+ 566               		.loc 1 173 13 is_stmt 1 view .LVU129
+ 567               		.loc 1 173 16 is_stmt 0 view .LVU130
+ 568 003a B110      		cpse r11,__zero_reg__
+ 569 003c 00C0      		rjmp .L56
+ 174:quantum/process_keycode/process_unicode_common.c ****                 send_nibble(digit);
+ 570               		.loc 1 174 17 is_stmt 1 view .LVU131
+ 571 003e 0E94 0000 		call send_nibble
+ 572               	.LVL37:
+ 573               	.L56:
+ 574               		.loc 1 174 17 is_stmt 0 view .LVU132
+ 575               	.LBE11:
+ 167:quantum/process_keycode/process_unicode_common.c ****         if (i <= 3) {
+ 576               		.loc 1 167 29 is_stmt 1 discriminator 2 view .LVU133
+ 167:quantum/process_keycode/process_unicode_common.c ****         if (i <= 3) {
+ 577               		.loc 1 167 30 is_stmt 0 discriminator 2 view .LVU134
+ 578 0042 2197      		sbiw r28,1
+ 579               	.LVL38:
+ 167:quantum/process_keycode/process_unicode_common.c ****         if (i <= 3) {
+ 580               		.loc 1 167 21 is_stmt 1 discriminator 2 view .LVU135
+ 581 0044 0450      		subi r16,4
+ 582 0046 1109      		sbc r17,__zero_reg__
+ 167:quantum/process_keycode/process_unicode_common.c ****         if (i <= 3) {
+ 583               		.loc 1 167 5 is_stmt 0 discriminator 2 view .LVU136
+ 584 0048 CF3F      		cpi r28,-1
+ 585 004a DC07      		cpc r29,r28
+ 586 004c 01F4      		brne .L57
+ 587               	/* epilogue start */
+ 588               	.LBE13:
+ 175:quantum/process_keycode/process_unicode_common.c ****             }
+ 176:quantum/process_keycode/process_unicode_common.c ****         } else {
+ 177:quantum/process_keycode/process_unicode_common.c ****             send_nibble(digit);
+ 178:quantum/process_keycode/process_unicode_common.c ****             onzerostart = false;
+ 179:quantum/process_keycode/process_unicode_common.c ****         }
+ 180:quantum/process_keycode/process_unicode_common.c ****     }
+ 181:quantum/process_keycode/process_unicode_common.c **** }
+ 589               		.loc 1 181 1 view .LVU137
+ 590 004e DF91      		pop r29
+ 591 0050 CF91      		pop r28
+ 592               	.LVL39:
+ 593               		.loc 1 181 1 view .LVU138
+ 594 0052 1F91      		pop r17
+ 595 0054 0F91      		pop r16
+ 596 0056 FF90      		pop r15
+ 597 0058 EF90      		pop r14
+ 598 005a DF90      		pop r13
+ 599 005c CF90      		pop r12
+ 600 005e BF90      		pop r11
+ 601               	.LVL40:
+ 602               		.loc 1 181 1 view .LVU139
+ 603 0060 0895      		ret
+ 604               	.LVL41:
+ 605               	.L57:
+ 606               	.LBB14:
+ 607               	.LBB12:
+ 168:quantum/process_keycode/process_unicode_common.c ****             onzerostart = false;
+ 608               		.loc 1 168 9 is_stmt 1 view .LVU140
+ 168:quantum/process_keycode/process_unicode_common.c ****             onzerostart = false;
+ 609               		.loc 1 168 12 is_stmt 0 view .LVU141
+ 610 0062 C430      		cpi r28,4
+ 611 0064 D105      		cpc r29,__zero_reg__
+ 612 0066 04F4      		brge .L53
+ 169:quantum/process_keycode/process_unicode_common.c ****         }
+ 613               		.loc 1 169 25 view .LVU142
+ 614 0068 B12C      		mov r11,__zero_reg__
+ 615               	.LVL42:
+ 169:quantum/process_keycode/process_unicode_common.c ****         }
+ 616               		.loc 1 169 25 view .LVU143
+ 617 006a 00C0      		rjmp .L53
+ 618               	.LVL43:
+ 619               	.L55:
+ 177:quantum/process_keycode/process_unicode_common.c ****             onzerostart = false;
+ 620               		.loc 1 177 13 is_stmt 1 view .LVU144
+ 621 006c 0E94 0000 		call send_nibble
+ 622               	.LVL44:
+ 178:quantum/process_keycode/process_unicode_common.c ****         }
+ 623               		.loc 1 178 13 view .LVU145
+ 178:quantum/process_keycode/process_unicode_common.c ****         }
+ 624               		.loc 1 178 25 is_stmt 0 view .LVU146
+ 625 0070 B12C      		mov r11,__zero_reg__
+ 626 0072 00C0      		rjmp .L56
+ 627               	.LBE12:
+ 628               	.LBE14:
+ 629               		.cfi_endproc
+ 630               	.LFE126:
+ 632               		.section	.text.register_unicode,"ax",@progbits
+ 633               	.global	register_unicode
+ 635               	register_unicode:
+ 636               	.LVL45:
+ 637               	.LFB127:
+ 182:quantum/process_keycode/process_unicode_common.c **** 
+ 183:quantum/process_keycode/process_unicode_common.c **** void register_unicode(uint32_t code_point) {
+ 638               		.loc 1 183 44 is_stmt 1 view -0
+ 639               		.cfi_startproc
+ 640               		.loc 1 183 44 is_stmt 0 view .LVU148
+ 641 0000 CF92      		push r12
+ 642               	.LCFI13:
+ 643               		.cfi_def_cfa_offset 3
+ 644               		.cfi_offset 12, -2
+ 645 0002 DF92      		push r13
+ 646               	.LCFI14:
+ 647               		.cfi_def_cfa_offset 4
+ 648               		.cfi_offset 13, -3
+ 649 0004 EF92      		push r14
+ 650               	.LCFI15:
+ 651               		.cfi_def_cfa_offset 5
+ 652               		.cfi_offset 14, -4
+ 653 0006 FF92      		push r15
+ 654               	.LCFI16:
+ 655               		.cfi_def_cfa_offset 6
+ 656               		.cfi_offset 15, -5
+ 657               	/* prologue: function */
+ 658               	/* frame size = 0 */
+ 659               	/* stack size = 4 */
+ 660               	.L__stack_usage = 4
+ 661 0008 6B01      		movw r12,r22
+ 662 000a 7C01      		movw r14,r24
+ 184:quantum/process_keycode/process_unicode_common.c ****     if (code_point > 0x10FFFF || (code_point > 0xFFFF && unicode_config.input_mode == UC_WIN)) {
+ 663               		.loc 1 184 5 is_stmt 1 view .LVU149
+ 664               		.loc 1 184 8 is_stmt 0 view .LVU150
+ 665 000c C114      		cp r12,__zero_reg__
+ 666 000e D104      		cpc r13,__zero_reg__
+ 667 0010 81E1      		ldi r24,17
+ 668 0012 E806      		cpc r14,r24
+ 669 0014 F104      		cpc r15,__zero_reg__
+ 670 0016 00F4      		brsh .L58
+ 671               		.loc 1 184 31 discriminator 1 view .LVU151
+ 672 0018 C114      		cp r12,__zero_reg__
+ 673 001a D104      		cpc r13,__zero_reg__
+ 674 001c 81E0      		ldi r24,1
+ 675 001e E806      		cpc r14,r24
+ 676 0020 F104      		cpc r15,__zero_reg__
+ 677 0022 00F0      		brlo .L60
+ 678               		.loc 1 184 55 discriminator 2 view .LVU152
+ 679 0024 8091 0000 		lds r24,unicode_config
+ 680 0028 8230      		cpi r24,lo8(2)
+ 681 002a 01F0      		breq .L58
+ 682               	.L60:
+ 185:quantum/process_keycode/process_unicode_common.c ****         // Code point out of range, do nothing
+ 186:quantum/process_keycode/process_unicode_common.c ****         return;
+ 187:quantum/process_keycode/process_unicode_common.c ****     }
+ 188:quantum/process_keycode/process_unicode_common.c **** 
+ 189:quantum/process_keycode/process_unicode_common.c ****     unicode_input_start();
+ 683               		.loc 1 189 5 is_stmt 1 view .LVU153
+ 684 002c 0E94 0000 		call unicode_input_start
+ 685               	.LVL46:
+ 190:quantum/process_keycode/process_unicode_common.c ****     if (code_point > 0xFFFF && unicode_config.input_mode == UC_MAC) {
+ 686               		.loc 1 190 5 view .LVU154
+ 687               		.loc 1 190 8 is_stmt 0 view .LVU155
+ 688 0030 C114      		cp r12,__zero_reg__
+ 689 0032 D104      		cpc r13,__zero_reg__
+ 690 0034 81E0      		ldi r24,1
+ 691 0036 E806      		cpc r14,r24
+ 692 0038 F104      		cpc r15,__zero_reg__
+ 693 003a 00F0      		brlo .L61
+ 694               		.loc 1 190 29 discriminator 1 view .LVU156
+ 695 003c 8091 0000 		lds r24,unicode_config
+ 696 0040 8111      		cpse r24,__zero_reg__
+ 697 0042 00C0      		rjmp .L61
+ 698               	.LBB15:
+ 191:quantum/process_keycode/process_unicode_common.c ****         // Convert code point to UTF-16 surrogate pair on macOS
+ 192:quantum/process_keycode/process_unicode_common.c ****         code_point -= 0x10000;
+ 699               		.loc 1 192 9 is_stmt 1 view .LVU157
+ 700               		.loc 1 192 20 is_stmt 0 view .LVU158
+ 701 0044 81E0      		ldi r24,1
+ 702 0046 E81A      		sub r14,r24
+ 703 0048 F108      		sbc r15,__zero_reg__
+ 704               	.LVL47:
+ 193:quantum/process_keycode/process_unicode_common.c ****         uint32_t lo = code_point & 0x3FF, hi = (code_point & 0xFFC00) >> 10;
+ 705               		.loc 1 193 9 is_stmt 1 view .LVU159
+ 194:quantum/process_keycode/process_unicode_common.c ****         register_hex32(hi + 0xD800);
+ 706               		.loc 1 194 9 view .LVU160
+ 193:quantum/process_keycode/process_unicode_common.c ****         uint32_t lo = code_point & 0x3FF, hi = (code_point & 0xFFC00) >> 10;
+ 707               		.loc 1 193 71 is_stmt 0 view .LVU161
+ 708 004a C701      		movw r24,r14
+ 709 004c B601      		movw r22,r12
+ 710 004e 2AE0      		ldi r18,10
+ 711               		1:
+ 712 0050 9695      		lsr r25
+ 713 0052 8795      		ror r24
+ 714 0054 7795      		ror r23
+ 715 0056 6795      		ror r22
+ 716 0058 2A95      		dec r18
+ 717 005a 01F4      		brne 1b
+ 718               		.loc 1 194 9 view .LVU162
+ 719 005c 7852      		subi r23,40
+ 720 005e 8F4F      		sbci r24,-1
+ 721 0060 9F4F      		sbci r25,-1
+ 722 0062 0E94 0000 		call register_hex32
+ 723               	.LVL48:
+ 195:quantum/process_keycode/process_unicode_common.c ****         register_hex32(lo + 0xDC00);
+ 724               		.loc 1 195 9 is_stmt 1 view .LVU163
+ 193:quantum/process_keycode/process_unicode_common.c ****         uint32_t lo = code_point & 0x3FF, hi = (code_point & 0xFFC00) >> 10;
+ 725               		.loc 1 193 18 is_stmt 0 view .LVU164
+ 726 0066 83E0      		ldi r24,3
+ 727 0068 D822      		and r13,r24
+ 728 006a EE24      		clr r14
+ 729 006c FF24      		clr r15
+ 730               	.LVL49:
+ 731               		.loc 1 195 9 view .LVU165
+ 732 006e C701      		movw r24,r14
+ 733 0070 B601      		movw r22,r12
+ 734 0072 7452      		subi r23,36
+ 735 0074 8F4F      		sbci r24,-1
+ 736 0076 9F4F      		sbci r25,-1
+ 737               	.LVL50:
+ 738               	.L66:
+ 739               		.loc 1 195 9 view .LVU166
+ 740               	.LBE15:
+ 196:quantum/process_keycode/process_unicode_common.c ****     } else {
+ 197:quantum/process_keycode/process_unicode_common.c ****         register_hex32(code_point);
+ 741               		.loc 1 197 9 view .LVU167
+ 742 0078 0E94 0000 		call register_hex32
+ 743               	.LVL51:
+ 198:quantum/process_keycode/process_unicode_common.c ****     }
+ 199:quantum/process_keycode/process_unicode_common.c ****     unicode_input_finish();
+ 744               		.loc 1 199 5 is_stmt 1 view .LVU168
+ 745               	/* epilogue start */
+ 200:quantum/process_keycode/process_unicode_common.c **** }
+ 746               		.loc 1 200 1 is_stmt 0 view .LVU169
+ 747 007c FF90      		pop r15
+ 748 007e EF90      		pop r14
+ 749 0080 DF90      		pop r13
+ 750 0082 CF90      		pop r12
+ 199:quantum/process_keycode/process_unicode_common.c **** }
+ 751               		.loc 1 199 5 view .LVU170
+ 752 0084 0C94 0000 		jmp unicode_input_finish
+ 753               	.LVL52:
+ 754               	.L61:
+ 197:quantum/process_keycode/process_unicode_common.c ****     }
+ 755               		.loc 1 197 9 is_stmt 1 view .LVU171
+ 756 0088 C701      		movw r24,r14
+ 757 008a B601      		movw r22,r12
+ 758 008c 00C0      		rjmp .L66
+ 759               	.LVL53:
+ 760               	.L58:
+ 761               	/* epilogue start */
+ 762               		.loc 1 200 1 is_stmt 0 view .LVU172
+ 763 008e FF90      		pop r15
+ 764 0090 EF90      		pop r14
+ 765 0092 DF90      		pop r13
+ 766 0094 CF90      		pop r12
+ 767 0096 0895      		ret
+ 768               		.cfi_endproc
+ 769               	.LFE127:
+ 771               		.section	.rodata.send_unicode_hex_string.str1.1,"aMS",@progbits,1
+ 772               	.LC0:
+ 773 0000 2000      		.string	" "
+ 774               		.section	.text.send_unicode_hex_string,"ax",@progbits
+ 775               	.global	send_unicode_hex_string
+ 777               	send_unicode_hex_string:
+ 778               	.LVL54:
+ 779               	.LFB128:
+ 201:quantum/process_keycode/process_unicode_common.c **** 
+ 202:quantum/process_keycode/process_unicode_common.c **** // clang-format off
+ 203:quantum/process_keycode/process_unicode_common.c **** 
+ 204:quantum/process_keycode/process_unicode_common.c **** void send_unicode_hex_string(const char *str) {
+ 780               		.loc 1 204 47 is_stmt 1 view -0
+ 781               		.cfi_startproc
+ 782               		.loc 1 204 47 is_stmt 0 view .LVU174
+ 783 0000 6F92      		push r6
+ 784               	.LCFI17:
+ 785               		.cfi_def_cfa_offset 3
+ 786               		.cfi_offset 6, -2
+ 787 0002 7F92      		push r7
+ 788               	.LCFI18:
+ 789               		.cfi_def_cfa_offset 4
+ 790               		.cfi_offset 7, -3
+ 791 0004 8F92      		push r8
+ 792               	.LCFI19:
+ 793               		.cfi_def_cfa_offset 5
+ 794               		.cfi_offset 8, -4
+ 795 0006 9F92      		push r9
+ 796               	.LCFI20:
+ 797               		.cfi_def_cfa_offset 6
+ 798               		.cfi_offset 9, -5
+ 799 0008 AF92      		push r10
+ 800               	.LCFI21:
+ 801               		.cfi_def_cfa_offset 7
+ 802               		.cfi_offset 10, -6
+ 803 000a BF92      		push r11
+ 804               	.LCFI22:
+ 805               		.cfi_def_cfa_offset 8
+ 806               		.cfi_offset 11, -7
+ 807 000c CF92      		push r12
+ 808               	.LCFI23:
+ 809               		.cfi_def_cfa_offset 9
+ 810               		.cfi_offset 12, -8
+ 811 000e DF92      		push r13
+ 812               	.LCFI24:
+ 813               		.cfi_def_cfa_offset 10
+ 814               		.cfi_offset 13, -9
+ 815 0010 EF92      		push r14
+ 816               	.LCFI25:
+ 817               		.cfi_def_cfa_offset 11
+ 818               		.cfi_offset 14, -10
+ 819 0012 FF92      		push r15
+ 820               	.LCFI26:
+ 821               		.cfi_def_cfa_offset 12
+ 822               		.cfi_offset 15, -11
+ 823 0014 0F93      		push r16
+ 824               	.LCFI27:
+ 825               		.cfi_def_cfa_offset 13
+ 826               		.cfi_offset 16, -12
+ 827 0016 1F93      		push r17
+ 828               	.LCFI28:
+ 829               		.cfi_def_cfa_offset 14
+ 830               		.cfi_offset 17, -13
+ 831 0018 CF93      		push r28
+ 832               	.LCFI29:
+ 833               		.cfi_def_cfa_offset 15
+ 834               		.cfi_offset 28, -14
+ 835 001a DF93      		push r29
+ 836               	.LCFI30:
+ 837               		.cfi_def_cfa_offset 16
+ 838               		.cfi_offset 29, -15
+ 839 001c CDB7      		in r28,__SP_L__
+ 840 001e DEB7      		in r29,__SP_H__
+ 841               	.LCFI31:
+ 842               		.cfi_def_cfa_register 28
+ 843               	/* prologue: function */
+ 844               	/* frame size = 0 */
+ 845               	/* stack size = 14 */
+ 846               	.L__stack_usage = 14
+ 205:quantum/process_keycode/process_unicode_common.c ****     if (!str) {
+ 206:quantum/process_keycode/process_unicode_common.c ****         return;
+ 207:quantum/process_keycode/process_unicode_common.c ****     }
+ 208:quantum/process_keycode/process_unicode_common.c **** 
+ 209:quantum/process_keycode/process_unicode_common.c ****     while (*str) {
+ 210:quantum/process_keycode/process_unicode_common.c ****         // Find the next code point (token) in the string
+ 211:quantum/process_keycode/process_unicode_common.c ****         for (; *str == ' '; str++);    // Skip leading spaces
+ 212:quantum/process_keycode/process_unicode_common.c ****         size_t n = strcspn(str, " ");  // Length of the current token
+ 213:quantum/process_keycode/process_unicode_common.c ****         char code_point[n+1];
+ 214:quantum/process_keycode/process_unicode_common.c ****         strncpy(code_point, str, n);   // Copy token into buffer
+ 215:quantum/process_keycode/process_unicode_common.c ****         code_point[n] = '\0';          // Make sure it's null-terminated
+ 216:quantum/process_keycode/process_unicode_common.c **** 
+ 217:quantum/process_keycode/process_unicode_common.c ****         // Normalize the code point: make all hex digits lowercase
+ 218:quantum/process_keycode/process_unicode_common.c ****         for (char *p = code_point; *p; p++) {
+ 219:quantum/process_keycode/process_unicode_common.c ****             *p = tolower((unsigned char)*p);
+ 220:quantum/process_keycode/process_unicode_common.c ****         }
+ 221:quantum/process_keycode/process_unicode_common.c **** 
+ 222:quantum/process_keycode/process_unicode_common.c ****         // Send the code point as a Unicode input string
+ 223:quantum/process_keycode/process_unicode_common.c ****         unicode_input_start();
+ 224:quantum/process_keycode/process_unicode_common.c ****         send_string(code_point);
+ 225:quantum/process_keycode/process_unicode_common.c ****         unicode_input_finish();
+ 226:quantum/process_keycode/process_unicode_common.c **** 
+ 227:quantum/process_keycode/process_unicode_common.c ****         str += n;  // Move to the first ' ' (or '\0') after the current token
+ 228:quantum/process_keycode/process_unicode_common.c ****     }
+ 229:quantum/process_keycode/process_unicode_common.c **** }
+ 847               		.loc 1 229 1 view .LVU175
+ 848 0020 6DB6      		in r6,__SP_L__
+ 849 0022 7EB6      		in r7,__SP_H__
+ 205:quantum/process_keycode/process_unicode_common.c ****     if (!str) {
+ 850               		.loc 1 205 5 is_stmt 1 view .LVU176
+ 205:quantum/process_keycode/process_unicode_common.c ****     if (!str) {
+ 851               		.loc 1 205 8 is_stmt 0 view .LVU177
+ 852 0024 0097      		sbiw r24,0
+ 853 0026 01F0      		breq .+2
+ 854 0028 00C0      		rjmp .L69
+ 855               	.L67:
+ 856               		.loc 1 229 1 view .LVU178
+ 857 002a 0FB6      		in __tmp_reg__,__SREG__
+ 858 002c F894      		cli
+ 859 002e 7EBE      		out __SP_H__,r7
+ 860 0030 0FBE      		out __SREG__,__tmp_reg__
+ 861 0032 6DBE      		out __SP_L__,r6
+ 862               	/* epilogue start */
+ 863 0034 DF91      		pop r29
+ 864 0036 CF91      		pop r28
+ 865 0038 1F91      		pop r17
+ 866 003a 0F91      		pop r16
+ 867 003c FF90      		pop r15
+ 868 003e EF90      		pop r14
+ 869 0040 DF90      		pop r13
+ 870 0042 CF90      		pop r12
+ 871 0044 BF90      		pop r11
+ 872 0046 AF90      		pop r10
+ 873 0048 9F90      		pop r9
+ 874 004a 8F90      		pop r8
+ 875 004c 7F90      		pop r7
+ 876 004e 6F90      		pop r6
+ 877 0050 0895      		ret
+ 878               	.LVL55:
+ 879               	.L70:
+ 880               		.loc 1 229 1 view .LVU179
+ 881 0052 7F01      		movw r14,r30
+ 882               	.LVL56:
+ 883               	.LBB16:
+ 211:quantum/process_keycode/process_unicode_common.c ****         size_t n = strcspn(str, " ");  // Length of the current token
+ 884               		.loc 1 211 16 is_stmt 1 discriminator 1 view .LVU180
+ 211:quantum/process_keycode/process_unicode_common.c ****         size_t n = strcspn(str, " ");  // Length of the current token
+ 885               		.loc 1 211 9 is_stmt 0 discriminator 1 view .LVU181
+ 886 0054 8191      		ld r24,Z+
+ 887 0056 8032      		cpi r24,lo8(32)
+ 888 0058 01F0      		breq .L70
+ 212:quantum/process_keycode/process_unicode_common.c ****         char code_point[n+1];
+ 889               		.loc 1 212 9 is_stmt 1 view .LVU182
+ 212:quantum/process_keycode/process_unicode_common.c ****         char code_point[n+1];
+ 890               		.loc 1 212 20 is_stmt 0 view .LVU183
+ 891 005a 60E0      		ldi r22,lo8(.LC0)
+ 892 005c 70E0      		ldi r23,hi8(.LC0)
+ 893 005e C701      		movw r24,r14
+ 894 0060 0E94 0000 		call strcspn
+ 895               	.LVL57:
+ 896 0064 8C01      		movw r16,r24
+ 897               	.LVL58:
+ 213:quantum/process_keycode/process_unicode_common.c ****         strncpy(code_point, str, n);   // Copy token into buffer
+ 898               		.loc 1 213 9 is_stmt 1 view .LVU184
+ 899 0066 8DB6      		in r8,__SP_L__
+ 900 0068 9EB6      		in r9,__SP_H__
+ 901               	.LVL59:
+ 213:quantum/process_keycode/process_unicode_common.c ****         strncpy(code_point, str, n);   // Copy token into buffer
+ 902               		.loc 1 213 26 is_stmt 0 view .LVU185
+ 903 006a 0196      		adiw r24,1
+ 213:quantum/process_keycode/process_unicode_common.c ****         strncpy(code_point, str, n);   // Copy token into buffer
+ 904               		.loc 1 213 14 view .LVU186
+ 905 006c 2DB7      		in r18,__SP_L__
+ 906 006e 3EB7      		in r19,__SP_H__
+ 907 0070 281B      		sub r18,r24
+ 908 0072 390B      		sbc r19,r25
+ 909 0074 0FB6      		in __tmp_reg__,__SREG__
+ 910 0076 F894      		cli
+ 911 0078 3EBF      		out __SP_H__,r19
+ 912 007a 0FBE      		out __SREG__,__tmp_reg__
+ 913 007c 2DBF      		out __SP_L__,r18
+ 914 007e 8DB7      		in r24,__SP_L__
+ 915 0080 9EB7      		in r25,__SP_H__
+ 916 0082 0196      		adiw r24,1
+ 917 0084 6C01      		movw r12,r24
+ 918               	.LVL60:
+ 214:quantum/process_keycode/process_unicode_common.c ****         code_point[n] = '\0';          // Make sure it's null-terminated
+ 919               		.loc 1 214 9 is_stmt 1 view .LVU187
+ 920 0086 A801      		movw r20,r16
+ 921 0088 B701      		movw r22,r14
+ 922 008a 0E94 0000 		call strncpy
+ 923               	.LVL61:
+ 215:quantum/process_keycode/process_unicode_common.c **** 
+ 924               		.loc 1 215 9 view .LVU188
+ 215:quantum/process_keycode/process_unicode_common.c **** 
+ 925               		.loc 1 215 23 is_stmt 0 view .LVU189
+ 926 008e F601      		movw r30,r12
+ 927 0090 E00F      		add r30,r16
+ 928 0092 F11F      		adc r31,r17
+ 929 0094 1082      		st Z,__zero_reg__
+ 218:quantum/process_keycode/process_unicode_common.c ****             *p = tolower((unsigned char)*p);
+ 930               		.loc 1 218 9 is_stmt 1 view .LVU190
+ 931               	.LBB17:
+ 218:quantum/process_keycode/process_unicode_common.c ****             *p = tolower((unsigned char)*p);
+ 932               		.loc 1 218 14 view .LVU191
+ 933               	.LVL62:
+ 218:quantum/process_keycode/process_unicode_common.c ****             *p = tolower((unsigned char)*p);
+ 934               		.loc 1 218 14 is_stmt 0 view .LVU192
+ 935 0096 5601      		movw r10,r12
+ 936               	.LVL63:
+ 937               	.L71:
+ 218:quantum/process_keycode/process_unicode_common.c ****             *p = tolower((unsigned char)*p);
+ 938               		.loc 1 218 36 is_stmt 1 discriminator 1 view .LVU193
+ 939 0098 F501      		movw r30,r10
+ 940 009a 8191      		ld r24,Z+
+ 941 009c 5F01      		movw r10,r30
+ 942               	.LVL64:
+ 218:quantum/process_keycode/process_unicode_common.c ****             *p = tolower((unsigned char)*p);
+ 943               		.loc 1 218 9 is_stmt 0 discriminator 1 view .LVU194
+ 944 009e 8111      		cpse r24,__zero_reg__
+ 945 00a0 00C0      		rjmp .L72
+ 946               	.LBE17:
+ 223:quantum/process_keycode/process_unicode_common.c ****         send_string(code_point);
+ 947               		.loc 1 223 9 is_stmt 1 view .LVU195
+ 948 00a2 0E94 0000 		call unicode_input_start
+ 949               	.LVL65:
+ 224:quantum/process_keycode/process_unicode_common.c ****         unicode_input_finish();
+ 950               		.loc 1 224 9 view .LVU196
+ 951 00a6 C601      		movw r24,r12
+ 952 00a8 0E94 0000 		call send_string
+ 953               	.LVL66:
+ 225:quantum/process_keycode/process_unicode_common.c **** 
+ 954               		.loc 1 225 9 view .LVU197
+ 955 00ac 0E94 0000 		call unicode_input_finish
+ 956               	.LVL67:
+ 227:quantum/process_keycode/process_unicode_common.c ****     }
+ 957               		.loc 1 227 9 view .LVU198
+ 227:quantum/process_keycode/process_unicode_common.c ****     }
+ 958               		.loc 1 227 13 is_stmt 0 view .LVU199
+ 959 00b0 C701      		movw r24,r14
+ 960 00b2 800F      		add r24,r16
+ 961 00b4 911F      		adc r25,r17
+ 962               	.LVL68:
+ 227:quantum/process_keycode/process_unicode_common.c ****     }
+ 963               		.loc 1 227 13 view .LVU200
+ 964 00b6 0FB6      		in __tmp_reg__,__SREG__
+ 965 00b8 F894      		cli
+ 966 00ba 9EBE      		out __SP_H__,r9
+ 967 00bc 0FBE      		out __SREG__,__tmp_reg__
+ 968 00be 8DBE      		out __SP_L__,r8
+ 969               	.LVL69:
+ 970               	.L69:
+ 227:quantum/process_keycode/process_unicode_common.c ****     }
+ 971               		.loc 1 227 13 view .LVU201
+ 972               	.LBE16:
+ 209:quantum/process_keycode/process_unicode_common.c ****         // Find the next code point (token) in the string
+ 973               		.loc 1 209 11 is_stmt 1 view .LVU202
+ 974 00c0 FC01      		movw r30,r24
+ 975 00c2 2081      		ld r18,Z
+ 976 00c4 2111      		cpse r18,__zero_reg__
+ 977 00c6 00C0      		rjmp .L70
+ 209:quantum/process_keycode/process_unicode_common.c ****         // Find the next code point (token) in the string
+ 978               		.loc 1 209 11 is_stmt 0 view .LVU203
+ 979 00c8 00C0      		rjmp .L67
+ 980               	.LVL70:
+ 981               	.L72:
+ 982               	.LBB19:
+ 983               	.LBB18:
+ 219:quantum/process_keycode/process_unicode_common.c ****         }
+ 984               		.loc 1 219 13 is_stmt 1 discriminator 3 view .LVU204
+ 219:quantum/process_keycode/process_unicode_common.c ****         }
+ 985               		.loc 1 219 18 is_stmt 0 discriminator 3 view .LVU205
+ 986 00ca 90E0      		ldi r25,0
+ 987 00cc 0E94 0000 		call tolower
+ 988               	.LVL71:
+ 219:quantum/process_keycode/process_unicode_common.c ****         }
+ 989               		.loc 1 219 16 discriminator 3 view .LVU206
+ 990 00d0 F501      		movw r30,r10
+ 991 00d2 3197      		sbiw r30,1
+ 992 00d4 8083      		st Z,r24
+ 218:quantum/process_keycode/process_unicode_common.c ****             *p = tolower((unsigned char)*p);
+ 993               		.loc 1 218 40 is_stmt 1 discriminator 3 view .LVU207
+ 994               	.LVL72:
+ 218:quantum/process_keycode/process_unicode_common.c ****             *p = tolower((unsigned char)*p);
+ 995               		.loc 1 218 40 is_stmt 0 discriminator 3 view .LVU208
+ 996 00d6 00C0      		rjmp .L71
+ 997               	.LBE18:
+ 998               	.LBE19:
+ 999               		.cfi_endproc
+ 1000               	.LFE128:
+ 1002               		.section	.text.send_unicode_string,"ax",@progbits
+ 1003               	.global	send_unicode_string
+ 1005               	send_unicode_string:
+ 1006               	.LVL73:
+ 1007               	.LFB130:
+ 230:quantum/process_keycode/process_unicode_common.c **** 
+ 231:quantum/process_keycode/process_unicode_common.c **** // clang-format on
+ 232:quantum/process_keycode/process_unicode_common.c **** 
+ 233:quantum/process_keycode/process_unicode_common.c **** // Borrowed from https://nullprogram.com/blog/2017/10/06/
+ 234:quantum/process_keycode/process_unicode_common.c **** static const char *decode_utf8(const char *str, int32_t *code_point) {
+ 235:quantum/process_keycode/process_unicode_common.c ****     const char *next;
+ 236:quantum/process_keycode/process_unicode_common.c **** 
+ 237:quantum/process_keycode/process_unicode_common.c ****     if (str[0] < 0x80) {  // U+0000-007F
+ 238:quantum/process_keycode/process_unicode_common.c ****         *code_point = str[0];
+ 239:quantum/process_keycode/process_unicode_common.c ****         next        = str + 1;
+ 240:quantum/process_keycode/process_unicode_common.c ****     } else if ((str[0] & 0xE0) == 0xC0) {  // U+0080-07FF
+ 241:quantum/process_keycode/process_unicode_common.c ****         *code_point = ((int32_t)(str[0] & 0x1F) << 6) | ((int32_t)(str[1] & 0x3F) << 0);
+ 242:quantum/process_keycode/process_unicode_common.c ****         next        = str + 2;
+ 243:quantum/process_keycode/process_unicode_common.c ****     } else if ((str[0] & 0xF0) == 0xE0) {  // U+0800-FFFF
+ 244:quantum/process_keycode/process_unicode_common.c ****         *code_point = ((int32_t)(str[0] & 0x0F) << 12) | ((int32_t)(str[1] & 0x3F) << 6) | ((int32_
+ 245:quantum/process_keycode/process_unicode_common.c ****         next        = str + 3;
+ 246:quantum/process_keycode/process_unicode_common.c ****     } else if ((str[0] & 0xF8) == 0xF0 && (str[0] <= 0xF4)) {  // U+10000-10FFFF
+ 247:quantum/process_keycode/process_unicode_common.c ****         *code_point = ((int32_t)(str[0] & 0x07) << 18) | ((int32_t)(str[1] & 0x3F) << 12) | ((int32
+ 248:quantum/process_keycode/process_unicode_common.c ****         next        = str + 4;
+ 249:quantum/process_keycode/process_unicode_common.c ****     } else {
+ 250:quantum/process_keycode/process_unicode_common.c ****         *code_point = -1;
+ 251:quantum/process_keycode/process_unicode_common.c ****         next        = str + 1;
+ 252:quantum/process_keycode/process_unicode_common.c ****     }
+ 253:quantum/process_keycode/process_unicode_common.c **** 
+ 254:quantum/process_keycode/process_unicode_common.c ****     // part of a UTF-16 surrogate pair - invalid
+ 255:quantum/process_keycode/process_unicode_common.c ****     if (*code_point >= 0xD800 && *code_point <= 0xDFFF) {
+ 256:quantum/process_keycode/process_unicode_common.c ****         *code_point = -1;
+ 257:quantum/process_keycode/process_unicode_common.c ****     }
+ 258:quantum/process_keycode/process_unicode_common.c **** 
+ 259:quantum/process_keycode/process_unicode_common.c ****     return next;
+ 260:quantum/process_keycode/process_unicode_common.c **** }
+ 261:quantum/process_keycode/process_unicode_common.c **** 
+ 262:quantum/process_keycode/process_unicode_common.c **** void send_unicode_string(const char *str) {
+ 1008               		.loc 1 262 43 is_stmt 1 view -0
+ 1009               		.cfi_startproc
+ 1010               		.loc 1 262 43 is_stmt 0 view .LVU210
+ 1011 0000 0F93      		push r16
+ 1012               	.LCFI32:
+ 1013               		.cfi_def_cfa_offset 3
+ 1014               		.cfi_offset 16, -2
+ 1015 0002 1F93      		push r17
+ 1016               	.LCFI33:
+ 1017               		.cfi_def_cfa_offset 4
+ 1018               		.cfi_offset 17, -3
+ 1019 0004 CF93      		push r28
+ 1020               	.LCFI34:
+ 1021               		.cfi_def_cfa_offset 5
+ 1022               		.cfi_offset 28, -4
+ 1023 0006 DF93      		push r29
+ 1024               	.LCFI35:
+ 1025               		.cfi_def_cfa_offset 6
+ 1026               		.cfi_offset 29, -5
+ 1027               	/* prologue: function */
+ 1028               	/* frame size = 0 */
+ 1029               	/* stack size = 4 */
+ 1030               	.L__stack_usage = 4
+ 1031 0008 EC01      		movw r28,r24
+ 263:quantum/process_keycode/process_unicode_common.c ****     if (!str) {
+ 1032               		.loc 1 263 5 is_stmt 1 view .LVU211
+ 1033               		.loc 1 263 8 is_stmt 0 view .LVU212
+ 1034 000a 892B      		or r24,r25
+ 1035 000c 01F4      		brne .L82
+ 1036               	.LVL74:
+ 1037               	.L81:
+ 1038               	/* epilogue start */
+ 264:quantum/process_keycode/process_unicode_common.c ****         return;
+ 265:quantum/process_keycode/process_unicode_common.c ****     }
+ 266:quantum/process_keycode/process_unicode_common.c **** 
+ 267:quantum/process_keycode/process_unicode_common.c ****     while (*str) {
+ 268:quantum/process_keycode/process_unicode_common.c ****         int32_t code_point = 0;
+ 269:quantum/process_keycode/process_unicode_common.c ****         str                = decode_utf8(str, &code_point);
+ 270:quantum/process_keycode/process_unicode_common.c **** 
+ 271:quantum/process_keycode/process_unicode_common.c ****         if (code_point >= 0) {
+ 272:quantum/process_keycode/process_unicode_common.c ****             register_unicode(code_point);
+ 273:quantum/process_keycode/process_unicode_common.c ****         }
+ 274:quantum/process_keycode/process_unicode_common.c ****     }
+ 275:quantum/process_keycode/process_unicode_common.c **** }
+ 1039               		.loc 1 275 1 view .LVU213
+ 1040 000e DF91      		pop r29
+ 1041 0010 CF91      		pop r28
+ 1042               	.LVL75:
+ 1043               		.loc 1 275 1 view .LVU214
+ 1044 0012 1F91      		pop r17
+ 1045 0014 0F91      		pop r16
+ 1046 0016 0895      		ret
+ 1047               	.LVL76:
+ 1048               	.L89:
+ 1049               	.LBB23:
+ 268:quantum/process_keycode/process_unicode_common.c ****         str                = decode_utf8(str, &code_point);
+ 1050               		.loc 1 268 9 is_stmt 1 view .LVU215
+ 269:quantum/process_keycode/process_unicode_common.c **** 
+ 1051               		.loc 1 269 9 view .LVU216
+ 1052               	.LBB24:
+ 1053               	.LBI24:
+ 234:quantum/process_keycode/process_unicode_common.c ****     const char *next;
+ 1054               		.loc 1 234 20 view .LVU217
+ 1055               	.LBB25:
+ 235:quantum/process_keycode/process_unicode_common.c **** 
+ 1056               		.loc 1 235 5 view .LVU218
+ 237:quantum/process_keycode/process_unicode_common.c ****         *code_point = str[0];
+ 1057               		.loc 1 237 5 view .LVU219
+ 237:quantum/process_keycode/process_unicode_common.c ****         *code_point = str[0];
+ 1058               		.loc 1 237 8 is_stmt 0 view .LVU220
+ 1059 0018 07FD      		sbrc r16,7
+ 1060 001a 00C0      		rjmp .L83
+ 238:quantum/process_keycode/process_unicode_common.c ****         next        = str + 1;
+ 1061               		.loc 1 238 9 is_stmt 1 view .LVU221
+ 238:quantum/process_keycode/process_unicode_common.c ****         next        = str + 1;
+ 1062               		.loc 1 238 26 is_stmt 0 view .LVU222
+ 1063 001c 602F      		mov r22,r16
+ 1064 001e 70E0      		ldi r23,0
+ 1065 0020 90E0      		ldi r25,0
+ 1066 0022 80E0      		ldi r24,0
+ 1067               	.LVL77:
+ 239:quantum/process_keycode/process_unicode_common.c ****     } else if ((str[0] & 0xE0) == 0xC0) {  // U+0080-07FF
+ 1068               		.loc 1 239 9 is_stmt 1 view .LVU223
+ 239:quantum/process_keycode/process_unicode_common.c ****     } else if ((str[0] & 0xE0) == 0xC0) {  // U+0080-07FF
+ 1069               		.loc 1 239 21 is_stmt 0 view .LVU224
+ 1070 0024 2196      		adiw r28,1
+ 1071               	.LVL78:
+ 1072               	.L84:
+ 255:quantum/process_keycode/process_unicode_common.c ****         *code_point = -1;
+ 1073               		.loc 1 255 5 is_stmt 1 view .LVU225
+ 255:quantum/process_keycode/process_unicode_common.c ****         *code_point = -1;
+ 1074               		.loc 1 255 31 is_stmt 0 view .LVU226
+ 1075 0026 8B01      		movw r16,r22
+ 1076 0028 9C01      		movw r18,r24
+ 1077 002a 185D      		subi r17,-40
+ 1078 002c 2109      		sbc r18,__zero_reg__
+ 1079 002e 3109      		sbc r19,__zero_reg__
+ 255:quantum/process_keycode/process_unicode_common.c ****         *code_point = -1;
+ 1080               		.loc 1 255 8 view .LVU227
+ 1081 0030 0115      		cp r16,__zero_reg__
+ 1082 0032 1840      		sbci r17,8
+ 1083 0034 2105      		cpc r18,__zero_reg__
+ 1084 0036 3105      		cpc r19,__zero_reg__
+ 1085 0038 00F0      		brlo .L82
+ 259:quantum/process_keycode/process_unicode_common.c **** }
+ 1086               		.loc 1 259 5 is_stmt 1 view .LVU228
+ 1087               	.LVL79:
+ 259:quantum/process_keycode/process_unicode_common.c **** }
+ 1088               		.loc 1 259 5 is_stmt 0 view .LVU229
+ 1089               	.LBE25:
+ 1090               	.LBE24:
+ 271:quantum/process_keycode/process_unicode_common.c ****             register_unicode(code_point);
+ 1091               		.loc 1 271 9 is_stmt 1 view .LVU230
+ 271:quantum/process_keycode/process_unicode_common.c ****             register_unicode(code_point);
+ 1092               		.loc 1 271 12 is_stmt 0 view .LVU231
+ 1093 003a 6F3F      		cpi r22,-1
+ 1094 003c 2FEF      		ldi r18,-1
+ 1095 003e 7207      		cpc r23,r18
+ 1096 0040 8207      		cpc r24,r18
+ 1097 0042 9207      		cpc r25,r18
+ 1098 0044 01F0      		breq .L82
+ 272:quantum/process_keycode/process_unicode_common.c ****         }
+ 1099               		.loc 1 272 13 is_stmt 1 view .LVU232
+ 1100 0046 0E94 0000 		call register_unicode
+ 1101               	.LVL80:
+ 1102               	.L82:
+ 272:quantum/process_keycode/process_unicode_common.c ****         }
+ 1103               		.loc 1 272 13 is_stmt 0 view .LVU233
+ 1104               	.LBE23:
+ 267:quantum/process_keycode/process_unicode_common.c ****         int32_t code_point = 0;
+ 1105               		.loc 1 267 11 is_stmt 1 view .LVU234
+ 267:quantum/process_keycode/process_unicode_common.c ****         int32_t code_point = 0;
+ 1106               		.loc 1 267 12 is_stmt 0 view .LVU235
+ 1107 004a 0881      		ld r16,Y
+ 267:quantum/process_keycode/process_unicode_common.c ****         int32_t code_point = 0;
+ 1108               		.loc 1 267 11 view .LVU236
+ 1109 004c 0111      		cpse r16,__zero_reg__
+ 1110 004e 00C0      		rjmp .L89
+ 1111 0050 00C0      		rjmp .L81
+ 1112               	.LVL81:
+ 1113               	.L83:
+ 1114               	.LBB28:
+ 1115               	.LBB27:
+ 1116               	.LBB26:
+ 240:quantum/process_keycode/process_unicode_common.c ****         *code_point = ((int32_t)(str[0] & 0x1F) << 6) | ((int32_t)(str[1] & 0x3F) << 0);
+ 1117               		.loc 1 240 12 is_stmt 1 view .LVU237
+ 240:quantum/process_keycode/process_unicode_common.c ****         *code_point = ((int32_t)(str[0] & 0x1F) << 6) | ((int32_t)(str[1] & 0x3F) << 0);
+ 1118               		.loc 1 240 15 is_stmt 0 view .LVU238
+ 1119 0052 802F      		mov r24,r16
+ 1120 0054 807E      		andi r24,lo8(-32)
+ 1121 0056 803C      		cpi r24,lo8(-64)
+ 1122 0058 01F4      		brne .L85
+ 241:quantum/process_keycode/process_unicode_common.c ****         next        = str + 2;
+ 1123               		.loc 1 241 9 is_stmt 1 view .LVU239
+ 241:quantum/process_keycode/process_unicode_common.c ****         next        = str + 2;
+ 1124               		.loc 1 241 41 is_stmt 0 view .LVU240
+ 1125 005a 10E0      		ldi r17,0
+ 1126 005c 30E0      		ldi r19,0
+ 1127 005e 20E0      		ldi r18,0
+ 241:quantum/process_keycode/process_unicode_common.c ****         next        = str + 2;
+ 1128               		.loc 1 241 49 view .LVU241
+ 1129 0060 C901      		movw r24,r18
+ 1130 0062 B801      		movw r22,r16
+ 1131 0064 A6E0      		ldi r26,6
+ 1132               		1:
+ 1133 0066 660F      		lsl r22
+ 1134 0068 771F      		rol r23
+ 1135 006a 881F      		rol r24
+ 1136 006c 991F      		rol r25
+ 1137 006e AA95      		dec r26
+ 1138 0070 01F4      		brne 1b
+ 1139 0072 607C      		andi r22,192
+ 1140 0074 7770      		andi r23,7
+ 1141 0076 8827      		clr r24
+ 1142 0078 9927      		clr r25
+ 241:quantum/process_keycode/process_unicode_common.c ****         next        = str + 2;
+ 1143               		.loc 1 241 83 view .LVU242
+ 1144 007a 2981      		ldd r18,Y+1
+ 1145 007c 2F73      		andi r18,lo8(63)
+ 241:quantum/process_keycode/process_unicode_common.c ****         next        = str + 2;
+ 1146               		.loc 1 241 55 view .LVU243
+ 1147 007e 622B      		or r22,r18
+ 1148               	.LVL82:
+ 242:quantum/process_keycode/process_unicode_common.c ****     } else if ((str[0] & 0xF0) == 0xE0) {  // U+0800-FFFF
+ 1149               		.loc 1 242 9 is_stmt 1 view .LVU244
+ 242:quantum/process_keycode/process_unicode_common.c ****     } else if ((str[0] & 0xF0) == 0xE0) {  // U+0800-FFFF
+ 1150               		.loc 1 242 21 is_stmt 0 view .LVU245
+ 1151 0080 2296      		adiw r28,2
+ 1152               	.LVL83:
+ 242:quantum/process_keycode/process_unicode_common.c ****     } else if ((str[0] & 0xF0) == 0xE0) {  // U+0800-FFFF
+ 1153               		.loc 1 242 21 view .LVU246
+ 1154 0082 00C0      		rjmp .L84
+ 1155               	.LVL84:
+ 1156               	.L85:
+ 243:quantum/process_keycode/process_unicode_common.c ****         *code_point = ((int32_t)(str[0] & 0x0F) << 12) | ((int32_t)(str[1] & 0x3F) << 6) | ((int32_
+ 1157               		.loc 1 243 12 is_stmt 1 view .LVU247
+ 243:quantum/process_keycode/process_unicode_common.c ****         *code_point = ((int32_t)(str[0] & 0x0F) << 12) | ((int32_t)(str[1] & 0x3F) << 6) | ((int32_
+ 1158               		.loc 1 243 15 is_stmt 0 view .LVU248
+ 1159 0084 802F      		mov r24,r16
+ 1160 0086 807F      		andi r24,lo8(-16)
+ 1161 0088 803E      		cpi r24,lo8(-32)
+ 1162 008a 01F4      		brne .L86
+ 244:quantum/process_keycode/process_unicode_common.c ****         next        = str + 3;
+ 1163               		.loc 1 244 9 is_stmt 1 view .LVU249
+ 244:quantum/process_keycode/process_unicode_common.c ****         next        = str + 3;
+ 1164               		.loc 1 244 76 is_stmt 0 view .LVU250
+ 1165 008c 8981      		ldd r24,Y+1
+ 1166 008e 90E0      		ldi r25,0
+ 1167 0090 B0E0      		ldi r27,0
+ 1168 0092 A0E0      		ldi r26,0
+ 244:quantum/process_keycode/process_unicode_common.c ****         next        = str + 3;
+ 1169               		.loc 1 244 84 view .LVU251
+ 1170 0094 BC01      		movw r22,r24
+ 1171 0096 CD01      		movw r24,r26
+ 1172 0098 E6E0      		ldi r30,6
+ 1173               		1:
+ 1174 009a 660F      		lsl r22
+ 1175 009c 771F      		rol r23
+ 1176 009e 881F      		rol r24
+ 1177 00a0 991F      		rol r25
+ 1178 00a2 EA95      		dec r30
+ 1179 00a4 01F4      		brne 1b
+ 1180 00a6 607C      		andi r22,192
+ 1181 00a8 7F70      		andi r23,15
+ 1182 00aa 8827      		clr r24
+ 1183 00ac 9927      		clr r25
+ 244:quantum/process_keycode/process_unicode_common.c ****         next        = str + 3;
+ 1184               		.loc 1 244 41 view .LVU252
+ 1185 00ae 10E0      		ldi r17,0
+ 1186 00b0 30E0      		ldi r19,0
+ 1187 00b2 20E0      		ldi r18,0
+ 244:quantum/process_keycode/process_unicode_common.c ****         next        = str + 3;
+ 1188               		.loc 1 244 49 view .LVU253
+ 1189 00b4 FCE0      		ldi r31,12
+ 1190               		1:
+ 1191 00b6 000F      		lsl r16
+ 1192 00b8 111F      		rol r17
+ 1193 00ba 221F      		rol r18
+ 1194 00bc 331F      		rol r19
+ 1195 00be FA95      		dec r31
+ 1196 00c0 01F4      		brne 1b
+ 1197 00c2 2227      		clr r18
+ 1198 00c4 3327      		clr r19
+ 244:quantum/process_keycode/process_unicode_common.c ****         next        = str + 3;
+ 1199               		.loc 1 244 56 view .LVU254
+ 1200 00c6 602B      		or r22,r16
+ 1201 00c8 712B      		or r23,r17
+ 1202 00ca 822B      		or r24,r18
+ 1203 00cc 932B      		or r25,r19
+ 244:quantum/process_keycode/process_unicode_common.c ****         next        = str + 3;
+ 1204               		.loc 1 244 118 view .LVU255
+ 1205 00ce 2A81      		ldd r18,Y+2
+ 1206 00d0 2F73      		andi r18,lo8(63)
+ 244:quantum/process_keycode/process_unicode_common.c ****         next        = str + 3;
+ 1207               		.loc 1 244 90 view .LVU256
+ 1208 00d2 622B      		or r22,r18
+ 1209               	.LVL85:
+ 245:quantum/process_keycode/process_unicode_common.c ****     } else if ((str[0] & 0xF8) == 0xF0 && (str[0] <= 0xF4)) {  // U+10000-10FFFF
+ 1210               		.loc 1 245 9 is_stmt 1 view .LVU257
+ 245:quantum/process_keycode/process_unicode_common.c ****     } else if ((str[0] & 0xF8) == 0xF0 && (str[0] <= 0xF4)) {  // U+10000-10FFFF
+ 1211               		.loc 1 245 21 is_stmt 0 view .LVU258
+ 1212 00d4 2396      		adiw r28,3
+ 1213               	.LVL86:
+ 245:quantum/process_keycode/process_unicode_common.c ****     } else if ((str[0] & 0xF8) == 0xF0 && (str[0] <= 0xF4)) {  // U+10000-10FFFF
+ 1214               		.loc 1 245 21 view .LVU259
+ 1215 00d6 00C0      		rjmp .L84
+ 1216               	.LVL87:
+ 1217               	.L86:
+ 246:quantum/process_keycode/process_unicode_common.c ****         *code_point = ((int32_t)(str[0] & 0x07) << 18) | ((int32_t)(str[1] & 0x3F) << 12) | ((int32
+ 1218               		.loc 1 246 12 is_stmt 1 view .LVU260
+ 246:quantum/process_keycode/process_unicode_common.c ****         *code_point = ((int32_t)(str[0] & 0x07) << 18) | ((int32_t)(str[1] & 0x3F) << 12) | ((int32
+ 1219               		.loc 1 246 15 is_stmt 0 view .LVU261
+ 1220 00d8 802F      		mov r24,r16
+ 1221 00da 887F      		andi r24,lo8(-8)
+ 1222 00dc 803F      		cpi r24,lo8(-16)
+ 1223 00de 01F4      		brne .L87
+ 246:quantum/process_keycode/process_unicode_common.c ****         *code_point = ((int32_t)(str[0] & 0x07) << 18) | ((int32_t)(str[1] & 0x3F) << 12) | ((int32
+ 1224               		.loc 1 246 40 view .LVU262
+ 1225 00e0 053F      		cpi r16,lo8(-11)
+ 1226 00e2 00F4      		brsh .L87
+ 247:quantum/process_keycode/process_unicode_common.c ****         next        = str + 4;
+ 1227               		.loc 1 247 9 is_stmt 1 view .LVU263
+ 247:quantum/process_keycode/process_unicode_common.c ****         next        = str + 4;
+ 1228               		.loc 1 247 76 is_stmt 0 view .LVU264
+ 1229 00e4 8981      		ldd r24,Y+1
+ 1230 00e6 90E0      		ldi r25,0
+ 1231 00e8 B0E0      		ldi r27,0
+ 1232 00ea A0E0      		ldi r26,0
+ 247:quantum/process_keycode/process_unicode_common.c ****         next        = str + 4;
+ 1233               		.loc 1 247 84 view .LVU265
+ 1234 00ec BC01      		movw r22,r24
+ 1235 00ee CD01      		movw r24,r26
+ 1236 00f0 2CE0      		ldi r18,12
+ 1237               		1:
+ 1238 00f2 660F      		lsl r22
+ 1239 00f4 771F      		rol r23
+ 1240 00f6 881F      		rol r24
+ 1241 00f8 991F      		rol r25
+ 1242 00fa 2A95      		dec r18
+ 1243 00fc 01F4      		brne 1b
+ 1244 00fe 6627      		clr r22
+ 1245 0100 707F      		andi r23,240
+ 1246 0102 8370      		andi r24,3
+ 1247 0104 9927      		clr r25
+ 247:quantum/process_keycode/process_unicode_common.c ****         next        = str + 4;
+ 1248               		.loc 1 247 41 view .LVU266
+ 1249 0106 10E0      		ldi r17,0
+ 1250 0108 30E0      		ldi r19,0
+ 1251 010a 20E0      		ldi r18,0
+ 247:quantum/process_keycode/process_unicode_common.c ****         next        = str + 4;
+ 1252               		.loc 1 247 49 view .LVU267
+ 1253 010c 42E1      		ldi r20,18
+ 1254               		1:
+ 1255 010e 000F      		lsl r16
+ 1256 0110 111F      		rol r17
+ 1257 0112 221F      		rol r18
+ 1258 0114 331F      		rol r19
+ 1259 0116 4A95      		dec r20
+ 1260 0118 01F4      		brne 1b
+ 1261 011a 0027      		clr r16
+ 1262 011c 1127      		clr r17
+ 1263 011e 2C71      		andi r18,28
+ 1264 0120 3327      		clr r19
+ 247:quantum/process_keycode/process_unicode_common.c ****         next        = str + 4;
+ 1265               		.loc 1 247 56 view .LVU268
+ 1266 0122 602B      		or r22,r16
+ 1267 0124 712B      		or r23,r17
+ 1268 0126 822B      		or r24,r18
+ 1269 0128 932B      		or r25,r19
+ 247:quantum/process_keycode/process_unicode_common.c ****         next        = str + 4;
+ 1270               		.loc 1 247 153 view .LVU269
+ 1271 012a 2B81      		ldd r18,Y+3
+ 1272 012c 2F73      		andi r18,lo8(63)
+ 247:quantum/process_keycode/process_unicode_common.c ****         next        = str + 4;
+ 1273               		.loc 1 247 125 view .LVU270
+ 1274 012e 622B      		or r22,r18
+ 247:quantum/process_keycode/process_unicode_common.c ****         next        = str + 4;
+ 1275               		.loc 1 247 111 view .LVU271
+ 1276 0130 0A81      		ldd r16,Y+2
+ 1277 0132 10E0      		ldi r17,0
+ 1278 0134 30E0      		ldi r19,0
+ 1279 0136 20E0      		ldi r18,0
+ 247:quantum/process_keycode/process_unicode_common.c ****         next        = str + 4;
+ 1280               		.loc 1 247 119 view .LVU272
+ 1281 0138 56E0      		ldi r21,6
+ 1282               		1:
+ 1283 013a 000F      		lsl r16
+ 1284 013c 111F      		rol r17
+ 1285 013e 221F      		rol r18
+ 1286 0140 331F      		rol r19
+ 1287 0142 5A95      		dec r21
+ 1288 0144 01F4      		brne 1b
+ 1289 0146 007C      		andi r16,192
+ 1290 0148 1F70      		andi r17,15
+ 1291 014a 2227      		clr r18
+ 1292 014c 3327      		clr r19
+ 247:quantum/process_keycode/process_unicode_common.c ****         next        = str + 4;
+ 1293               		.loc 1 247 125 view .LVU273
+ 1294 014e 602B      		or r22,r16
+ 1295 0150 712B      		or r23,r17
+ 1296 0152 822B      		or r24,r18
+ 1297 0154 932B      		or r25,r19
+ 1298               	.LVL88:
+ 248:quantum/process_keycode/process_unicode_common.c ****     } else {
+ 1299               		.loc 1 248 9 is_stmt 1 view .LVU274
+ 248:quantum/process_keycode/process_unicode_common.c ****     } else {
+ 1300               		.loc 1 248 21 is_stmt 0 view .LVU275
+ 1301 0156 2496      		adiw r28,4
+ 1302               	.LVL89:
+ 248:quantum/process_keycode/process_unicode_common.c ****     } else {
+ 1303               		.loc 1 248 21 view .LVU276
+ 1304 0158 00C0      		rjmp .L84
+ 1305               	.LVL90:
+ 1306               	.L87:
+ 250:quantum/process_keycode/process_unicode_common.c ****         next        = str + 1;
+ 1307               		.loc 1 250 9 is_stmt 1 view .LVU277
+ 251:quantum/process_keycode/process_unicode_common.c ****     }
+ 1308               		.loc 1 251 9 view .LVU278
+ 251:quantum/process_keycode/process_unicode_common.c ****     }
+ 1309               		.loc 1 251 21 is_stmt 0 view .LVU279
+ 1310 015a 2196      		adiw r28,1
+ 1311               	.LVL91:
+ 250:quantum/process_keycode/process_unicode_common.c ****         next        = str + 1;
+ 1312               		.loc 1 250 21 view .LVU280
+ 1313 015c 6FEF      		ldi r22,lo8(-1)
+ 1314 015e 7FEF      		ldi r23,lo8(-1)
+ 1315 0160 CB01      		movw r24,r22
+ 1316 0162 00C0      		rjmp .L84
+ 1317               	.LBE26:
+ 1318               	.LBE27:
+ 1319               	.LBE28:
+ 1320               		.cfi_endproc
+ 1321               	.LFE130:
+ 1323               		.section	.text.process_unicode_common,"ax",@progbits
+ 1324               	.global	process_unicode_common
+ 1326               	process_unicode_common:
+ 1327               	.LVL92:
+ 1328               	.LFB132:
+ 276:quantum/process_keycode/process_unicode_common.c **** 
+ 277:quantum/process_keycode/process_unicode_common.c **** // clang-format off
+ 278:quantum/process_keycode/process_unicode_common.c **** 
+ 279:quantum/process_keycode/process_unicode_common.c **** static void audio_helper(void) {
+ 280:quantum/process_keycode/process_unicode_common.c **** #ifdef AUDIO_ENABLE
+ 281:quantum/process_keycode/process_unicode_common.c ****     switch (get_unicode_input_mode()) {
+ 282:quantum/process_keycode/process_unicode_common.c **** #    ifdef UNICODE_SONG_MAC
+ 283:quantum/process_keycode/process_unicode_common.c ****         static float song_mac[][2] = UNICODE_SONG_MAC;
+ 284:quantum/process_keycode/process_unicode_common.c ****         case UC_MAC:
+ 285:quantum/process_keycode/process_unicode_common.c ****             PLAY_SONG(song_mac);
+ 286:quantum/process_keycode/process_unicode_common.c ****             break;
+ 287:quantum/process_keycode/process_unicode_common.c **** #    endif
+ 288:quantum/process_keycode/process_unicode_common.c **** #    ifdef UNICODE_SONG_LNX
+ 289:quantum/process_keycode/process_unicode_common.c ****         static float song_lnx[][2] = UNICODE_SONG_LNX;
+ 290:quantum/process_keycode/process_unicode_common.c ****         case UC_LNX:
+ 291:quantum/process_keycode/process_unicode_common.c ****             PLAY_SONG(song_lnx);
+ 292:quantum/process_keycode/process_unicode_common.c ****             break;
+ 293:quantum/process_keycode/process_unicode_common.c **** #    endif
+ 294:quantum/process_keycode/process_unicode_common.c **** #    ifdef UNICODE_SONG_WIN
+ 295:quantum/process_keycode/process_unicode_common.c ****         static float song_win[][2] = UNICODE_SONG_WIN;
+ 296:quantum/process_keycode/process_unicode_common.c ****         case UC_WIN:
+ 297:quantum/process_keycode/process_unicode_common.c ****             PLAY_SONG(song_win);
+ 298:quantum/process_keycode/process_unicode_common.c ****             break;
+ 299:quantum/process_keycode/process_unicode_common.c **** #    endif
+ 300:quantum/process_keycode/process_unicode_common.c **** #    ifdef UNICODE_SONG_BSD
+ 301:quantum/process_keycode/process_unicode_common.c ****         static float song_bsd[][2] = UNICODE_SONG_BSD;
+ 302:quantum/process_keycode/process_unicode_common.c ****         case UC_BSD:
+ 303:quantum/process_keycode/process_unicode_common.c ****             PLAY_SONG(song_bsd);
+ 304:quantum/process_keycode/process_unicode_common.c ****             break;
+ 305:quantum/process_keycode/process_unicode_common.c **** #    endif
+ 306:quantum/process_keycode/process_unicode_common.c **** #    ifdef UNICODE_SONG_WINC
+ 307:quantum/process_keycode/process_unicode_common.c ****         static float song_winc[][2] = UNICODE_SONG_WINC;
+ 308:quantum/process_keycode/process_unicode_common.c ****         case UC_WINC:
+ 309:quantum/process_keycode/process_unicode_common.c ****             PLAY_SONG(song_winc);
+ 310:quantum/process_keycode/process_unicode_common.c ****             break;
+ 311:quantum/process_keycode/process_unicode_common.c **** #    endif
+ 312:quantum/process_keycode/process_unicode_common.c ****     }
+ 313:quantum/process_keycode/process_unicode_common.c **** #endif
+ 314:quantum/process_keycode/process_unicode_common.c **** }
+ 315:quantum/process_keycode/process_unicode_common.c **** 
+ 316:quantum/process_keycode/process_unicode_common.c **** // clang-format on
+ 317:quantum/process_keycode/process_unicode_common.c **** 
+ 318:quantum/process_keycode/process_unicode_common.c **** bool process_unicode_common(uint16_t keycode, keyrecord_t *record) {
+ 1329               		.loc 1 318 68 is_stmt 1 view -0
+ 1330               		.cfi_startproc
+ 1331               		.loc 1 318 68 is_stmt 0 view .LVU282
+ 1332 0000 0F93      		push r16
+ 1333               	.LCFI36:
+ 1334               		.cfi_def_cfa_offset 3
+ 1335               		.cfi_offset 16, -2
+ 1336 0002 1F93      		push r17
+ 1337               	.LCFI37:
+ 1338               		.cfi_def_cfa_offset 4
+ 1339               		.cfi_offset 17, -3
+ 1340 0004 CF93      		push r28
+ 1341               	.LCFI38:
+ 1342               		.cfi_def_cfa_offset 5
+ 1343               		.cfi_offset 28, -4
+ 1344 0006 DF93      		push r29
+ 1345               	.LCFI39:
+ 1346               		.cfi_def_cfa_offset 6
+ 1347               		.cfi_offset 29, -5
+ 1348               	/* prologue: function */
+ 1349               	/* frame size = 0 */
+ 1350               	/* stack size = 4 */
+ 1351               	.L__stack_usage = 4
+ 1352 0008 EC01      		movw r28,r24
+ 1353 000a 8B01      		movw r16,r22
+ 319:quantum/process_keycode/process_unicode_common.c ****     if (record->event.pressed) {
+ 1354               		.loc 1 319 5 is_stmt 1 view .LVU283
+ 1355               		.loc 1 319 8 is_stmt 0 view .LVU284
+ 1356 000c FB01      		movw r30,r22
+ 1357 000e 8281      		ldd r24,Z+2
+ 1358               	.LVL93:
+ 1359               		.loc 1 319 8 view .LVU285
+ 1360 0010 8823      		tst r24
+ 1361 0012 01F0      		breq .L96
+ 1362               	.LBB33:
+ 320:quantum/process_keycode/process_unicode_common.c ****         bool shifted = get_mods() & MOD_MASK_SHIFT;
+ 1363               		.loc 1 320 9 is_stmt 1 view .LVU286
+ 1364               		.loc 1 320 24 is_stmt 0 view .LVU287
+ 1365 0014 0E94 0000 		call get_mods
+ 1366               	.LVL94:
+ 1367               		.loc 1 320 24 view .LVU288
+ 1368 0018 8272      		andi r24,lo8(34)
+ 1369               	.LVL95:
+ 321:quantum/process_keycode/process_unicode_common.c ****         switch (keycode) {
+ 1370               		.loc 1 321 9 is_stmt 1 view .LVU289
+ 1371 001a C13E      		cpi r28,-31
+ 1372 001c FCE5      		ldi r31,92
+ 1373 001e DF07      		cpc r29,r31
+ 1374 0020 01F0      		breq .L97
+ 1375 0022 00F4      		brsh .L98
+ 1376 0024 C03E      		cpi r28,-32
+ 1377 0026 ECE5      		ldi r30,92
+ 1378 0028 DE07      		cpc r29,r30
+ 1379 002a 01F0      		breq .L99
+ 1380               	.LVL96:
+ 1381               	.L96:
+ 1382               		.loc 1 321 9 is_stmt 0 view .LVU290
+ 1383               	.LBE33:
+ 322:quantum/process_keycode/process_unicode_common.c ****             case UNICODE_MODE_FORWARD:
+ 323:quantum/process_keycode/process_unicode_common.c ****                 cycle_unicode_input_mode(shifted ? -1 : +1);
+ 324:quantum/process_keycode/process_unicode_common.c ****                 audio_helper();
+ 325:quantum/process_keycode/process_unicode_common.c ****                 break;
+ 326:quantum/process_keycode/process_unicode_common.c ****             case UNICODE_MODE_REVERSE:
+ 327:quantum/process_keycode/process_unicode_common.c ****                 cycle_unicode_input_mode(shifted ? +1 : -1);
+ 328:quantum/process_keycode/process_unicode_common.c ****                 audio_helper();
+ 329:quantum/process_keycode/process_unicode_common.c ****                 break;
+ 330:quantum/process_keycode/process_unicode_common.c **** 
+ 331:quantum/process_keycode/process_unicode_common.c ****             case UNICODE_MODE_MAC ... UNICODE_MODE_WINC: {
+ 332:quantum/process_keycode/process_unicode_common.c ****                 // Keycodes and input modes follow the same ordering
+ 333:quantum/process_keycode/process_unicode_common.c ****                 uint8_t delta = keycode - UNICODE_MODE_MAC;
+ 334:quantum/process_keycode/process_unicode_common.c ****                 set_unicode_input_mode(UC_MAC + delta);
+ 335:quantum/process_keycode/process_unicode_common.c ****                 audio_helper();
+ 336:quantum/process_keycode/process_unicode_common.c ****                 break;
+ 337:quantum/process_keycode/process_unicode_common.c ****             }
+ 338:quantum/process_keycode/process_unicode_common.c ****         }
+ 339:quantum/process_keycode/process_unicode_common.c ****     }
+ 340:quantum/process_keycode/process_unicode_common.c **** 
+ 341:quantum/process_keycode/process_unicode_common.c **** #if defined(UNICODE_ENABLE)
+ 342:quantum/process_keycode/process_unicode_common.c ****     return process_unicode(keycode, record);
+ 343:quantum/process_keycode/process_unicode_common.c **** #elif defined(UNICODEMAP_ENABLE)
+ 344:quantum/process_keycode/process_unicode_common.c ****     return process_unicodemap(keycode, record);
+ 1384               		.loc 1 344 5 is_stmt 1 view .LVU291
+ 1385               		.loc 1 344 12 is_stmt 0 view .LVU292
+ 1386 002c B801      		movw r22,r16
+ 1387 002e CE01      		movw r24,r28
+ 1388               	/* epilogue start */
+ 345:quantum/process_keycode/process_unicode_common.c **** #elif defined(UCIS_ENABLE)
+ 346:quantum/process_keycode/process_unicode_common.c ****     return process_ucis(keycode, record);
+ 347:quantum/process_keycode/process_unicode_common.c **** #else
+ 348:quantum/process_keycode/process_unicode_common.c ****     return true;
+ 349:quantum/process_keycode/process_unicode_common.c **** #endif
+ 350:quantum/process_keycode/process_unicode_common.c **** }
+ 1389               		.loc 1 350 1 view .LVU293
+ 1390 0030 DF91      		pop r29
+ 1391 0032 CF91      		pop r28
+ 1392               	.LVL97:
+ 1393               		.loc 1 350 1 view .LVU294
+ 1394 0034 1F91      		pop r17
+ 1395 0036 0F91      		pop r16
+ 1396               	.LVL98:
+ 344:quantum/process_keycode/process_unicode_common.c **** #elif defined(UCIS_ENABLE)
+ 1397               		.loc 1 344 12 view .LVU295
+ 1398 0038 0C94 0000 		jmp process_unicodemap
+ 1399               	.LVL99:
+ 1400               	.L98:
+ 1401               	.LBB39:
+ 321:quantum/process_keycode/process_unicode_common.c ****             case UNICODE_MODE_FORWARD:
+ 1402               		.loc 1 321 9 view .LVU296
+ 1403 003c C73E      		cpi r28,-25
+ 1404 003e FCE5      		ldi r31,92
+ 1405 0040 DF07      		cpc r29,r31
+ 1406 0042 00F4      		brsh .L96
+ 1407               	.LBB34:
+ 333:quantum/process_keycode/process_unicode_common.c ****                 set_unicode_input_mode(UC_MAC + delta);
+ 1408               		.loc 1 333 17 is_stmt 1 view .LVU297
+ 1409               	.LVL100:
+ 334:quantum/process_keycode/process_unicode_common.c ****                 audio_helper();
+ 1410               		.loc 1 334 17 view .LVU298
+ 1411               	.LBB35:
+ 1412               	.LBI35:
+  58:quantum/process_keycode/process_unicode_common.c ****     unicode_config.input_mode = mode;
+ 1413               		.loc 1 58 6 view .LVU299
+ 1414               	.LBB36:
+  59:quantum/process_keycode/process_unicode_common.c ****     persist_unicode_input_mode();
+ 1415               		.loc 1 59 5 view .LVU300
+ 1416               	.LBE36:
+ 1417               	.LBE35:
+ 333:quantum/process_keycode/process_unicode_common.c ****                 set_unicode_input_mode(UC_MAC + delta);
+ 1418               		.loc 1 333 25 is_stmt 0 view .LVU301
+ 1419 0044 8C2F      		mov r24,r28
+ 1420               	.LVL101:
+ 333:quantum/process_keycode/process_unicode_common.c ****                 set_unicode_input_mode(UC_MAC + delta);
+ 1421               		.loc 1 333 25 view .LVU302
+ 1422 0046 825E      		subi r24,lo8(-(30))
+ 1423               	.LBB38:
+ 1424               	.LBB37:
+  59:quantum/process_keycode/process_unicode_common.c ****     persist_unicode_input_mode();
+ 1425               		.loc 1 59 31 view .LVU303
+ 1426 0048 8093 0000 		sts unicode_config,r24
+  60:quantum/process_keycode/process_unicode_common.c ****     dprintf("Unicode input mode set to: %u\n", unicode_config.input_mode);
+ 1427               		.loc 1 60 5 is_stmt 1 view .LVU304
+ 1428 004c 0E94 0000 		call persist_unicode_input_mode
+ 1429               	.LVL102:
+  61:quantum/process_keycode/process_unicode_common.c **** }
+ 1430               		.loc 1 61 74 view .LVU305
+ 1431 0050 00C0      		rjmp .L96
+ 1432               	.LVL103:
+ 1433               	.L99:
+  61:quantum/process_keycode/process_unicode_common.c **** }
+ 1434               		.loc 1 61 74 is_stmt 0 view .LVU306
+ 1435               	.LBE37:
+ 1436               	.LBE38:
+ 1437               	.LBE34:
+ 323:quantum/process_keycode/process_unicode_common.c ****                 audio_helper();
+ 1438               		.loc 1 323 17 is_stmt 1 view .LVU307
+ 1439 0052 8111      		cpse r24,__zero_reg__
+ 1440 0054 00C0      		rjmp .L109
+ 1441               	.L104:
+ 327:quantum/process_keycode/process_unicode_common.c ****                 audio_helper();
+ 1442               		.loc 1 327 17 is_stmt 0 view .LVU308
+ 1443 0056 81E0      		ldi r24,lo8(1)
+ 1444               	.LVL104:
+ 327:quantum/process_keycode/process_unicode_common.c ****                 audio_helper();
+ 1445               		.loc 1 327 17 view .LVU309
+ 1446 0058 00C0      		rjmp .L102
+ 1447               	.LVL105:
+ 1448               	.L97:
+ 327:quantum/process_keycode/process_unicode_common.c ****                 audio_helper();
+ 1449               		.loc 1 327 17 is_stmt 1 view .LVU310
+ 1450 005a 8111      		cpse r24,__zero_reg__
+ 1451 005c 00C0      		rjmp .L104
+ 1452               	.L109:
+ 1453 005e 8FEF      		ldi r24,lo8(-1)
+ 1454               	.LVL106:
+ 1455               	.L102:
+ 327:quantum/process_keycode/process_unicode_common.c ****                 audio_helper();
+ 1456               		.loc 1 327 17 is_stmt 0 discriminator 4 view .LVU311
+ 1457 0060 0E94 0000 		call cycle_unicode_input_mode
+ 1458               	.LVL107:
+ 328:quantum/process_keycode/process_unicode_common.c ****                 break;
+ 1459               		.loc 1 328 17 is_stmt 1 discriminator 4 view .LVU312
+ 329:quantum/process_keycode/process_unicode_common.c **** 
+ 1460               		.loc 1 329 17 discriminator 4 view .LVU313
+ 1461 0064 00C0      		rjmp .L96
+ 1462               	.LBE39:
+ 1463               		.cfi_endproc
+ 1464               	.LFE132:
+ 1466               		.section	.bss.selected_index,"aw",@nobits
+ 1469               	selected_index:
+ 1470 0000 00        		.zero	1
+ 1471               		.comm	unicode_saved_caps_lock,1,1
+ 1472               		.comm	unicode_saved_mods,1,1
+ 1473               		.comm	unicode_config,4,1
+ 1474               		.text
+ 1475               	.Letext0:
+ 1476               		.file 3 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdint.h"
+ 1477               		.file 4 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/lib/avr-gcc/8/gcc/avr/8.4.0/include/stddef.h"
+ 1478               		.file 5 "tmk_core/common/keyboard.h"
+ 1479               		.file 6 "tmk_core/common/action.h"
+ 1480               		.file 7 "lib/lufa/LUFA/Drivers/USB/Core/AVR8/../StdRequestType.h"
+ 1481               		.file 8 "lib/lufa/LUFA/Drivers/USB/Core/AVR8/../DeviceStandardReq.h"
+ 1482               		.file 9 "lib/lufa/LUFA/Drivers/USB/Core/USBTask.h"
+ 1483               		.file 10 "lib/lufa/LUFA/Drivers/USB/Core/HostStandardReq.h"
+ 1484               		.file 11 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdio.h"
+ 1485               		.file 12 "tmk_core/common/report.h"
+ 1486               		.file 13 "tmk_core/common/host.h"
+ 1487               		.file 14 "tmk_core/common/debug.h"
+ 1488               		.file 15 "quantum/keycode_config.h"
+ 1489               		.file 16 "tmk_core/common/keycode.h"
+ 1490               		.file 17 "quantum/quantum_keycodes.h"
+ 1491               		.file 18 "quantum/keymap.h"
+ 1492               		.file 19 "./quantum/color.h"
+ 1493               		.file 20 "quantum/rgblight.h"
+ 1494               		.file 21 "tmk_core/common/action_layer.h"
+ 1495               		.file 22 "tmk_core/common/timer.h"
+ 1496               		.file 23 "tmk_core/common/action_util.h"
+ 1497               		.file 24 "quantum/send_string.h"
+ 1498               		.file 25 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdlib.h"
+ 1499               		.file 26 "quantum/process_keycode/process_unicodemap.h"
+ 1500               		.file 27 "quantum/process_keycode/process_unicode_common.h"
+ 1501               		.file 28 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/ctype.h"
+ 1502               		.file 29 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/string.h"
+ 1503               		.file 30 "quantum/quantum.h"
+ 1504               		.file 31 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/avr/eeprom.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 process_unicode_common.c
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:13     .text.unicode_input_mode_init:0000000000000000 unicode_input_mode_init
+                            *COM*:0000000000000004 unicode_config
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:1469   .bss.selected_index:0000000000000000 selected_index
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:65     .text.get_unicode_input_mode:0000000000000000 get_unicode_input_mode
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:84     .text.persist_unicode_input_mode:0000000000000000 persist_unicode_input_mode
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:104    .text.set_unicode_input_mode:0000000000000000 set_unicode_input_mode
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:126    .text.cycle_unicode_input_mode:0000000000000000 cycle_unicode_input_mode
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:152    .text.unicode_input_start:0000000000000000 unicode_input_start
+                            *COM*:0000000000000001 unicode_saved_caps_lock
+                            *COM*:0000000000000001 unicode_saved_mods
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:272    .text.unicode_input_finish:0000000000000000 unicode_input_finish
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:332    .text.unicode_input_cancel:0000000000000000 unicode_input_cancel
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:392    .text.register_hex:0000000000000000 register_hex
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:476    .text.register_hex32:0000000000000000 register_hex32
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:635    .text.register_unicode:0000000000000000 register_unicode
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:777    .text.send_unicode_hex_string:0000000000000000 send_unicode_hex_string
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:1005   .text.send_unicode_string:0000000000000000 send_unicode_string
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVwgObD.s:1326   .text.process_unicode_common:0000000000000000 process_unicode_common
+
+UNDEFINED SYMBOLS
+eeprom_read_byte
+eeprom_update_byte
+host_keyboard_led_state
+tap_code
+get_mods
+clear_mods
+register_code
+tap_code16
+set_mods
+unregister_code
+send_nibble
+strcspn
+strncpy
+send_string
+tolower
+process_unicodemap
+__do_copy_data
+__do_clear_bss

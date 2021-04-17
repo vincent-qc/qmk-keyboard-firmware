@@ -1,0 +1,188 @@
+   1               		.file	"backlight_driver_common.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               		.section	.text.backlight_pins_init,"ax",@progbits
+  11               	.global	backlight_pins_init
+  13               	backlight_pins_init:
+  14               	.LFB119:
+  15               		.file 1 "quantum/backlight/backlight_driver_common.c"
+   1:quantum/backlight/backlight_driver_common.c **** #include "quantum.h"
+   2:quantum/backlight/backlight_driver_common.c **** #include "backlight.h"
+   3:quantum/backlight/backlight_driver_common.c **** #include "backlight_driver_common.h"
+   4:quantum/backlight/backlight_driver_common.c **** 
+   5:quantum/backlight/backlight_driver_common.c **** #if !defined(BACKLIGHT_PIN) && !defined(BACKLIGHT_PINS)
+   6:quantum/backlight/backlight_driver_common.c **** #    error "Backlight pin/pins not defined. Please configure."
+   7:quantum/backlight/backlight_driver_common.c **** #endif
+   8:quantum/backlight/backlight_driver_common.c **** 
+   9:quantum/backlight/backlight_driver_common.c **** #if defined(BACKLIGHT_PINS)
+  10:quantum/backlight/backlight_driver_common.c **** static const pin_t backlight_pins[] = BACKLIGHT_PINS;
+  11:quantum/backlight/backlight_driver_common.c **** #    ifndef BACKLIGHT_LED_COUNT
+  12:quantum/backlight/backlight_driver_common.c **** #        define BACKLIGHT_LED_COUNT (sizeof(backlight_pins) / sizeof(pin_t))
+  13:quantum/backlight/backlight_driver_common.c **** #    endif
+  14:quantum/backlight/backlight_driver_common.c **** 
+  15:quantum/backlight/backlight_driver_common.c **** #    define FOR_EACH_LED(x)                                 \
+  16:quantum/backlight/backlight_driver_common.c ****         for (uint8_t i = 0; i < BACKLIGHT_LED_COUNT; i++) { \
+  17:quantum/backlight/backlight_driver_common.c ****             pin_t backlight_pin = backlight_pins[i];        \
+  18:quantum/backlight/backlight_driver_common.c ****             { x }                                           \
+  19:quantum/backlight/backlight_driver_common.c ****         }
+  20:quantum/backlight/backlight_driver_common.c **** #else
+  21:quantum/backlight/backlight_driver_common.c **** // we support only one backlight pin
+  22:quantum/backlight/backlight_driver_common.c **** static const pin_t backlight_pin = BACKLIGHT_PIN;
+  23:quantum/backlight/backlight_driver_common.c **** #    define FOR_EACH_LED(x) x
+  24:quantum/backlight/backlight_driver_common.c **** #endif
+  25:quantum/backlight/backlight_driver_common.c **** 
+  26:quantum/backlight/backlight_driver_common.c **** static inline void backlight_on(pin_t backlight_pin) {
+  27:quantum/backlight/backlight_driver_common.c **** #if BACKLIGHT_ON_STATE == 0
+  28:quantum/backlight/backlight_driver_common.c ****     writePinLow(backlight_pin);
+  29:quantum/backlight/backlight_driver_common.c **** #else
+  30:quantum/backlight/backlight_driver_common.c ****     writePinHigh(backlight_pin);
+  31:quantum/backlight/backlight_driver_common.c **** #endif
+  32:quantum/backlight/backlight_driver_common.c **** }
+  33:quantum/backlight/backlight_driver_common.c **** 
+  34:quantum/backlight/backlight_driver_common.c **** static inline void backlight_off(pin_t backlight_pin) {
+  35:quantum/backlight/backlight_driver_common.c **** #if BACKLIGHT_ON_STATE == 0
+  36:quantum/backlight/backlight_driver_common.c ****     writePinHigh(backlight_pin);
+  37:quantum/backlight/backlight_driver_common.c **** #else
+  38:quantum/backlight/backlight_driver_common.c ****     writePinLow(backlight_pin);
+  39:quantum/backlight/backlight_driver_common.c **** #endif
+  40:quantum/backlight/backlight_driver_common.c **** }
+  41:quantum/backlight/backlight_driver_common.c **** 
+  42:quantum/backlight/backlight_driver_common.c **** void backlight_pins_init(void) {
+  16               		.loc 1 42 32 view -0
+  17               		.cfi_startproc
+  18               	/* prologue: function */
+  19               	/* frame size = 0 */
+  20               	/* stack size = 0 */
+  21               	.L__stack_usage = 0
+  43:quantum/backlight/backlight_driver_common.c ****     // Setup backlight pin as output and output to off state.
+  44:quantum/backlight/backlight_driver_common.c ****     FOR_EACH_LED(setPinOutput(backlight_pin); backlight_off(backlight_pin);)
+  22               		.loc 1 44 5 view .LVU1
+  23 0000 269A      		sbi 0x4,6
+  24               		.loc 1 44 5 view .LVU2
+  25               	.LBB4:
+  26               	.LBI4:
+  34:quantum/backlight/backlight_driver_common.c **** #if BACKLIGHT_ON_STATE == 0
+  27               		.loc 1 34 20 view .LVU3
+  28               	.LVL0:
+  29               	.LBB5:
+  38:quantum/backlight/backlight_driver_common.c **** #endif
+  30               		.loc 1 38 5 view .LVU4
+  31 0002 2E98      		cbi 0x5,6
+  32               	.LVL1:
+  33               	/* epilogue start */
+  38:quantum/backlight/backlight_driver_common.c **** #endif
+  34               		.loc 1 38 5 is_stmt 0 view .LVU5
+  35               	.LBE5:
+  36               	.LBE4:
+  45:quantum/backlight/backlight_driver_common.c **** }
+  37               		.loc 1 45 1 view .LVU6
+  38 0004 0895      		ret
+  39               		.cfi_endproc
+  40               	.LFE119:
+  42               		.section	.text.backlight_pins_on,"ax",@progbits
+  43               	.global	backlight_pins_on
+  45               	backlight_pins_on:
+  46               	.LFB120:
+  46:quantum/backlight/backlight_driver_common.c **** 
+  47:quantum/backlight/backlight_driver_common.c **** void backlight_pins_on(void) { FOR_EACH_LED(backlight_on(backlight_pin);) }
+  47               		.loc 1 47 30 is_stmt 1 view -0
+  48               		.cfi_startproc
+  49               	/* prologue: function */
+  50               	/* frame size = 0 */
+  51               	/* stack size = 0 */
+  52               	.L__stack_usage = 0
+  53               		.loc 1 47 32 view .LVU8
+  54               	.LBB8:
+  55               	.LBI8:
+  26:quantum/backlight/backlight_driver_common.c **** #if BACKLIGHT_ON_STATE == 0
+  56               		.loc 1 26 20 view .LVU9
+  57               	.LVL2:
+  58               	.LBB9:
+  30:quantum/backlight/backlight_driver_common.c **** #endif
+  59               		.loc 1 30 5 view .LVU10
+  60 0000 2E9A      		sbi 0x5,6
+  61               	.LVL3:
+  62               	/* epilogue start */
+  30:quantum/backlight/backlight_driver_common.c **** #endif
+  63               		.loc 1 30 5 is_stmt 0 view .LVU11
+  64               	.LBE9:
+  65               	.LBE8:
+  66               		.loc 1 47 1 view .LVU12
+  67 0002 0895      		ret
+  68               		.cfi_endproc
+  69               	.LFE120:
+  71               		.section	.text.backlight_pins_off,"ax",@progbits
+  72               	.global	backlight_pins_off
+  74               	backlight_pins_off:
+  75               	.LFB121:
+  48:quantum/backlight/backlight_driver_common.c **** 
+  49:quantum/backlight/backlight_driver_common.c **** void backlight_pins_off(void) { FOR_EACH_LED(backlight_off(backlight_pin);) }
+  76               		.loc 1 49 31 is_stmt 1 view -0
+  77               		.cfi_startproc
+  78               	/* prologue: function */
+  79               	/* frame size = 0 */
+  80               	/* stack size = 0 */
+  81               	.L__stack_usage = 0
+  82               		.loc 1 49 33 view .LVU14
+  83               	.LBB12:
+  84               	.LBI12:
+  34:quantum/backlight/backlight_driver_common.c **** #if BACKLIGHT_ON_STATE == 0
+  85               		.loc 1 34 20 view .LVU15
+  86               	.LVL4:
+  87               	.LBB13:
+  38:quantum/backlight/backlight_driver_common.c **** #endif
+  88               		.loc 1 38 5 view .LVU16
+  89 0000 2E98      		cbi 0x5,6
+  90               	.LVL5:
+  91               	/* epilogue start */
+  38:quantum/backlight/backlight_driver_common.c **** #endif
+  92               		.loc 1 38 5 is_stmt 0 view .LVU17
+  93               	.LBE13:
+  94               	.LBE12:
+  95               		.loc 1 49 1 view .LVU18
+  96 0002 0895      		ret
+  97               		.cfi_endproc
+  98               	.LFE121:
+ 100               		.text
+ 101               	.Letext0:
+ 102               		.file 2 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdint.h"
+ 103               		.file 3 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/lib/avr-gcc/8/gcc/avr/8.4.0/include/stddef.h"
+ 104               		.file 4 "lib/lufa/LUFA/Drivers/USB/Core/AVR8/../StdRequestType.h"
+ 105               		.file 5 "tmk_core/common/action.h"
+ 106               		.file 6 "lib/lufa/LUFA/Drivers/USB/Core/AVR8/../DeviceStandardReq.h"
+ 107               		.file 7 "lib/lufa/LUFA/Drivers/USB/Core/USBTask.h"
+ 108               		.file 8 "lib/lufa/LUFA/Drivers/USB/Core/HostStandardReq.h"
+ 109               		.file 9 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdio.h"
+ 110               		.file 10 "tmk_core/common/report.h"
+ 111               		.file 11 "tmk_core/common/host.h"
+ 112               		.file 12 "tmk_core/common/debug.h"
+ 113               		.file 13 "quantum/keycode_config.h"
+ 114               		.file 14 "quantum/keymap.h"
+ 115               		.file 15 "./quantum/color.h"
+ 116               		.file 16 "quantum/rgblight.h"
+ 117               		.file 17 "tmk_core/common/action_layer.h"
+ 118               		.file 18 "tmk_core/common/timer.h"
+ 119               		.file 19 "tmk_core/common/avr/gpio.h"
+ 120               		.file 20 "tmk_core/common/action_util.h"
+ 121               		.file 21 "quantum/send_string.h"
+ 122               		.file 22 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdlib.h"
+ 123               		.file 23 "quantum/process_keycode/process_unicode_common.h"
+ 124               		.file 24 "quantum/process_keycode/process_unicodemap.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 backlight_driver_common.c
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccaHIQOI.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccaHIQOI.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccaHIQOI.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccaHIQOI.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccaHIQOI.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccaHIQOI.s:13     .text.backlight_pins_init:0000000000000000 backlight_pins_init
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccaHIQOI.s:45     .text.backlight_pins_on:0000000000000000 backlight_pins_on
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccaHIQOI.s:74     .text.backlight_pins_off:0000000000000000 backlight_pins_off
+
+NO UNDEFINED SYMBOLS

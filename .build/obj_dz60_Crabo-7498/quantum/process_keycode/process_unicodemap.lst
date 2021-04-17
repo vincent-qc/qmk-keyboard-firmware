@@ -1,0 +1,289 @@
+   1               		.file	"process_unicodemap.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               		.section	.text.unicodemap_index,"ax",@progbits
+  11               		.weak	unicodemap_index
+  13               	unicodemap_index:
+  14               	.LVL0:
+  15               	.LFB117:
+  16               		.file 1 "quantum/process_keycode/process_unicodemap.c"
+   1:quantum/process_keycode/process_unicodemap.c **** /* Copyright 2017 Jack Humbert
+   2:quantum/process_keycode/process_unicodemap.c ****  *
+   3:quantum/process_keycode/process_unicodemap.c ****  * This program is free software: you can redistribute it and/or modify
+   4:quantum/process_keycode/process_unicodemap.c ****  * it under the terms of the GNU General Public License as published by
+   5:quantum/process_keycode/process_unicodemap.c ****  * the Free Software Foundation, either version 2 of the License, or
+   6:quantum/process_keycode/process_unicodemap.c ****  * (at your option) any later version.
+   7:quantum/process_keycode/process_unicodemap.c ****  *
+   8:quantum/process_keycode/process_unicodemap.c ****  * This program is distributed in the hope that it will be useful,
+   9:quantum/process_keycode/process_unicodemap.c ****  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  10:quantum/process_keycode/process_unicodemap.c ****  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  11:quantum/process_keycode/process_unicodemap.c ****  * GNU General Public License for more details.
+  12:quantum/process_keycode/process_unicodemap.c ****  *
+  13:quantum/process_keycode/process_unicodemap.c ****  * You should have received a copy of the GNU General Public License
+  14:quantum/process_keycode/process_unicodemap.c ****  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  15:quantum/process_keycode/process_unicodemap.c ****  */
+  16:quantum/process_keycode/process_unicodemap.c **** 
+  17:quantum/process_keycode/process_unicodemap.c **** #include "process_unicodemap.h"
+  18:quantum/process_keycode/process_unicodemap.c **** 
+  19:quantum/process_keycode/process_unicodemap.c **** __attribute__((weak)) uint16_t unicodemap_index(uint16_t keycode) {
+  17               		.loc 1 19 67 view -0
+  18               		.cfi_startproc
+  19               		.loc 1 19 67 is_stmt 0 view .LVU1
+  20 0000 0F93      		push r16
+  21               	.LCFI0:
+  22               		.cfi_def_cfa_offset 3
+  23               		.cfi_offset 16, -2
+  24 0002 1F93      		push r17
+  25               	.LCFI1:
+  26               		.cfi_def_cfa_offset 4
+  27               		.cfi_offset 17, -3
+  28 0004 CF93      		push r28
+  29               	.LCFI2:
+  30               		.cfi_def_cfa_offset 5
+  31               		.cfi_offset 28, -4
+  32 0006 DF93      		push r29
+  33               	.LCFI3:
+  34               		.cfi_def_cfa_offset 6
+  35               		.cfi_offset 29, -5
+  36               	/* prologue: function */
+  37               	/* frame size = 0 */
+  38               	/* stack size = 4 */
+  39               	.L__stack_usage = 4
+  20:quantum/process_keycode/process_unicodemap.c ****     if (keycode >= QK_UNICODEMAP_PAIR) {
+  40               		.loc 1 20 5 is_stmt 1 view .LVU2
+  41               		.loc 1 20 8 is_stmt 0 view .LVU3
+  42 0008 8115      		cp r24,__zero_reg__
+  43 000a 20EC      		ldi r18,-64
+  44 000c 9207      		cpc r25,r18
+  45 000e 00F0      		brlo .L2
+  46               	.LBB2:
+  21:quantum/process_keycode/process_unicodemap.c ****         // Keycode is a pair: extract index based on Shift / Caps Lock state
+  22:quantum/process_keycode/process_unicodemap.c ****         uint16_t index = keycode - QK_UNICODEMAP_PAIR;
+  47               		.loc 1 22 9 is_stmt 1 view .LVU4
+  48               		.loc 1 22 18 is_stmt 0 view .LVU5
+  49 0010 EC01      		movw r28,r24
+  50 0012 D05C      		subi r29,-64
+  51               	.LVL1:
+  23:quantum/process_keycode/process_unicodemap.c **** 
+  24:quantum/process_keycode/process_unicodemap.c ****         uint8_t mods = get_mods() | get_weak_mods();
+  52               		.loc 1 24 9 is_stmt 1 view .LVU6
+  53               		.loc 1 24 24 is_stmt 0 view .LVU7
+  54 0014 0E94 0000 		call get_mods
+  55               	.LVL2:
+  56               		.loc 1 24 24 view .LVU8
+  57 0018 182F      		mov r17,r24
+  58               		.loc 1 24 37 view .LVU9
+  59 001a 0E94 0000 		call get_weak_mods
+  60               	.LVL3:
+  61               		.loc 1 24 17 view .LVU10
+  62 001e 182B      		or r17,r24
+  63               	.LVL4:
+  25:quantum/process_keycode/process_unicodemap.c **** #ifndef NO_ACTION_ONESHOT
+  26:quantum/process_keycode/process_unicodemap.c ****         mods |= get_oneshot_mods();
+  64               		.loc 1 26 9 is_stmt 1 view .LVU11
+  65               		.loc 1 26 17 is_stmt 0 view .LVU12
+  66 0020 0E94 0000 		call get_oneshot_mods
+  67               	.LVL5:
+  68 0024 082F      		mov r16,r24
+  69               	.LVL6:
+  27:quantum/process_keycode/process_unicodemap.c **** #endif
+  28:quantum/process_keycode/process_unicodemap.c **** 
+  29:quantum/process_keycode/process_unicodemap.c ****         bool shift = mods & MOD_MASK_SHIFT;
+  70               		.loc 1 29 9 is_stmt 1 view .LVU13
+  30:quantum/process_keycode/process_unicodemap.c ****         bool caps  = host_keyboard_led_state().caps_lock;
+  71               		.loc 1 30 9 view .LVU14
+  72               		.loc 1 30 22 is_stmt 0 view .LVU15
+  73 0026 0E94 0000 		call host_keyboard_led_state
+  74               	.LVL7:
+  31:quantum/process_keycode/process_unicodemap.c ****         if (shift ^ caps) {
+  75               		.loc 1 31 9 is_stmt 1 view .LVU16
+  26:quantum/process_keycode/process_unicodemap.c **** #endif
+  76               		.loc 1 26 14 is_stmt 0 view .LVU17
+  77 002a 102B      		or r17,r16
+  78               	.LVL8:
+  29:quantum/process_keycode/process_unicodemap.c ****         bool caps  = host_keyboard_led_state().caps_lock;
+  79               		.loc 1 29 14 view .LVU18
+  80 002c 1272      		andi r17,lo8(34)
+  81               	.LVL9:
+  29:quantum/process_keycode/process_unicodemap.c ****         bool caps  = host_keyboard_led_state().caps_lock;
+  82               		.loc 1 29 14 view .LVU19
+  83 002e 91E0      		ldi r25,lo8(1)
+  84 0030 01F4      		brne .L4
+  85 0032 90E0      		ldi r25,0
+  86               	.L4:
+  30:quantum/process_keycode/process_unicodemap.c ****         if (shift ^ caps) {
+  87               		.loc 1 30 14 view .LVU20
+  88 0034 8695      		lsr r24
+  89 0036 8170      		andi r24,1
+  90               	.LVL10:
+  91               		.loc 1 31 12 view .LVU21
+  92 0038 9817      		cp r25,r24
+  93 003a 01F0      		breq .L3
+  32:quantum/process_keycode/process_unicodemap.c ****             index >>= 7;
+  94               		.loc 1 32 13 is_stmt 1 view .LVU22
+  95               		.loc 1 32 19 is_stmt 0 view .LVU23
+  96 003c CC0F      		lsl r28
+  97 003e CD2F      		mov r28,r29
+  98 0040 CC1F      		rol r28
+  99 0042 DD0B      		sbc r29,r29
+ 100 0044 D195      		neg r29
+ 101               	.LVL11:
+ 102               	.L3:
+  33:quantum/process_keycode/process_unicodemap.c ****         }
+  34:quantum/process_keycode/process_unicodemap.c **** 
+  35:quantum/process_keycode/process_unicodemap.c ****         return index & 0x7F;
+ 103               		.loc 1 35 9 is_stmt 1 view .LVU24
+ 104               		.loc 1 35 22 is_stmt 0 view .LVU25
+ 105 0046 CE01      		movw r24,r28
+ 106 0048 8F77      		andi r24,127
+ 107 004a 9927      		clr r25
+ 108               	.LVL12:
+ 109               	.L1:
+ 110               	/* epilogue start */
+ 111               		.loc 1 35 22 view .LVU26
+ 112               	.LBE2:
+  36:quantum/process_keycode/process_unicodemap.c ****     } else {
+  37:quantum/process_keycode/process_unicodemap.c ****         // Keycode is a regular index
+  38:quantum/process_keycode/process_unicodemap.c ****         return keycode - QK_UNICODEMAP;
+  39:quantum/process_keycode/process_unicodemap.c ****     }
+  40:quantum/process_keycode/process_unicodemap.c **** }
+ 113               		.loc 1 40 1 view .LVU27
+ 114 004c DF91      		pop r29
+ 115 004e CF91      		pop r28
+ 116 0050 1F91      		pop r17
+ 117 0052 0F91      		pop r16
+ 118 0054 0895      		ret
+ 119               	.LVL13:
+ 120               	.L2:
+  38:quantum/process_keycode/process_unicodemap.c ****     }
+ 121               		.loc 1 38 9 is_stmt 1 view .LVU28
+  38:quantum/process_keycode/process_unicodemap.c ****     }
+ 122               		.loc 1 38 24 is_stmt 0 view .LVU29
+ 123 0056 9058      		subi r25,-128
+ 124               	.LVL14:
+  38:quantum/process_keycode/process_unicodemap.c ****     }
+ 125               		.loc 1 38 24 view .LVU30
+ 126 0058 00C0      		rjmp .L1
+ 127               		.cfi_endproc
+ 128               	.LFE117:
+ 130               		.section	.text.process_unicodemap,"ax",@progbits
+ 131               	.global	process_unicodemap
+ 133               	process_unicodemap:
+ 134               	.LVL15:
+ 135               	.LFB118:
+  41:quantum/process_keycode/process_unicodemap.c **** 
+  42:quantum/process_keycode/process_unicodemap.c **** bool process_unicodemap(uint16_t keycode, keyrecord_t *record) {
+ 136               		.loc 1 42 64 is_stmt 1 view -0
+ 137               		.cfi_startproc
+ 138               	/* prologue: function */
+ 139               	/* frame size = 0 */
+ 140               	/* stack size = 0 */
+ 141               	.L__stack_usage = 0
+  43:quantum/process_keycode/process_unicodemap.c ****     if (keycode >= QK_UNICODEMAP && keycode <= QK_UNICODEMAP_PAIR_MAX && record->event.pressed) {
+ 142               		.loc 1 43 5 view .LVU32
+ 143               		.loc 1 43 8 is_stmt 0 view .LVU33
+ 144 0000 97FF      		sbrs r25,7
+ 145 0002 00C0      		rjmp .L7
+ 146               		.loc 1 43 71 discriminator 1 view .LVU34
+ 147 0004 FB01      		movw r30,r22
+ 148 0006 2281      		ldd r18,Z+2
+ 149 0008 2223      		tst r18
+ 150 000a 01F0      		breq .L7
+ 151               	.LBB3:
+  44:quantum/process_keycode/process_unicodemap.c ****         uint32_t code_point = pgm_read_dword(unicode_map + unicodemap_index(keycode));
+ 152               		.loc 1 44 9 is_stmt 1 view .LVU35
+ 153               	.LBB4:
+ 154               		.loc 1 44 31 view .LVU36
+ 155 000c 0E94 0000 		call unicodemap_index
+ 156               	.LVL16:
+ 157               		.loc 1 44 31 is_stmt 0 view .LVU37
+ 158 0010 FC01      		movw r30,r24
+ 159 0012 EE0F      		lsl r30
+ 160 0014 FF1F      		rol r31
+ 161 0016 EE0F      		lsl r30
+ 162 0018 FF1F      		rol r31
+ 163 001a E050      		subi r30,lo8(-(unicode_map))
+ 164 001c F040      		sbci r31,hi8(-(unicode_map))
+ 165               	.LVL17:
+ 166               		.loc 1 44 31 is_stmt 1 view .LVU38
+ 167               		.loc 1 44 31 view .LVU39
+ 168               	/* #APP */
+ 169               	 ;  44 "quantum/process_keycode/process_unicodemap.c" 1
+ 170 001e 6591      		lpm r22, Z+
+ 171 0020 7591      		lpm r23, Z+
+ 172 0022 8591      		lpm r24, Z+
+ 173 0024 9491      		lpm r25, Z
+ 174               		
+ 175               	 ;  0 "" 2
+ 176               	.LVL18:
+ 177               		.loc 1 44 31 view .LVU40
+ 178               		.loc 1 44 31 is_stmt 0 view .LVU41
+ 179               	/* #NOAPP */
+ 180               	.LBE4:
+  45:quantum/process_keycode/process_unicodemap.c ****         register_unicode(code_point);
+ 181               		.loc 1 45 9 is_stmt 1 view .LVU42
+ 182 0026 0E94 0000 		call register_unicode
+ 183               	.LVL19:
+ 184               	.L7:
+ 185               		.loc 1 45 9 is_stmt 0 view .LVU43
+ 186               	.LBE3:
+  46:quantum/process_keycode/process_unicodemap.c ****     }
+  47:quantum/process_keycode/process_unicodemap.c ****     return true;
+ 187               		.loc 1 47 5 is_stmt 1 view .LVU44
+  48:quantum/process_keycode/process_unicodemap.c **** }
+ 188               		.loc 1 48 1 is_stmt 0 view .LVU45
+ 189 002a 81E0      		ldi r24,lo8(1)
+ 190               	/* epilogue start */
+ 191 002c 0895      		ret
+ 192               		.cfi_endproc
+ 193               	.LFE118:
+ 195               		.text
+ 196               	.Letext0:
+ 197               		.file 2 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdint.h"
+ 198               		.file 3 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/lib/avr-gcc/8/gcc/avr/8.4.0/include/stddef.h"
+ 199               		.file 4 "tmk_core/common/keyboard.h"
+ 200               		.file 5 "tmk_core/common/action.h"
+ 201               		.file 6 "lib/lufa/LUFA/Drivers/USB/Core/AVR8/../StdRequestType.h"
+ 202               		.file 7 "lib/lufa/LUFA/Drivers/USB/Core/AVR8/../DeviceStandardReq.h"
+ 203               		.file 8 "lib/lufa/LUFA/Drivers/USB/Core/USBTask.h"
+ 204               		.file 9 "lib/lufa/LUFA/Drivers/USB/Core/HostStandardReq.h"
+ 205               		.file 10 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdio.h"
+ 206               		.file 11 "tmk_core/common/report.h"
+ 207               		.file 12 "tmk_core/common/host.h"
+ 208               		.file 13 "tmk_core/common/debug.h"
+ 209               		.file 14 "quantum/keycode_config.h"
+ 210               		.file 15 "tmk_core/common/keycode.h"
+ 211               		.file 16 "quantum/quantum_keycodes.h"
+ 212               		.file 17 "quantum/keymap.h"
+ 213               		.file 18 "./quantum/color.h"
+ 214               		.file 19 "quantum/rgblight.h"
+ 215               		.file 20 "tmk_core/common/action_layer.h"
+ 216               		.file 21 "tmk_core/common/timer.h"
+ 217               		.file 22 "tmk_core/common/action_util.h"
+ 218               		.file 23 "quantum/send_string.h"
+ 219               		.file 24 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdlib.h"
+ 220               		.file 25 "quantum/process_keycode/process_unicode_common.h"
+ 221               		.file 26 "quantum/process_keycode/process_unicodemap.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 process_unicodemap.c
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8Qgdn8.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8Qgdn8.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8Qgdn8.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8Qgdn8.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8Qgdn8.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8Qgdn8.s:13     .text.unicodemap_index:0000000000000000 unicodemap_index
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8Qgdn8.s:133    .text.process_unicodemap:0000000000000000 process_unicodemap
+
+UNDEFINED SYMBOLS
+get_mods
+get_weak_mods
+get_oneshot_mods
+host_keyboard_led_state
+unicode_map
+register_unicode

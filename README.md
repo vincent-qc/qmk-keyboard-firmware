@@ -1,12 +1,13 @@
-QMK Keyboard Firmware
-=====================
+# QMK Keyboard Firmware
 
-Firmware for my keyboard made with QMK
+Firmware for my keyboard written in C and made with QMK
 
 ## Installtion
+
 - TODO
 
 ## Contributing
+
 - TODO
 
 ## Credits
