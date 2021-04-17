@@ -4,7 +4,9 @@ Firmware for my keyboard written in C and made with QMK
 
 ## Installtion
 
-- TODO
+- Follow instructions on the official [QMK Documentation](https://docs.qmk.fm/#/newbs)
+- Set `KEYBOARD` as **dz60**<br>Set `KEYMAP` as **Crabo-7498**<br>Compile!
+- Alternatively run `qmk compile -kb dz60 -km Crabo-7498`
 
 ## Contributing
 
