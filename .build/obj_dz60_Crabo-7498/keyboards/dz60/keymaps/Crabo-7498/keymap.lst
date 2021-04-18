@@ -178,8 +178,8 @@
  147 00b2 4C00      		.word	76
  148 00b4 3500      		.word	53
  149 00b6 0000      		.word	0
- 150 00b8 C35C      		.word	23747
- 151 00ba 0100      		.word	1
+ 150 00b8 C05C      		.word	23744
+ 151 00ba BD5C      		.word	23741
  152 00bc 0100      		.word	1
  153 00be 0100      		.word	1
  154 00c0 0100      		.word	1
@@ -188,9 +188,9 @@
  157 00c6 0100      		.word	1
  158 00c8 0100      		.word	1
  159 00ca 0100      		.word	1
- 160 00cc 0100      		.word	1
- 161 00ce 4600      		.word	70
- 162 00d0 005C      		.word	23552
+ 160 00cc A600      		.word	166
+ 161 00ce A700      		.word	167
+ 162 00d0 4600      		.word	70
  163 00d2 0100      		.word	1
  164 00d4 0000      		.word	0
  165 00d6 0100      		.word	1
@@ -212,12 +212,12 @@
  181 00f6 0100      		.word	1
  182 00f8 0100      		.word	1
  183 00fa 0100      		.word	1
- 184 00fc 0100      		.word	1
- 185 00fe AA00      		.word	170
- 186 0100 A900      		.word	169
- 187 0102 AE00      		.word	174
- 188 0104 AB00      		.word	171
- 189 0106 AC00      		.word	172
+ 184 00fc AA00      		.word	170
+ 185 00fe A900      		.word	169
+ 186 0100 AE00      		.word	174
+ 187 0102 AB00      		.word	171
+ 188 0104 AC00      		.word	172
+ 189 0106 A800      		.word	168
  190 0108 0000      		.word	0
  191 010a 0100      		.word	1
  192 010c 0100      		.word	1
@@ -250,7 +250,7 @@
  219 0142 0100      		.word	1
  220 0144 0100      		.word	1
  221 0146 0100      		.word	1
- 222 0148 0100      		.word	1
+ 222 0148 015C      		.word	23553
  223 014a 0100      		.word	1
  224 014c 0000      		.word	0
  225 014e 0100      		.word	1
@@ -279,7 +279,7 @@
  248 017c 0100      		.word	1
  249 017e 0100      		.word	1
  250 0180 0100      		.word	1
- 251 0182 0100      		.word	1
+ 251 0182 005C      		.word	23552
  252 0184 0000      		.word	0
  253 0186 0100      		.word	1
  254 0188 0100      		.word	1
@@ -435,15 +435,15 @@
  405               		.file 28 "quantum/quantum.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 keymap.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccMph68c.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccMph68c.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccMph68c.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccMph68c.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccMph68c.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccMph68c.s:13     .text.td_toggle_layers:0000000000000000 td_toggle_layers
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccMph68c.s:57     .progmem.data.keymaps:0000000000000000 keymaps
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccMph68c.s:362    .data.tap_dance_actions:0000000000000000 tap_dance_actions
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccMph68c.s:372    .progmem.data.unicode_map:0000000000000000 unicode_map
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccIlzb6i.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccIlzb6i.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccIlzb6i.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccIlzb6i.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccIlzb6i.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccIlzb6i.s:13     .text.td_toggle_layers:0000000000000000 td_toggle_layers
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccIlzb6i.s:57     .progmem.data.keymaps:0000000000000000 keymaps
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccIlzb6i.s:362    .data.tap_dance_actions:0000000000000000 tap_dance_actions
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccIlzb6i.s:372    .progmem.data.unicode_map:0000000000000000 unicode_map
 
 UNDEFINED SYMBOLS
 register_code16
