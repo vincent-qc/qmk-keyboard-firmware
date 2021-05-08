@@ -1464,24 +1464,24 @@
  1090               		.file 27 "quantum/quantum_keycodes.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 process_tap_dance.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9tRts.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9tRts.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9tRts.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9tRts.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9tRts.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9tRts.s:12     .text.process_tap_dance_action_on_dance_finished.part.0:0000000000000000 process_tap_dance_action_on_dance_finished.part.0
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9tRts.s:97     .text.qk_tap_dance_pair_on_each_tap:0000000000000000 qk_tap_dance_pair_on_each_tap
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9tRts.s:149    .text.qk_tap_dance_pair_finished:0000000000000000 qk_tap_dance_pair_finished
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9tRts.s:200    .text.qk_tap_dance_pair_reset:0000000000000000 qk_tap_dance_pair_reset
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9tRts.s:251    .text.qk_tap_dance_dual_role_on_each_tap:0000000000000000 qk_tap_dance_dual_role_on_each_tap
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9tRts.s:302    .text.qk_tap_dance_dual_role_finished:0000000000000000 qk_tap_dance_dual_role_finished
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9tRts.s:354    .text.qk_tap_dance_dual_role_reset:0000000000000000 qk_tap_dance_dual_role_reset
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9tRts.s:390    .text.reset_tap_dance:0000000000000000 reset_tap_dance
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9tRts.s:1061   .bss.last_td:0000000000000000 last_td
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9tRts.s:540    .text.preprocess_tap_dance:0000000000000000 preprocess_tap_dance
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9tRts.s:1056   .data.highest_td:0000000000000000 highest_td
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9tRts.s:700    .text.process_tap_dance:0000000000000000 process_tap_dance
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9tRts.s:894    .text.matrix_scan_tap_dance:0000000000000000 matrix_scan_tap_dance
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVCy0CC.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVCy0CC.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVCy0CC.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVCy0CC.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVCy0CC.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVCy0CC.s:12     .text.process_tap_dance_action_on_dance_finished.part.0:0000000000000000 process_tap_dance_action_on_dance_finished.part.0
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVCy0CC.s:97     .text.qk_tap_dance_pair_on_each_tap:0000000000000000 qk_tap_dance_pair_on_each_tap
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVCy0CC.s:149    .text.qk_tap_dance_pair_finished:0000000000000000 qk_tap_dance_pair_finished
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVCy0CC.s:200    .text.qk_tap_dance_pair_reset:0000000000000000 qk_tap_dance_pair_reset
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVCy0CC.s:251    .text.qk_tap_dance_dual_role_on_each_tap:0000000000000000 qk_tap_dance_dual_role_on_each_tap
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVCy0CC.s:302    .text.qk_tap_dance_dual_role_finished:0000000000000000 qk_tap_dance_dual_role_finished
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVCy0CC.s:354    .text.qk_tap_dance_dual_role_reset:0000000000000000 qk_tap_dance_dual_role_reset
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVCy0CC.s:390    .text.reset_tap_dance:0000000000000000 reset_tap_dance
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVCy0CC.s:1061   .bss.last_td:0000000000000000 last_td
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVCy0CC.s:540    .text.preprocess_tap_dance:0000000000000000 preprocess_tap_dance
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVCy0CC.s:1056   .data.highest_td:0000000000000000 highest_td
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVCy0CC.s:700    .text.process_tap_dance:0000000000000000 process_tap_dance
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVCy0CC.s:894    .text.matrix_scan_tap_dance:0000000000000000 matrix_scan_tap_dance
 
 UNDEFINED SYMBOLS
 add_mods

@@ -1921,33 +1921,33 @@
  1222               		.file 38 "tmk_core/common/bootloader.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 quantum.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:12     .text.do_code16:0000000000000000 do_code16
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:155    .text.register_code16:0000000000000000 register_code16
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:213    .text.unregister_code16:0000000000000000 unregister_code16
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:271    .text.tap_code16:0000000000000000 tap_code16
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:310    .text.process_action_kb:0000000000000000 process_action_kb
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:332    .text.process_record_user:0000000000000000 process_record_user
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:354    .text.process_record_kb:0000000000000000 process_record_kb
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:374    .text.post_process_record_user:0000000000000000 post_process_record_user
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:393    .text.post_process_record_kb:0000000000000000 post_process_record_kb
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:412    .text.get_event_keycode:0000000000000000 get_event_keycode
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:527    .text.get_record_keycode:0000000000000000 get_record_keycode
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:559    .text.post_process_record_quantum:0000000000000000 post_process_record_quantum
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:600    .text.set_single_persistent_default_layer:0000000000000000 set_single_persistent_default_layer
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:652    .text.update_tri_layer_state:0000000000000000 update_tri_layer_state
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:825    .text.update_tri_layer:0000000000000000 update_tri_layer
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:867    .text.matrix_init_quantum:0000000000000000 matrix_init_quantum
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:904    .text.matrix_scan_quantum:0000000000000000 matrix_scan_quantum
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:924    .text.api_send_unicode:0000000000000000 api_send_unicode
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:942    .text.startup_user:0000000000000000 startup_user
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:960    .text.shutdown_user:0000000000000000 shutdown_user
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:975    .text.reset_keyboard:0000000000000000 reset_keyboard
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cck25ECa.s:1023   .text.process_record_quantum:0000000000000000 process_record_quantum
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:12     .text.do_code16:0000000000000000 do_code16
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:155    .text.register_code16:0000000000000000 register_code16
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:213    .text.unregister_code16:0000000000000000 unregister_code16
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:271    .text.tap_code16:0000000000000000 tap_code16
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:310    .text.process_action_kb:0000000000000000 process_action_kb
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:332    .text.process_record_user:0000000000000000 process_record_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:354    .text.process_record_kb:0000000000000000 process_record_kb
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:374    .text.post_process_record_user:0000000000000000 post_process_record_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:393    .text.post_process_record_kb:0000000000000000 post_process_record_kb
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:412    .text.get_event_keycode:0000000000000000 get_event_keycode
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:527    .text.get_record_keycode:0000000000000000 get_record_keycode
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:559    .text.post_process_record_quantum:0000000000000000 post_process_record_quantum
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:600    .text.set_single_persistent_default_layer:0000000000000000 set_single_persistent_default_layer
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:652    .text.update_tri_layer_state:0000000000000000 update_tri_layer_state
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:825    .text.update_tri_layer:0000000000000000 update_tri_layer
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:867    .text.matrix_init_quantum:0000000000000000 matrix_init_quantum
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:904    .text.matrix_scan_quantum:0000000000000000 matrix_scan_quantum
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:924    .text.api_send_unicode:0000000000000000 api_send_unicode
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:942    .text.startup_user:0000000000000000 startup_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:960    .text.shutdown_user:0000000000000000 shutdown_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:975    .text.reset_keyboard:0000000000000000 reset_keyboard
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cct4fmsC.s:1023   .text.process_record_quantum:0000000000000000 process_record_quantum
 
 UNDEFINED SYMBOLS
 register_weak_mods

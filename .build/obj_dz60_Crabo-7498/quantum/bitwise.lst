@@ -847,19 +847,19 @@
  709               		.file 2 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdint.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 bitwise.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccnmqGif.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccnmqGif.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccnmqGif.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccnmqGif.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccnmqGif.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccnmqGif.s:13     .text.bitpop:0000000000000000 bitpop
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccnmqGif.s:61     .text.bitpop16:0000000000000000 bitpop16
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccnmqGif.s:112    .text.bitpop32:0000000000000000 bitpop32
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccnmqGif.s:191    .text.biton:0000000000000000 biton
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccnmqGif.s:255    .text.biton16:0000000000000000 biton16
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccnmqGif.s:351    .text.biton32:0000000000000000 biton32
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccnmqGif.s:514    .text.bitrev:0000000000000000 bitrev
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccnmqGif.s:574    .text.bitrev16:0000000000000000 bitrev16
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccnmqGif.s:618    .text.bitrev32:0000000000000000 bitrev32
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPCC8kg.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPCC8kg.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPCC8kg.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPCC8kg.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPCC8kg.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPCC8kg.s:13     .text.bitpop:0000000000000000 bitpop
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPCC8kg.s:61     .text.bitpop16:0000000000000000 bitpop16
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPCC8kg.s:112    .text.bitpop32:0000000000000000 bitpop32
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPCC8kg.s:191    .text.biton:0000000000000000 biton
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPCC8kg.s:255    .text.biton16:0000000000000000 biton16
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPCC8kg.s:351    .text.biton32:0000000000000000 biton32
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPCC8kg.s:514    .text.bitrev:0000000000000000 bitrev
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPCC8kg.s:574    .text.bitrev16:0000000000000000 bitrev16
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPCC8kg.s:618    .text.bitrev32:0000000000000000 bitrev32
 
 NO UNDEFINED SYMBOLS

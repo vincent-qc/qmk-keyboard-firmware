@@ -254,16 +254,16 @@
  206               		.file 25 "quantum/process_keycode/process_tap_dance.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 sym_defer_g.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyNay6T.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyNay6T.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyNay6T.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyNay6T.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyNay6T.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyNay6T.s:13     .text.debounce_init:0000000000000000 debounce_init
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyNay6T.s:33     .text.debounce:0000000000000000 debounce
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyNay6T.s:179    .bss.debouncing:0000000000000000 debouncing
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyNay6T.s:174    .bss.debouncing_time:0000000000000000 debouncing_time
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyNay6T.s:155    .text.debounce_active:0000000000000000 debounce_active
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8vLLJH.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8vLLJH.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8vLLJH.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8vLLJH.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8vLLJH.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8vLLJH.s:13     .text.debounce_init:0000000000000000 debounce_init
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8vLLJH.s:33     .text.debounce:0000000000000000 debounce
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8vLLJH.s:179    .bss.debouncing:0000000000000000 debouncing
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8vLLJH.s:174    .bss.debouncing_time:0000000000000000 debouncing_time
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8vLLJH.s:155    .text.debounce_active:0000000000000000 debounce_active
 
 UNDEFINED SYMBOLS
 timer_read

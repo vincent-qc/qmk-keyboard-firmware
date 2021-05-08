@@ -1280,14 +1280,14 @@
  752               		.file 19 "tmk_core/common/keycode.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 bootmagic.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc3pjUXx.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc3pjUXx.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc3pjUXx.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc3pjUXx.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc3pjUXx.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc3pjUXx.s:12     .text.scan_keycode:0000000000000000 scan_keycode
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc3pjUXx.s:186    .text.bootmagic_scan_keycode:0000000000000000 bootmagic_scan_keycode
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc3pjUXx.s:235    .text.bootmagic:0000000000000000 bootmagic
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccIZcKfL.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccIZcKfL.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccIZcKfL.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccIZcKfL.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccIZcKfL.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccIZcKfL.s:12     .text.scan_keycode:0000000000000000 scan_keycode
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccIZcKfL.s:186    .text.bootmagic_scan_keycode:0000000000000000 bootmagic_scan_keycode
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccIZcKfL.s:235    .text.bootmagic:0000000000000000 bootmagic
                             *COM*:0000000000000002 keymap_config
 
 UNDEFINED SYMBOLS

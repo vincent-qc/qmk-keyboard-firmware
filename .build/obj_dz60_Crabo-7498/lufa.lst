@@ -5806,31 +5806,31 @@
  1400               		.file 39 "lib/lufa/LUFA/Drivers/USB/Core/AVR8/../AVR8/EndpointStream_AVR8.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 lufa.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:12     .text.keyboard_leds:0000000000000000 keyboard_leds
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:1353   .bss.keyboard_led_state:0000000000000000 keyboard_led_state
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:31     .text.send_extra:0000000000000000 send_extra
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:191    .text.send_consumer:0000000000000000 send_consumer
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:213    .text.send_system:0000000000000000 send_system
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:235    .text.send_mouse:0000000000000000 send_mouse
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:357    .text.send_keyboard:0000000000000000 send_keyboard
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:1359   .data.keyboard_protocol:0000000000000000 keyboard_protocol
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:1348   .bss.keyboard_report_sent:0000000000000000 keyboard_report_sent
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:538    .text.EVENT_USB_Device_Connect:0000000000000000 EVENT_USB_Device_Connect
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:594    .text.EVENT_USB_Device_Disconnect:0000000000000000 EVENT_USB_Device_Disconnect
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:615    .text.EVENT_USB_Device_Reset:0000000000000000 EVENT_USB_Device_Reset
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:630    .text.EVENT_USB_Device_Suspend:0000000000000000 EVENT_USB_Device_Suspend
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:648    .text.EVENT_USB_Device_WakeUp:0000000000000000 EVENT_USB_Device_WakeUp
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:663    .text.EVENT_USB_Device_ConfigurationChanged:0000000000000000 EVENT_USB_Device_ConfigurationChanged
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:734    .text.EVENT_USB_Device_ControlRequest:0000000000000000 EVENT_USB_Device_ControlRequest
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:1365   .bss.keyboard_idle:0000000000000000 keyboard_idle
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:1124   .text.startup.main:0000000000000000 main
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:1339   .data.lufa_driver:0000000000000000 lufa_driver
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccGclBNs.s:1318   .text.CALLBACK_USB_GetDescriptor:0000000000000000 CALLBACK_USB_GetDescriptor
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:12     .text.keyboard_leds:0000000000000000 keyboard_leds
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:1353   .bss.keyboard_led_state:0000000000000000 keyboard_led_state
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:31     .text.send_extra:0000000000000000 send_extra
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:191    .text.send_consumer:0000000000000000 send_consumer
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:213    .text.send_system:0000000000000000 send_system
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:235    .text.send_mouse:0000000000000000 send_mouse
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:357    .text.send_keyboard:0000000000000000 send_keyboard
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:1359   .data.keyboard_protocol:0000000000000000 keyboard_protocol
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:1348   .bss.keyboard_report_sent:0000000000000000 keyboard_report_sent
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:538    .text.EVENT_USB_Device_Connect:0000000000000000 EVENT_USB_Device_Connect
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:594    .text.EVENT_USB_Device_Disconnect:0000000000000000 EVENT_USB_Device_Disconnect
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:615    .text.EVENT_USB_Device_Reset:0000000000000000 EVENT_USB_Device_Reset
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:630    .text.EVENT_USB_Device_Suspend:0000000000000000 EVENT_USB_Device_Suspend
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:648    .text.EVENT_USB_Device_WakeUp:0000000000000000 EVENT_USB_Device_WakeUp
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:663    .text.EVENT_USB_Device_ConfigurationChanged:0000000000000000 EVENT_USB_Device_ConfigurationChanged
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:734    .text.EVENT_USB_Device_ControlRequest:0000000000000000 EVENT_USB_Device_ControlRequest
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:1365   .bss.keyboard_idle:0000000000000000 keyboard_idle
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:1124   .text.startup.main:0000000000000000 main
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:1339   .data.lufa_driver:0000000000000000 lufa_driver
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCv8D1V.s:1318   .text.CALLBACK_USB_GetDescriptor:0000000000000000 CALLBACK_USB_GetDescriptor
 
 UNDEFINED SYMBOLS
 USB_DeviceState
