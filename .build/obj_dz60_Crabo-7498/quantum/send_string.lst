@@ -2126,25 +2126,25 @@
  1430               		.file 26 "tmk_core/common/keycode.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 send_string.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:13     .text.send_char:0000000000000000 send_char
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:1243   .progmem.data.ascii_to_keycode_lut:0000000000000000 ascii_to_keycode_lut
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:1388   .progmem.data.ascii_to_shift_lut:0000000000000000 ascii_to_shift_lut
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:1382   .progmem.data.ascii_to_altgr_lut:0000000000000000 ascii_to_altgr_lut
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:1376   .progmem.data.ascii_to_dead_lut:0000000000000000 ascii_to_dead_lut
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:276    .text.send_string_with_delay:0000000000000000 send_string_with_delay
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:578    .text.send_string:0000000000000000 send_string
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:598    .text.send_string_with_delay_P:0000000000000000 send_string_with_delay_P
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:977    .text.send_string_P:0000000000000000 send_string_P
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:997    .text.send_nibble:0000000000000000 send_nibble
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:1031   .text.send_byte:0000000000000000 send_byte
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:1069   .text.send_word:0000000000000000 send_word
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:1104   .text.send_dword:0000000000000000 send_dword
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPEJh9P.s:1151   .text.tap_random_base64:0000000000000000 tap_random_base64
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:13     .text.send_char:0000000000000000 send_char
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:1243   .progmem.data.ascii_to_keycode_lut:0000000000000000 ascii_to_keycode_lut
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:1388   .progmem.data.ascii_to_shift_lut:0000000000000000 ascii_to_shift_lut
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:1382   .progmem.data.ascii_to_altgr_lut:0000000000000000 ascii_to_altgr_lut
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:1376   .progmem.data.ascii_to_dead_lut:0000000000000000 ascii_to_dead_lut
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:276    .text.send_string_with_delay:0000000000000000 send_string_with_delay
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:578    .text.send_string:0000000000000000 send_string
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:598    .text.send_string_with_delay_P:0000000000000000 send_string_with_delay_P
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:977    .text.send_string_P:0000000000000000 send_string_P
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:997    .text.send_nibble:0000000000000000 send_nibble
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:1031   .text.send_byte:0000000000000000 send_byte
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:1069   .text.send_word:0000000000000000 send_word
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:1104   .text.send_dword:0000000000000000 send_dword
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccvSBP2k.s:1151   .text.tap_random_base64:0000000000000000 tap_random_base64
 
 UNDEFINED SYMBOLS
 register_code

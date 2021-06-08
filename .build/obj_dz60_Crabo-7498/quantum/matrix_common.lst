@@ -1046,33 +1046,33 @@
  659               		.file 28 "quantum/bitwise.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 matrix_common.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:13     .text.matrix_init_user:0000000000000000 matrix_init_user
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:13     .text.matrix_init_user:0000000000000000 matrix_init_user.localalias.0
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:33     .text.matrix_init_kb:0000000000000000 matrix_init_kb
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:50     .text.matrix_scan_user:0000000000000000 matrix_scan_user
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:65     .text.matrix_scan_kb:0000000000000000 matrix_scan_kb
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:82     .text.matrix_rows:0000000000000000 matrix_rows
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:101    .text.matrix_cols:0000000000000000 matrix_cols
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:120    .text.matrix_is_on:0000000000000000 matrix_is_on
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:13     .text.matrix_init_user:0000000000000000 matrix_init_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:13     .text.matrix_init_user:0000000000000000 matrix_init_user.localalias.0
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:33     .text.matrix_init_kb:0000000000000000 matrix_init_kb
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:50     .text.matrix_scan_user:0000000000000000 matrix_scan_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:65     .text.matrix_scan_kb:0000000000000000 matrix_scan_kb
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:82     .text.matrix_rows:0000000000000000 matrix_rows
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:101    .text.matrix_cols:0000000000000000 matrix_cols
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:120    .text.matrix_is_on:0000000000000000 matrix_is_on
                             *COM*:000000000000000a matrix
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:168    .text.matrix_get_row:0000000000000000 matrix_get_row
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:198    .text.matrix_is_modified:0000000000000000 matrix_is_modified
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:221    .text.matrix_print:0000000000000000 matrix_print
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:243    .text.matrix_key_count:0000000000000000 matrix_key_count
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:319    .text.matrix_io_delay:0000000000000000 matrix_io_delay
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:356    .text.matrix_output_select_delay:0000000000000000 matrix_output_select_delay
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:375    .text.matrix_output_unselect_delay:0000000000000000 matrix_output_unselect_delay
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:392    .text.matrix_init_custom:0000000000000000 matrix_init_custom
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:407    .text.matrix_scan_custom:0000000000000000 matrix_scan_custom
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:429    .text.matrix_init:0000000000000000 matrix_init
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:168    .text.matrix_get_row:0000000000000000 matrix_get_row
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:198    .text.matrix_is_modified:0000000000000000 matrix_is_modified
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:221    .text.matrix_print:0000000000000000 matrix_print
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:243    .text.matrix_key_count:0000000000000000 matrix_key_count
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:319    .text.matrix_io_delay:0000000000000000 matrix_io_delay
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:356    .text.matrix_output_select_delay:0000000000000000 matrix_output_select_delay
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:375    .text.matrix_output_unselect_delay:0000000000000000 matrix_output_unselect_delay
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:392    .text.matrix_init_custom:0000000000000000 matrix_init_custom
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:407    .text.matrix_scan_custom:0000000000000000 matrix_scan_custom
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:429    .text.matrix_init:0000000000000000 matrix_init
                             *COM*:000000000000000a raw_matrix
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:526    .text.matrix_scan:0000000000000000 matrix_scan
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpfJ8wj.s:574    .text.peek_matrix:0000000000000000 peek_matrix
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:526    .text.matrix_scan:0000000000000000 matrix_scan
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc9PiIyd.s:574    .text.peek_matrix:0000000000000000 peek_matrix
 
 UNDEFINED SYMBOLS
 debounce_active

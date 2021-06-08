@@ -2166,21 +2166,21 @@
  1384               		.file 9 "tmk_core/common/debug.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 action_tapping.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8r0hgx.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8r0hgx.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8r0hgx.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8r0hgx.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8r0hgx.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8r0hgx.s:12     .text.debug_waiting_buffer:0000000000000000 debug_waiting_buffer
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8r0hgx.s:1359   .bss.waiting_buffer_tail:0000000000000000 waiting_buffer_tail
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8r0hgx.s:1364   .bss.waiting_buffer_head:0000000000000000 waiting_buffer_head
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8r0hgx.s:1369   .bss.waiting_buffer:0000000000000000 waiting_buffer
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8r0hgx.s:96     .text.debug_tapping_key:0000000000000000 debug_tapping_key
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8r0hgx.s:1374   .bss.tapping_key:0000000000000000 tapping_key
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8r0hgx.s:119    .text.waiting_buffer_scan_tap:0000000000000000 waiting_buffer_scan_tap
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8r0hgx.s:282    .text.process_tapping:0000000000000000 process_tapping
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8r0hgx.s:1068   .text.get_tapping_term:0000000000000000 get_tapping_term
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8r0hgx.s:1091   .text.action_tapping_process:0000000000000000 action_tapping_process
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ImNmA.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ImNmA.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ImNmA.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ImNmA.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ImNmA.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ImNmA.s:12     .text.debug_waiting_buffer:0000000000000000 debug_waiting_buffer
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ImNmA.s:1359   .bss.waiting_buffer_tail:0000000000000000 waiting_buffer_tail
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ImNmA.s:1364   .bss.waiting_buffer_head:0000000000000000 waiting_buffer_head
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ImNmA.s:1369   .bss.waiting_buffer:0000000000000000 waiting_buffer
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ImNmA.s:96     .text.debug_tapping_key:0000000000000000 debug_tapping_key
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ImNmA.s:1374   .bss.tapping_key:0000000000000000 tapping_key
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ImNmA.s:119    .text.waiting_buffer_scan_tap:0000000000000000 waiting_buffer_scan_tap
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ImNmA.s:282    .text.process_tapping:0000000000000000 process_tapping
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ImNmA.s:1068   .text.get_tapping_term:0000000000000000 get_tapping_term
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc8ImNmA.s:1091   .text.action_tapping_process:0000000000000000 action_tapping_process
 
 UNDEFINED SYMBOLS
 debug_record

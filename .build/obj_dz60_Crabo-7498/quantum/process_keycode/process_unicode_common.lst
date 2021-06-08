@@ -2192,29 +2192,29 @@
  1505               		.file 32 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/avr/eeprom.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 process_unicode_common.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:13     .text.unicode_input_mode_init:0000000000000000 unicode_input_mode_init
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:13     .text.unicode_input_mode_init:0000000000000000 unicode_input_mode_init
                             *COM*:0000000000000004 unicode_config
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:1469   .bss.selected_index:0000000000000000 selected_index
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:65     .text.get_unicode_input_mode:0000000000000000 get_unicode_input_mode
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:84     .text.persist_unicode_input_mode:0000000000000000 persist_unicode_input_mode
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:104    .text.set_unicode_input_mode:0000000000000000 set_unicode_input_mode
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:126    .text.cycle_unicode_input_mode:0000000000000000 cycle_unicode_input_mode
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:152    .text.unicode_input_start:0000000000000000 unicode_input_start
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:1469   .bss.selected_index:0000000000000000 selected_index
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:65     .text.get_unicode_input_mode:0000000000000000 get_unicode_input_mode
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:84     .text.persist_unicode_input_mode:0000000000000000 persist_unicode_input_mode
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:104    .text.set_unicode_input_mode:0000000000000000 set_unicode_input_mode
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:126    .text.cycle_unicode_input_mode:0000000000000000 cycle_unicode_input_mode
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:152    .text.unicode_input_start:0000000000000000 unicode_input_start
                             *COM*:0000000000000001 unicode_saved_caps_lock
                             *COM*:0000000000000001 unicode_saved_mods
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:272    .text.unicode_input_finish:0000000000000000 unicode_input_finish
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:332    .text.unicode_input_cancel:0000000000000000 unicode_input_cancel
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:392    .text.register_hex:0000000000000000 register_hex
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:476    .text.register_hex32:0000000000000000 register_hex32
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:635    .text.register_unicode:0000000000000000 register_unicode
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:777    .text.send_unicode_hex_string:0000000000000000 send_unicode_hex_string
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:1005   .text.send_unicode_string:0000000000000000 send_unicode_string
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccrBDAWB.s:1326   .text.process_unicode_common:0000000000000000 process_unicode_common
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:272    .text.unicode_input_finish:0000000000000000 unicode_input_finish
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:332    .text.unicode_input_cancel:0000000000000000 unicode_input_cancel
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:392    .text.register_hex:0000000000000000 register_hex
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:476    .text.register_hex32:0000000000000000 register_hex32
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:635    .text.register_unicode:0000000000000000 register_unicode
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:777    .text.send_unicode_hex_string:0000000000000000 send_unicode_hex_string
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:1005   .text.send_unicode_string:0000000000000000 send_unicode_string
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVAsXUo.s:1326   .text.process_unicode_common:0000000000000000 process_unicode_common
 
 UNDEFINED SYMBOLS
 eeprom_read_byte

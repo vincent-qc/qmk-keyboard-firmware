@@ -1081,16 +1081,16 @@
  694               		.file 28 "quantum/debounce.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 matrix.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cco0X5cp.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cco0X5cp.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cco0X5cp.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cco0X5cp.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cco0X5cp.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cco0X5cp.s:12     .text.setPinInputHigh_atomic:0000000000000000 setPinInputHigh_atomic
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cco0X5cp.s:96     .text.matrix_init:0000000000000000 matrix_init
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cco0X5cp.s:642    .rodata.col_pins:0000000000000000 col_pins
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cco0X5cp.s:269    .text.matrix_scan:0000000000000000 matrix_scan
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cco0X5cp.s:661    .rodata.row_pins:0000000000000000 row_pins
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccszSbmh.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccszSbmh.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccszSbmh.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccszSbmh.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccszSbmh.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccszSbmh.s:12     .text.setPinInputHigh_atomic:0000000000000000 setPinInputHigh_atomic
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccszSbmh.s:96     .text.matrix_init:0000000000000000 matrix_init
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccszSbmh.s:642    .rodata.col_pins:0000000000000000 col_pins
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccszSbmh.s:269    .text.matrix_scan:0000000000000000 matrix_scan
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccszSbmh.s:661    .rodata.row_pins:0000000000000000 row_pins
 
 UNDEFINED SYMBOLS
 raw_matrix

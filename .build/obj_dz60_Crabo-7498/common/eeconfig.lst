@@ -935,37 +935,37 @@
  738               		.file 5 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/avr/eeprom.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 eeconfig.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:13     .text.eeconfig_enable:0000000000000000 eeconfig_enable
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:35     .text.eeconfig_disable:0000000000000000 eeconfig_disable
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:56     .text.eeconfig_is_enabled:0000000000000000 eeconfig_is_enabled
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:87     .text.eeconfig_is_disabled:0000000000000000 eeconfig_is_disabled
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:117    .text.eeconfig_read_debug:0000000000000000 eeconfig_read_debug
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:137    .text.eeconfig_update_debug:0000000000000000 eeconfig_update_debug
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:161    .text.eeconfig_read_default_layer:0000000000000000 eeconfig_read_default_layer
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:181    .text.eeconfig_update_default_layer:0000000000000000 eeconfig_update_default_layer
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:205    .text.eeconfig_read_keymap:0000000000000000 eeconfig_read_keymap
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:241    .text.eeconfig_update_keymap:0000000000000000 eeconfig_update_keymap
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:280    .text.eeconfig_read_backlight:0000000000000000 eeconfig_read_backlight
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:300    .text.eeconfig_update_backlight:0000000000000000 eeconfig_update_backlight
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:324    .text.eeconfig_read_audio:0000000000000000 eeconfig_read_audio
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:344    .text.eeconfig_update_audio:0000000000000000 eeconfig_update_audio
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:368    .text.eeconfig_read_kb:0000000000000000 eeconfig_read_kb
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:388    .text.eeconfig_update_kb:0000000000000000 eeconfig_update_kb
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:412    .text.eeconfig_read_user:0000000000000000 eeconfig_read_user
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:432    .text.eeconfig_update_user:0000000000000000 eeconfig_update_user
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:456    .text.eeconfig_init_user:0000000000000000 eeconfig_init_user
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:476    .text.eeconfig_init_kb:0000000000000000 eeconfig_init_kb
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:499    .text.eeconfig_init_quantum:0000000000000000 eeconfig_init_quantum
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:621    .text.eeconfig_init:0000000000000000 eeconfig_init
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:638    .text.eeconfig_read_haptic:0000000000000000 eeconfig_read_haptic
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:658    .text.eeconfig_update_haptic:0000000000000000 eeconfig_update_haptic
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:682    .text.eeconfig_read_handedness:0000000000000000 eeconfig_read_handedness
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0AHsVZ.s:712    .text.eeconfig_update_handedness:0000000000000000 eeconfig_update_handedness
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:13     .text.eeconfig_enable:0000000000000000 eeconfig_enable
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:35     .text.eeconfig_disable:0000000000000000 eeconfig_disable
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:56     .text.eeconfig_is_enabled:0000000000000000 eeconfig_is_enabled
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:87     .text.eeconfig_is_disabled:0000000000000000 eeconfig_is_disabled
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:117    .text.eeconfig_read_debug:0000000000000000 eeconfig_read_debug
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:137    .text.eeconfig_update_debug:0000000000000000 eeconfig_update_debug
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:161    .text.eeconfig_read_default_layer:0000000000000000 eeconfig_read_default_layer
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:181    .text.eeconfig_update_default_layer:0000000000000000 eeconfig_update_default_layer
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:205    .text.eeconfig_read_keymap:0000000000000000 eeconfig_read_keymap
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:241    .text.eeconfig_update_keymap:0000000000000000 eeconfig_update_keymap
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:280    .text.eeconfig_read_backlight:0000000000000000 eeconfig_read_backlight
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:300    .text.eeconfig_update_backlight:0000000000000000 eeconfig_update_backlight
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:324    .text.eeconfig_read_audio:0000000000000000 eeconfig_read_audio
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:344    .text.eeconfig_update_audio:0000000000000000 eeconfig_update_audio
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:368    .text.eeconfig_read_kb:0000000000000000 eeconfig_read_kb
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:388    .text.eeconfig_update_kb:0000000000000000 eeconfig_update_kb
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:412    .text.eeconfig_read_user:0000000000000000 eeconfig_read_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:432    .text.eeconfig_update_user:0000000000000000 eeconfig_update_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:456    .text.eeconfig_init_user:0000000000000000 eeconfig_init_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:476    .text.eeconfig_init_kb:0000000000000000 eeconfig_init_kb
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:499    .text.eeconfig_init_quantum:0000000000000000 eeconfig_init_quantum
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:621    .text.eeconfig_init:0000000000000000 eeconfig_init
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:638    .text.eeconfig_read_haptic:0000000000000000 eeconfig_read_haptic
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:658    .text.eeconfig_update_haptic:0000000000000000 eeconfig_update_haptic
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:682    .text.eeconfig_read_handedness:0000000000000000 eeconfig_read_handedness
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBnUg1r.s:712    .text.eeconfig_update_handedness:0000000000000000 eeconfig_update_handedness
 
 UNDEFINED SYMBOLS
 eeprom_update_word

@@ -273,11 +273,11 @@
  275               		.file 3 "quantum/led_tables.c"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 led_tables.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cculkC2V.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cculkC2V.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cculkC2V.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cculkC2V.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cculkC2V.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cculkC2V.s:14     .progmem.data.CIE1931_CURVE:0000000000000000 CIE1931_CURVE
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccQsm2YT.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccQsm2YT.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccQsm2YT.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccQsm2YT.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccQsm2YT.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccQsm2YT.s:14     .progmem.data.CIE1931_CURVE:0000000000000000 CIE1931_CURVE
 
 NO UNDEFINED SYMBOLS

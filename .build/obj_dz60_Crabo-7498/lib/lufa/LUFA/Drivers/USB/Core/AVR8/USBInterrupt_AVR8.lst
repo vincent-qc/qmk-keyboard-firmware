@@ -2996,15 +2996,15 @@
  978               		.file 12 "lib/lufa/LUFA/Drivers/USB/Core/AVR8/../AVR8/../Events.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 USBInterrupt_AVR8.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccoPU1jr.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccoPU1jr.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccoPU1jr.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccoPU1jr.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccoPU1jr.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccoPU1jr.s:13     .text.USB_INT_DisableAllInterrupts:0000000000000000 USB_INT_DisableAllInterrupts
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccoPU1jr.s:41     .text.USB_INT_ClearAllInterrupts:0000000000000000 USB_INT_ClearAllInterrupts
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccoPU1jr.s:64     .text.__vector_10:0000000000000000 __vector_10
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccoPU1jr.s:740    .text.__vector_11:0000000000000000 __vector_11
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccazCqAj.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccazCqAj.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccazCqAj.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccazCqAj.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccazCqAj.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccazCqAj.s:13     .text.USB_INT_DisableAllInterrupts:0000000000000000 USB_INT_DisableAllInterrupts
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccazCqAj.s:41     .text.USB_INT_ClearAllInterrupts:0000000000000000 USB_INT_ClearAllInterrupts
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccazCqAj.s:64     .text.__vector_10:0000000000000000 __vector_10
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccazCqAj.s:740    .text.__vector_11:0000000000000000 __vector_11
 
 UNDEFINED SYMBOLS
 EVENT_USB_Device_StartOfFrame

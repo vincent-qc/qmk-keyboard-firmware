@@ -273,13 +273,13 @@
  222               		.file 27 "quantum/process_keycode/process_unicodemap.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 process_unicodemap.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBDPKc2.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBDPKc2.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBDPKc2.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBDPKc2.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBDPKc2.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBDPKc2.s:13     .text.unicodemap_index:0000000000000000 unicodemap_index
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccBDPKc2.s:133    .text.process_unicodemap:0000000000000000 process_unicodemap
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccbcNHUh.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccbcNHUh.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccbcNHUh.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccbcNHUh.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccbcNHUh.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccbcNHUh.s:13     .text.unicodemap_index:0000000000000000 unicodemap_index
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccbcNHUh.s:133    .text.process_unicodemap:0000000000000000 process_unicodemap
 
 UNDEFINED SYMBOLS
 get_mods

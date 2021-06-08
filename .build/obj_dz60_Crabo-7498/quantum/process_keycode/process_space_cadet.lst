@@ -636,15 +636,15 @@
  423               		.file 27 "quantum/process_keycode/process_tap_dance.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 process_space_cadet.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVVaPNm.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVVaPNm.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVVaPNm.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVVaPNm.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVVaPNm.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVVaPNm.s:13     .text.perform_space_cadet:0000000000000000 perform_space_cadet
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVVaPNm.s:394    .bss.sc_last:0000000000000000 sc_last
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVVaPNm.s:389    .bss.sc_timer:0000000000000000 sc_timer
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccVVaPNm.s:223    .text.process_space_cadet:0000000000000000 process_space_cadet
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccDLaQY5.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccDLaQY5.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccDLaQY5.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccDLaQY5.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccDLaQY5.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccDLaQY5.s:13     .text.perform_space_cadet:0000000000000000 perform_space_cadet
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccDLaQY5.s:394    .bss.sc_last:0000000000000000 sc_last
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccDLaQY5.s:389    .bss.sc_timer:0000000000000000 sc_timer
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccDLaQY5.s:223    .text.process_space_cadet:0000000000000000 process_space_cadet
 
 UNDEFINED SYMBOLS
 timer_read

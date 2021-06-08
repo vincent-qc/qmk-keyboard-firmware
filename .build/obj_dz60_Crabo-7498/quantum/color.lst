@@ -516,14 +516,14 @@
  361               		.file 4 "quantum/led_tables.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 color.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpyIw4f.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpyIw4f.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpyIw4f.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpyIw4f.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpyIw4f.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpyIw4f.s:13     .text.hsv_to_rgb_impl:0000000000000000 hsv_to_rgb_impl
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpyIw4f.s:318    .text.hsv_to_rgb:0000000000000000 hsv_to_rgb
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccpyIw4f.s:339    .text.hsv_to_rgb_nocie:0000000000000000 hsv_to_rgb_nocie
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccz0f4FN.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccz0f4FN.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccz0f4FN.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccz0f4FN.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccz0f4FN.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccz0f4FN.s:13     .text.hsv_to_rgb_impl:0000000000000000 hsv_to_rgb_impl
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccz0f4FN.s:318    .text.hsv_to_rgb:0000000000000000 hsv_to_rgb
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccz0f4FN.s:339    .text.hsv_to_rgb_nocie:0000000000000000 hsv_to_rgb_nocie
 
 UNDEFINED SYMBOLS
 CIE1931_CURVE

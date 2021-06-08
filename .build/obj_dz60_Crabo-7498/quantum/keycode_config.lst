@@ -723,13 +723,13 @@
  468               		.file 5 "quantum/keycode_config.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 keycode_config.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccwhIipA.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccwhIipA.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccwhIipA.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccwhIipA.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccwhIipA.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccwhIipA.s:13     .text.keycode_config:0000000000000000 keycode_config
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccwhIipA.s:289    .text.mod_config:0000000000000000 mod_config
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCqEraD.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCqEraD.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCqEraD.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCqEraD.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCqEraD.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCqEraD.s:13     .text.keycode_config:0000000000000000 keycode_config
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccCqEraD.s:289    .text.mod_config:0000000000000000 mod_config
 
 UNDEFINED SYMBOLS
 keymap_config

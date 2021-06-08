@@ -903,21 +903,21 @@
  621               		.file 13 "quantum/bitwise.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 report.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9mNam.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9mNam.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9mNam.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9mNam.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9mNam.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9mNam.s:13     .text.has_anykey:0000000000000000 has_anykey
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9mNam.s:79     .text.get_first_key:0000000000000000 get_first_key
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9mNam.s:172    .text.is_key_pressed:0000000000000000 is_key_pressed
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9mNam.s:276    .text.add_key_byte:0000000000000000 add_key_byte
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9mNam.s:352    .text.del_key_byte:0000000000000000 del_key_byte
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9mNam.s:400    .text.add_key_bit:0000000000000000 add_key_bit
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9mNam.s:452    .text.del_key_bit:0000000000000000 del_key_bit
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9mNam.s:505    .text.add_key_to_report:0000000000000000 add_key_to_report
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9mNam.s:536    .text.del_key_from_report:0000000000000000 del_key_from_report
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccd9mNam.s:567    .text.clear_keys_from_report:0000000000000000 clear_keys_from_report
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cceruzUL.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cceruzUL.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cceruzUL.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cceruzUL.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cceruzUL.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cceruzUL.s:13     .text.has_anykey:0000000000000000 has_anykey
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cceruzUL.s:79     .text.get_first_key:0000000000000000 get_first_key
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cceruzUL.s:172    .text.is_key_pressed:0000000000000000 is_key_pressed
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cceruzUL.s:276    .text.add_key_byte:0000000000000000 add_key_byte
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cceruzUL.s:352    .text.del_key_byte:0000000000000000 del_key_byte
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cceruzUL.s:400    .text.add_key_bit:0000000000000000 add_key_bit
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cceruzUL.s:452    .text.del_key_bit:0000000000000000 del_key_bit
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cceruzUL.s:505    .text.add_key_to_report:0000000000000000 add_key_to_report
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cceruzUL.s:536    .text.del_key_from_report:0000000000000000 del_key_from_report
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cceruzUL.s:567    .text.clear_keys_from_report:0000000000000000 clear_keys_from_report
 
 UNDEFINED SYMBOLS
 keyboard_protocol

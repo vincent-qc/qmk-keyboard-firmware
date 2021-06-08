@@ -1259,19 +1259,19 @@
  738               		.file 29 "quantum/process_keycode/process_tap_dance.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 keymap_common.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccJe5MT3.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccJe5MT3.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccJe5MT3.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccJe5MT3.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccJe5MT3.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccJe5MT3.s:13     .text.action_get_macro:0000000000000000 action_get_macro
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccJe5MT3.s:37     .text.action_function:0000000000000000 action_function
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccJe5MT3.s:56     .text.keymap_key_to_keycode:0000000000000000 keymap_key_to_keycode
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccJe5MT3.s:113    .text.keymap_function_id_to_action:0000000000000000 keymap_function_id_to_action
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccJe5MT3.s:709    .progmem.data.fn_actions:0000000000000000 fn_actions
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccJe5MT3.s:154    .text.action_for_key:0000000000000000 action_for_key
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccJe5MT3.s:701    .rodata.CSWTCH.0:0000000000000000 CSWTCH.0
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccJe5MT3.s:674    .rodata.CSWTCH.1:0000000000000000 CSWTCH.1
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPeI34S.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPeI34S.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPeI34S.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPeI34S.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPeI34S.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPeI34S.s:13     .text.action_get_macro:0000000000000000 action_get_macro
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPeI34S.s:37     .text.action_function:0000000000000000 action_function
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPeI34S.s:56     .text.keymap_key_to_keycode:0000000000000000 keymap_key_to_keycode
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPeI34S.s:113    .text.keymap_function_id_to_action:0000000000000000 keymap_function_id_to_action
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPeI34S.s:709    .progmem.data.fn_actions:0000000000000000 fn_actions
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPeI34S.s:154    .text.action_for_key:0000000000000000 action_for_key
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPeI34S.s:701    .rodata.CSWTCH.0:0000000000000000 CSWTCH.0
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPeI34S.s:674    .rodata.CSWTCH.1:0000000000000000 CSWTCH.1
 
 UNDEFINED SYMBOLS
 keymaps

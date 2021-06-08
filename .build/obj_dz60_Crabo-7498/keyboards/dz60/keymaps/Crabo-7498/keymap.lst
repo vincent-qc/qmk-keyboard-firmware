@@ -17,264 +17,652 @@
    2:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*----------------------*/
    3:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*------- ENUMS --------*/
    4:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*----------------------*/
-   5:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** enum unicode_names
-   6:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** {
-   7:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     B,
-   8:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** };
-   9:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
-  10:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** enum tap_dance_names
-  11:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** {
-  12:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     TD_SWITCH_LAYERS
-  13:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** };
-  14:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
-  15:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*----------------------*/
-  16:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*----- FUNCTIONS ------*/
-  17:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*----------------------*/
-  18:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
-  19:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** void td_toggle_layers(qk_tap_dance_state_t *state, void *user_data)
-  20:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** {
-  17               		.loc 1 20 1 view -0
+   5:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+   6:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** enum unicode_names
+   7:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** {
+   8:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     AMOGUS,
+   9:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** };
+  10:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+  11:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** enum tap_dance_names
+  12:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** {
+  13:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     TD_SWITCH_LAYERS,
+  14:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** };
+  15:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+  16:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** enum custom_keycodes
+  17:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** {
+  18:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     MACRO_CLICK = SAFE_RANGE,
+  19:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     TOGGLE_MC_LAYER = 0xaf,
+  20:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** };
+  21:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+  22:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*----------------------*/
+  23:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*----- FUNCTIONS ------*/
+  24:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*----------------------*/
+  25:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+  26:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** void td_toggle_layers(qk_tap_dance_state_t *state, void *user_data)
+  27:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** {
+  17               		.loc 1 27 1 view -0
   18               		.cfi_startproc
   19               	/* prologue: function */
   20               	/* frame size = 0 */
   21               	/* stack size = 0 */
   22               	.L__stack_usage = 0
-  21:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     switch (state->count)
-  23               		.loc 1 21 5 view .LVU1
-  24 0000 FC01      		movw r30,r24
-  25 0002 8081      		ld r24,Z
-  26               	.LVL1:
-  27               		.loc 1 21 5 is_stmt 0 view .LVU2
-  28 0004 8230      		cpi r24,lo8(2)
-  29 0006 01F4      		brne .L1
-  22:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     {
-  23:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     case 2:
-  24:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         backlight_toggle();
-  30               		.loc 1 24 9 is_stmt 1 view .LVU3
-  31 0008 0C94 0000 		jmp backlight_toggle
-  32               	.LVL2:
-  33               	.L1:
-  34               	/* epilogue start */
-  25:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     default:
-  26:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         break;
-  27:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     }
-  28:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** }
-  35               		.loc 1 28 1 is_stmt 0 view .LVU4
-  36 000c 0895      		ret
-  37               		.cfi_endproc
-  38               	.LFE117:
-  40               	.global	keymaps
-  41               		.section	.progmem.data.keymaps,"a"
-  44               	keymaps:
-  45 0000 165C      		.word	23574
-  46 0002 1E00      		.word	30
-  47 0004 1F00      		.word	31
-  48 0006 2000      		.word	32
-  49 0008 2100      		.word	33
-  50 000a 2200      		.word	34
-  51 000c 2300      		.word	35
-  52 000e 2400      		.word	36
-  53 0010 2500      		.word	37
-  54 0012 2600      		.word	38
-  55 0014 2700      		.word	39
-  56 0016 2D00      		.word	45
-  57 0018 2E00      		.word	46
-  58 001a 2A00      		.word	42
-  59 001c 2A00      		.word	42
-  60 001e 2B00      		.word	43
-  61 0020 0000      		.word	0
-  62 0022 1400      		.word	20
-  63 0024 1A00      		.word	26
-  64 0026 0800      		.word	8
-  65 0028 1500      		.word	21
-  66 002a 1700      		.word	23
-  67 002c 1C00      		.word	28
-  68 002e 1800      		.word	24
-  69 0030 0C00      		.word	12
-  70 0032 1200      		.word	18
-  71 0034 1300      		.word	19
-  72 0036 2F00      		.word	47
-  73 0038 3000      		.word	48
-  74 003a 3100      		.word	49
-  75 003c 3900      		.word	57
-  76 003e 0000      		.word	0
-  77 0040 0400      		.word	4
-  78 0042 1600      		.word	22
-  79 0044 0700      		.word	7
-  80 0046 0900      		.word	9
-  81 0048 0A00      		.word	10
-  82 004a 0B00      		.word	11
-  83 004c 0D00      		.word	13
-  84 004e 0E00      		.word	14
-  85 0050 0F00      		.word	15
-  86 0052 3300      		.word	51
-  87 0054 3400      		.word	52
-  88 0056 2800      		.word	40
-  89 0058 0000      		.word	0
-  90 005a E100      		.word	225
-  91 005c 0000      		.word	0
-  92 005e 1D00      		.word	29
-  93 0060 1B00      		.word	27
-  94 0062 0600      		.word	6
-  95 0064 1900      		.word	25
-  96 0066 0500      		.word	5
-  97 0068 1100      		.word	17
-  98 006a 1000      		.word	16
-  99 006c 3600      		.word	54
- 100 006e 3700      		.word	55
- 101 0070 3800      		.word	56
- 102 0072 0000      		.word	0
- 103 0074 E500      		.word	229
- 104 0076 0000      		.word	0
- 105 0078 E000      		.word	224
- 106 007a E300      		.word	227
- 107 007c 0000      		.word	0
- 108 007e E200      		.word	226
- 109 0080 2C00      		.word	44
- 110 0082 0000      		.word	0
- 111 0084 2C00      		.word	44
- 112 0086 0000      		.word	0
- 113 0088 2C00      		.word	44
- 114 008a 0000      		.word	0
- 115 008c 5000      		.word	80
- 116 008e 0158      		.word	22529
- 117 0090 0000      		.word	0
- 118 0092 4F00      		.word	79
- 119 0094 E400      		.word	228
- 120 0096 3500      		.word	53
- 121 0098 3A00      		.word	58
- 122 009a 3B00      		.word	59
- 123 009c 3C00      		.word	60
- 124 009e 3D00      		.word	61
- 125 00a0 3E00      		.word	62
- 126 00a2 3F00      		.word	63
- 127 00a4 4000      		.word	64
- 128 00a6 4100      		.word	65
- 129 00a8 4200      		.word	66
- 130 00aa 4300      		.word	67
- 131 00ac 4400      		.word	68
- 132 00ae 4500      		.word	69
- 133 00b0 4C00      		.word	76
- 134 00b2 4C00      		.word	76
- 135 00b4 C45C      		.word	23748
- 136 00b6 0000      		.word	0
- 137 00b8 C35C      		.word	23747
- 138 00ba C65C      		.word	23750
- 139 00bc C75C      		.word	23751
- 140 00be C85C      		.word	23752
- 141 00c0 C95C      		.word	23753
- 142 00c2 0100      		.word	1
- 143 00c4 0100      		.word	1
- 144 00c6 0100      		.word	1
- 145 00c8 0100      		.word	1
- 146 00ca 0100      		.word	1
- 147 00cc A600      		.word	166
- 148 00ce A700      		.word	167
- 149 00d0 4600      		.word	70
- 150 00d2 0100      		.word	1
- 151 00d4 0000      		.word	0
- 152 00d6 0100      		.word	1
- 153 00d8 0100      		.word	1
- 154 00da 0100      		.word	1
- 155 00dc 0100      		.word	1
- 156 00de 0100      		.word	1
- 157 00e0 0100      		.word	1
- 158 00e2 0100      		.word	1
- 159 00e4 0100      		.word	1
- 160 00e6 0100      		.word	1
- 161 00e8 0100      		.word	1
- 162 00ea 0100      		.word	1
- 163 00ec 005C      		.word	23552
- 164 00ee 0000      		.word	0
- 165 00f0 0100      		.word	1
- 166 00f2 0100      		.word	1
- 167 00f4 0100      		.word	1
- 168 00f6 0100      		.word	1
- 169 00f8 0100      		.word	1
- 170 00fa 0100      		.word	1
- 171 00fc AA00      		.word	170
- 172 00fe A900      		.word	169
- 173 0100 AE00      		.word	174
- 174 0102 AB00      		.word	171
- 175 0104 AC00      		.word	172
- 176 0106 A800      		.word	168
- 177 0108 0000      		.word	0
- 178 010a 0100      		.word	1
- 179 010c 0100      		.word	1
- 180 010e 0100      		.word	1
- 181 0110 0100      		.word	1
- 182 0112 0000      		.word	0
- 183 0114 0100      		.word	1
- 184 0116 0100      		.word	1
- 185 0118 0000      		.word	0
- 186 011a 0100      		.word	1
- 187 011c 0000      		.word	0
- 188 011e 0100      		.word	1
- 189 0120 0000      		.word	0
- 190 0122 5200      		.word	82
- 191 0124 0100      		.word	1
- 192 0126 0100      		.word	1
- 193 0128 5100      		.word	81
- 194 012a 1050      		.word	20496
- 195               	.global	tap_dance_actions
- 196               		.section	.data.tap_dance_actions,"aw"
- 199               	tap_dance_actions:
- 200 0000 0000      		.word	0
- 201 0002 0000      		.word	gs(td_toggle_layers)
- 202 0004 0000      		.word	0
- 203 0006 0000 0000 		.zero	14
- 203      0000 0000 
- 203      0000 0000 
- 203      0000 
- 204 0014 0000      		.word	0
- 205               	.global	unicode_map
- 206               		.section	.progmem.data.unicode_map,"a"
- 209               	unicode_map:
- 210 0000 71        		.byte	113
- 211 0001 F1        		.byte	-15
- 212 0002 01        		.byte	1
- 213 0003 00        		.byte	0
- 214               		.text
- 215               	.Letext0:
- 216               		.file 2 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdint.h"
- 217               		.file 3 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/lib/avr-gcc/8/gcc/avr/8.4.0/include/stddef.h"
- 218               		.file 4 "tmk_core/common/keycode.h"
- 219               		.file 5 "tmk_core/common/action_code.h"
- 220               		.file 6 "lib/lufa/LUFA/Drivers/USB/Core/AVR8/../StdRequestType.h"
- 221               		.file 7 "tmk_core/common/action.h"
- 222               		.file 8 "lib/lufa/LUFA/Drivers/USB/Core/AVR8/../DeviceStandardReq.h"
- 223               		.file 9 "lib/lufa/LUFA/Drivers/USB/Core/USBTask.h"
- 224               		.file 10 "lib/lufa/LUFA/Drivers/USB/Core/HostStandardReq.h"
- 225               		.file 11 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdio.h"
- 226               		.file 12 "tmk_core/common/report.h"
- 227               		.file 13 "tmk_core/common/host.h"
- 228               		.file 14 "tmk_core/common/debug.h"
- 229               		.file 15 "quantum/keycode_config.h"
- 230               		.file 16 "quantum/quantum_keycodes.h"
- 231               		.file 17 "quantum/keymap.h"
- 232               		.file 18 "./quantum/color.h"
- 233               		.file 19 "quantum/rgblight.h"
- 234               		.file 20 "tmk_core/common/action_layer.h"
- 235               		.file 21 "tmk_core/common/timer.h"
- 236               		.file 22 "tmk_core/common/action_util.h"
- 237               		.file 23 "quantum/send_string.h"
- 238               		.file 24 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdlib.h"
- 239               		.file 25 "quantum/process_keycode/process_unicode_common.h"
- 240               		.file 26 "quantum/process_keycode/process_unicodemap.h"
- 241               		.file 27 "quantum/process_keycode/process_tap_dance.h"
- 242               		.file 28 "quantum/backlight/backlight.h"
+  28:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     if (state->count == 1)
+  23               		.loc 1 28 5 view .LVU1
+  29:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     {
+  30:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         // send_unicode_string("ඞ");
+  31:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         // reset_tap_dance(state);
+  32:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     }
+  33:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     else if (state->count == 2)
+  34:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     {
+  35:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         // layer_on(2);
+  36:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         // reset_tap_dance(state);
+  37:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     }
+  24               		.loc 1 37 5 view .LVU2
+  25               	/* epilogue start */
+  38:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** }
+  26               		.loc 1 38 1 is_stmt 0 view .LVU3
+  27 0000 0895      		ret
+  28               		.cfi_endproc
+  29               	.LFE117:
+  31               		.section	.text.process_record_user,"ax",@progbits
+  32               	.global	process_record_user
+  34               	process_record_user:
+  35               	.LVL1:
+  36               	.LFB118:
+  39:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+  40:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*----------------------*/
+  41:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*---- DEFINITIONS -----*/
+  42:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*----------------------*/
+  43:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+  44:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** const uint32_t PROGMEM unicode_map[] = {
+  45:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     [AMOGUS] = 0xe0b69e,
+  46:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** };
+  47:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+  48:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** qk_tap_dance_action_t tap_dance_actions[] = {
+  49:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     //[TD_SWITCH_LAYERS] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_RCTL, 2),
+  50:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** };
+  51:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+  52:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*----------------------*/
+  53:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*------ KEYMAPS -------*/
+  54:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*----------------------*/
+  55:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+  56:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+  57:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+  58:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     /* Qwerty Base layer
+  59:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * ,-----------------------------------------------------------------------------------------.
+  60:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * | Esc |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  -  |  =  | Backspace |
+  61:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |-----------------------------------------------------------------------------------------+
+  62:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * | Tab    |  Q  |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  |  [  |  ]  |   \    |
+  63:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |-----------------------------------------------------------------------------------------+
+  64:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * | CAPS    |  A  |  S  |  D  |  F  |  G  |  H  |  J  |  K  |  L  |  ;  |  '  |    Enter    |
+  65:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |-----------------------------------------------------------------------------------------+
+  66:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * | Shift     |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  /  |   Right Shift   |
+  67:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |-----------------------------------------------------------------------------------------+
+  68:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * | Ctrl  |  CMD  |  Alt  |               Space               | Right |  FN  | Left | LYR+  |
+  69:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     *  `----------------------------------------------------------------------------------------'
+  70:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     */
+  71:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+  72:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     LAYOUT(
+  73:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         KC_GESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_EQL, KC_BS
+  74:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRC, KC_RBRC, KC_BS
+  75:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         KC_CAPS, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_ENT,
+  76:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         KC_LSFT, XXXXXXX, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, TOGGL
+  77:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         KC_LCTL, KC_LGUI, KC_LALT, KC_SPC, KC_SPC, KC_SPC, KC_LEFT, TT(2), XXXXXXX, KC_RIGHT, KC_RC
+  78:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+  79:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     /* --------------------------- ALL SPECIAL LAYERS GO UNDER HERE --------------------------- */
+  80:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+  81:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     /* Minecraft CPS Layer
+  82:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     *
+  83:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * MS = Mouse Button 1 (aka left click)
+  84:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * 
+  85:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * ,-----------------------------------------------------------------------------------------.
+  86:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |     |     |     |     |     |     |     |     |     |     |     |     |     |   Delete  |
+  87:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |-----------------------------------------------------------------------------------------+
+  88:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |        |  MS  |     |     |     |     |     |     |     |     |     |     |     |       |
+  89:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |-----------------------------------------------------------------------------------------+
+  90:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |   MS    |     |     |     |  MS  |     |     |     |     |     |     |     |            |
+  91:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |-----------------------------------------------------------------------------------------+
+  92:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |             |     |     |     |     |     |     |     |     |     |     |               |
+  93:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |-----------------------------------------------------------------------------------------+
+  94:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |       |       |       |                                   |       |      |      |       |
+  95:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     *  `----------------------------------------------------------------------------------------'
+  96:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     */
+  97:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+  98:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     LAYOUT(
+  99:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, K
+ 100:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         KC_TRNS, MACRO_CLICK, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRN
+ 101:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         MACRO_CLICK, KC_TRNS, KC_TRNS, KC_TRNS, MACRO_CLICK, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC
+ 102:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, K
+ 103:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, _______, KC_TRNS, KC_TRNS, T
+ 104:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+ 105:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     /* FN Layer
+ 106:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * ,-----------------------------------------------------------------------------------------.
+ 107:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |  `  |  F1 |  F2 |  F3 |  F4 |  F5 |  F6 |  F7 |  F8 |  F9 |  F10 |  F11 |  F12 | Delete |
+ 108:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |-----------------------------------------------------------------------------------------+
+ 109:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |        | TOG | OFF |     |     |     |     |     |     |     |     | SLP | WKE |  PRSCN |
+ 110:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |-----------------------------------------------------------------------------------------+
+ 111:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |         |     |     |     |     |     |     |     |     |     |     |     |    RESET    |
+ 112:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |-----------------------------------------------------------------------------------------+
+ 113:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |           |     |     |     |     | VOL- | VOL+ | PLY | PRV | NXT | MTE |               |
+ 114:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |-----------------------------------------------------------------------------------------+
+ 115:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     * |       |       |       |                                   |  Up   |  FN  | Down | LYR+  |
+ 116:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     *  `----------------------------------------------------------------------------------------'
+ 117:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     */
+ 118:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+ 119:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     LAYOUT(
+ 120:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         KC_GRV, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F
+ 121:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         RGB_MODE_FORWARD, RGB_TOG, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, _______, _______, _______, _
+ 122:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _
+ 123:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         _______, _______, _______, _______, _______, _______, KC_VOLD, KC_VOLU, KC_MPLY, KC_MPRV, K
+ 124:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         _______, _______, _______, _______, _______, _______, KC_UP, _______, _______, KC_DOWN, TO(
+ 125:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** };
+ 126:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+ 127:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*----------------------*/
+ 128:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*------- MACROS -------*/
+ 129:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*----------------------*/
+ 130:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+ 131:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** uint16_t counter = 0;
+ 132:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** uint16_t timer = 0;
+ 133:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+ 134:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** bool process_record_user(uint16_t keycode, keyrecord_t *record)
+ 135:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** {
+  37               		.loc 1 135 1 is_stmt 1 view -0
+  38               		.cfi_startproc
+  39               	/* prologue: function */
+  40               	/* frame size = 0 */
+  41               	/* stack size = 0 */
+  42               	.L__stack_usage = 0
+ 136:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     switch (keycode)
+  43               		.loc 1 136 5 view .LVU5
+  44 0000 8F3A      		cpi r24,-81
+  45 0002 9105      		cpc r25,__zero_reg__
+  46 0004 01F0      		breq .L3
+  47 0006 8932      		cpi r24,41
+  48 0008 9D45      		sbci r25,93
+  49 000a 01F4      		brne .L4
+ 137:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     {
+ 138:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     case MACRO_CLICK:
+ 139:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         if (record->event.pressed)
+  50               		.loc 1 139 9 view .LVU6
+  51               		.loc 1 139 12 is_stmt 0 view .LVU7
+  52 000c FB01      		movw r30,r22
+  53 000e 8281      		ldd r24,Z+2
+  54               	.LVL2:
+  55               		.loc 1 139 12 view .LVU8
+  56 0010 8823      		tst r24
+  57 0012 01F0      		breq .L4
+ 140:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
+ 141:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             // Pressed
+ 142:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             tap_code_delay(KC_BTN1, 82);
+  58               		.loc 1 142 13 is_stmt 1 view .LVU9
+  59 0014 62E5      		ldi r22,lo8(82)
+  60 0016 70E0      		ldi r23,0
+  61               	.LVL3:
+  62               		.loc 1 142 13 is_stmt 0 view .LVU10
+  63 0018 81EF      		ldi r24,lo8(-15)
+  64 001a 0E94 0000 		call tap_code_delay
+  65               	.LVL4:
+ 143:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             tap_code_delay(KC_BTN1, 91);
+  66               		.loc 1 143 13 is_stmt 1 view .LVU11
+  67 001e 6BE5      		ldi r22,lo8(91)
+  68 0020 70E0      		ldi r23,0
+  69 0022 81EF      		ldi r24,lo8(-15)
+  70 0024 0E94 0000 		call tap_code_delay
+  71               	.LVL5:
+ 144:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             tap_code_delay(KC_BTN1, 74);
+  72               		.loc 1 144 13 view .LVU12
+  73 0028 6AE4      		ldi r22,lo8(74)
+  74 002a 70E0      		ldi r23,0
+  75 002c 81EF      		ldi r24,lo8(-15)
+  76 002e 0E94 0000 		call tap_code_delay
+  77               	.LVL6:
+ 145:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             tap_code_delay(KC_BTN1, 78);
+  78               		.loc 1 145 13 view .LVU13
+  79 0032 6EE4      		ldi r22,lo8(78)
+  80 0034 70E0      		ldi r23,0
+  81 0036 81EF      		ldi r24,lo8(-15)
+  82 0038 0E94 0000 		call tap_code_delay
+  83               	.LVL7:
+ 146:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             tap_code_delay(KC_BTN1, 69);
+  84               		.loc 1 146 13 view .LVU14
+  85 003c 65E4      		ldi r22,lo8(69)
+  86 003e 70E0      		ldi r23,0
+  87 0040 81EF      		ldi r24,lo8(-15)
+  88 0042 0E94 0000 		call tap_code_delay
+  89               	.LVL8:
+  90               	.L4:
+ 147:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         }
+ 148:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         else
+ 149:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
+ 150:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             // Released
+ 151:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         }
+ 152:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         break;
+ 153:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     case TOGGLE_MC_LAYER:
+ 154:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         if (record->event.pressed)
+ 155:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
+ 156:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+ 157:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             // Make timer to ensure pressed within 350ms
+ 158:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             timer = timer_read();
+ 159:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             if (counter > 1)
+ 160:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             {
+ 161:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****                 layer_off(2);
+ 162:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****                 layer_on(1);
+ 163:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****                 counter = 0;
+ 164:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             }
+ 165:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             else
+ 166:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             {
+ 167:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****                 counter++;
+ 168:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             }
+ 169:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         }
+ 170:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         else
+ 171:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
+ 172:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             // Released
+ 173:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         }
+  91               		.loc 1 173 9 view .LVU15
+ 174:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     }
+ 175:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     return true;
+  92               		.loc 1 175 5 view .LVU16
+ 176:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** };
+  93               		.loc 1 176 1 is_stmt 0 view .LVU17
+  94 0046 81E0      		ldi r24,lo8(1)
+  95               	/* epilogue start */
+  96 0048 0895      		ret
+  97               	.LVL9:
+  98               	.L3:
+ 154:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
+  99               		.loc 1 154 9 is_stmt 1 view .LVU18
+ 154:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
+ 100               		.loc 1 154 12 is_stmt 0 view .LVU19
+ 101 004a FB01      		movw r30,r22
+ 102 004c 8281      		ldd r24,Z+2
+ 103               	.LVL10:
+ 154:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
+ 104               		.loc 1 154 12 view .LVU20
+ 105 004e 8823      		tst r24
+ 106 0050 01F0      		breq .L4
+ 158:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             if (counter > 1)
+ 107               		.loc 1 158 13 is_stmt 1 view .LVU21
+ 158:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             if (counter > 1)
+ 108               		.loc 1 158 21 is_stmt 0 view .LVU22
+ 109 0052 0E94 0000 		call timer_read
+ 110               	.LVL11:
+ 158:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             if (counter > 1)
+ 111               		.loc 1 158 19 view .LVU23
+ 112 0056 9093 0000 		sts timer+1,r25
+ 113 005a 8093 0000 		sts timer,r24
+ 159:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             {
+ 114               		.loc 1 159 13 is_stmt 1 view .LVU24
+ 159:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             {
+ 115               		.loc 1 159 25 is_stmt 0 view .LVU25
+ 116 005e 8091 0000 		lds r24,counter
+ 117 0062 9091 0000 		lds r25,counter+1
+ 159:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             {
+ 118               		.loc 1 159 16 view .LVU26
+ 119 0066 8230      		cpi r24,2
+ 120 0068 9105      		cpc r25,__zero_reg__
+ 121 006a 00F0      		brlo .L5
+ 161:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****                 layer_on(1);
+ 122               		.loc 1 161 17 is_stmt 1 view .LVU27
+ 123 006c 82E0      		ldi r24,lo8(2)
+ 124 006e 0E94 0000 		call layer_off
+ 125               	.LVL12:
+ 162:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****                 counter = 0;
+ 126               		.loc 1 162 17 view .LVU28
+ 127 0072 81E0      		ldi r24,lo8(1)
+ 128 0074 0E94 0000 		call layer_on
+ 129               	.LVL13:
+ 163:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             }
+ 130               		.loc 1 163 17 view .LVU29
+ 163:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             }
+ 131               		.loc 1 163 25 is_stmt 0 view .LVU30
+ 132 0078 1092 0000 		sts counter+1,__zero_reg__
+ 133 007c 1092 0000 		sts counter,__zero_reg__
+ 134 0080 00C0      		rjmp .L4
+ 135               	.L5:
+ 167:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             }
+ 136               		.loc 1 167 17 is_stmt 1 view .LVU31
+ 167:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             }
+ 137               		.loc 1 167 24 is_stmt 0 view .LVU32
+ 138 0082 0196      		adiw r24,1
+ 139 0084 9093 0000 		sts counter+1,r25
+ 140 0088 8093 0000 		sts counter,r24
+ 141 008c 00C0      		rjmp .L4
+ 142               		.cfi_endproc
+ 143               	.LFE118:
+ 145               		.section	.text.matrix_scan_user,"ax",@progbits
+ 146               	.global	matrix_scan_user
+ 148               	matrix_scan_user:
+ 149               	.LFB119:
+ 177:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+ 178:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** // Reset counter if not pressed fast enough
+ 179:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** void matrix_scan_user(void)
+ 180:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** {
+ 150               		.loc 1 180 1 is_stmt 1 view -0
+ 151               		.cfi_startproc
+ 152               	/* prologue: function */
+ 153               	/* frame size = 0 */
+ 154               	/* stack size = 0 */
+ 155               	.L__stack_usage = 0
+ 181:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     if (timer_elapsed(timer) > 350)
+ 156               		.loc 1 181 5 view .LVU34
+ 157               		.loc 1 181 9 is_stmt 0 view .LVU35
+ 158 0000 8091 0000 		lds r24,timer
+ 159 0004 9091 0000 		lds r25,timer+1
+ 160 0008 0E94 0000 		call timer_elapsed
+ 161               	.LVL14:
+ 162               		.loc 1 181 8 view .LVU36
+ 163 000c 8F35      		cpi r24,95
+ 164 000e 9140      		sbci r25,1
+ 165 0010 00F0      		brlo .L12
+ 182:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     {
+ 183:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         counter = 0;
+ 166               		.loc 1 183 9 is_stmt 1 view .LVU37
+ 167               		.loc 1 183 17 is_stmt 0 view .LVU38
+ 168 0012 1092 0000 		sts counter+1,__zero_reg__
+ 169 0016 1092 0000 		sts counter,__zero_reg__
+ 170               	.L12:
+ 171               	/* epilogue start */
+ 184:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     }
+ 185:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** }...
+ 172               		.loc 1 185 1 view .LVU39
+ 173 001a 0895      		ret
+ 174               		.cfi_endproc
+ 175               	.LFE119:
+ 177               	.global	timer
+ 178               		.section	.bss.timer,"aw",@nobits
+ 181               	timer:
+ 182 0000 0000      		.zero	2
+ 183               	.global	counter
+ 184               		.section	.bss.counter,"aw",@nobits
+ 187               	counter:
+ 188 0000 0000      		.zero	2
+ 189               	.global	keymaps
+ 190               		.section	.progmem.data.keymaps,"a"
+ 193               	keymaps:
+ 194 0000 165C      		.word	23574
+ 195 0002 1E00      		.word	30
+ 196 0004 1F00      		.word	31
+ 197 0006 2000      		.word	32
+ 198 0008 2100      		.word	33
+ 199 000a 2200      		.word	34
+ 200 000c 2300      		.word	35
+ 201 000e 2400      		.word	36
+ 202 0010 2500      		.word	37
+ 203 0012 2600      		.word	38
+ 204 0014 2700      		.word	39
+ 205 0016 2D00      		.word	45
+ 206 0018 2E00      		.word	46
+ 207 001a 2A00      		.word	42
+ 208 001c 2A00      		.word	42
+ 209 001e 2B00      		.word	43
+ 210 0020 0000      		.word	0
+ 211 0022 1400      		.word	20
+ 212 0024 1A00      		.word	26
+ 213 0026 0800      		.word	8
+ 214 0028 1500      		.word	21
+ 215 002a 1700      		.word	23
+ 216 002c 1C00      		.word	28
+ 217 002e 1800      		.word	24
+ 218 0030 0C00      		.word	12
+ 219 0032 1200      		.word	18
+ 220 0034 1300      		.word	19
+ 221 0036 2F00      		.word	47
+ 222 0038 3000      		.word	48
+ 223 003a 3100      		.word	49
+ 224 003c 3900      		.word	57
+ 225 003e 0000      		.word	0
+ 226 0040 0400      		.word	4
+ 227 0042 1600      		.word	22
+ 228 0044 0700      		.word	7
+ 229 0046 0900      		.word	9
+ 230 0048 0A00      		.word	10
+ 231 004a 0B00      		.word	11
+ 232 004c 0D00      		.word	13
+ 233 004e 0E00      		.word	14
+ 234 0050 0F00      		.word	15
+ 235 0052 3300      		.word	51
+ 236 0054 3400      		.word	52
+ 237 0056 2800      		.word	40
+ 238 0058 0000      		.word	0
+ 239 005a E100      		.word	225
+ 240 005c 0000      		.word	0
+ 241 005e 1D00      		.word	29
+ 242 0060 1B00      		.word	27
+ 243 0062 0600      		.word	6
+ 244 0064 1900      		.word	25
+ 245 0066 0500      		.word	5
+ 246 0068 1100      		.word	17
+ 247 006a 1000      		.word	16
+ 248 006c 3600      		.word	54
+ 249 006e 3700      		.word	55
+ 250 0070 3800      		.word	56
+ 251 0072 0000      		.word	0
+ 252 0074 AF00      		.word	175
+ 253 0076 0000      		.word	0
+ 254 0078 E000      		.word	224
+ 255 007a E300      		.word	227
+ 256 007c 0000      		.word	0
+ 257 007e E200      		.word	226
+ 258 0080 2C00      		.word	44
+ 259 0082 0000      		.word	0
+ 260 0084 2C00      		.word	44
+ 261 0086 0000      		.word	0
+ 262 0088 2C00      		.word	44
+ 263 008a 0000      		.word	0
+ 264 008c 5000      		.word	80
+ 265 008e 0258      		.word	22530
+ 266 0090 0000      		.word	0
+ 267 0092 4F00      		.word	79
+ 268 0094 E400      		.word	228
+ 269 0096 0100      		.word	1
+ 270 0098 0100      		.word	1
+ 271 009a 0100      		.word	1
+ 272 009c 0100      		.word	1
+ 273 009e 0100      		.word	1
+ 274 00a0 0100      		.word	1
+ 275 00a2 0100      		.word	1
+ 276 00a4 0100      		.word	1
+ 277 00a6 0100      		.word	1
+ 278 00a8 0100      		.word	1
+ 279 00aa 0100      		.word	1
+ 280 00ac 0100      		.word	1
+ 281 00ae 0100      		.word	1
+ 282 00b0 0100      		.word	1
+ 283 00b2 0100      		.word	1
+ 284 00b4 0100      		.word	1
+ 285 00b6 0000      		.word	0
+ 286 00b8 295D      		.word	23849
+ 287 00ba 0100      		.word	1
+ 288 00bc 0100      		.word	1
+ 289 00be 0100      		.word	1
+ 290 00c0 0100      		.word	1
+ 291 00c2 0100      		.word	1
+ 292 00c4 0100      		.word	1
+ 293 00c6 0100      		.word	1
+ 294 00c8 0100      		.word	1
+ 295 00ca 0100      		.word	1
+ 296 00cc 0100      		.word	1
+ 297 00ce 0100      		.word	1
+ 298 00d0 0100      		.word	1
+ 299 00d2 295D      		.word	23849
+ 300 00d4 0000      		.word	0
+ 301 00d6 0100      		.word	1
+ 302 00d8 0100      		.word	1
+ 303 00da 0100      		.word	1
+ 304 00dc 295D      		.word	23849
+ 305 00de 0100      		.word	1
+ 306 00e0 0100      		.word	1
+ 307 00e2 0100      		.word	1
+ 308 00e4 0100      		.word	1
+ 309 00e6 0100      		.word	1
+ 310 00e8 0100      		.word	1
+ 311 00ea 0100      		.word	1
+ 312 00ec 0100      		.word	1
+ 313 00ee 0000      		.word	0
+ 314 00f0 0100      		.word	1
+ 315 00f2 0100      		.word	1
+ 316 00f4 0100      		.word	1
+ 317 00f6 0100      		.word	1
+ 318 00f8 0100      		.word	1
+ 319 00fa 0100      		.word	1
+ 320 00fc 0100      		.word	1
+ 321 00fe 0100      		.word	1
+ 322 0100 0100      		.word	1
+ 323 0102 0100      		.word	1
+ 324 0104 0100      		.word	1
+ 325 0106 0100      		.word	1
+ 326 0108 0000      		.word	0
+ 327 010a 0100      		.word	1
+ 328 010c 0100      		.word	1
+ 329 010e 0100      		.word	1
+ 330 0110 0100      		.word	1
+ 331 0112 0000      		.word	0
+ 332 0114 0100      		.word	1
+ 333 0116 0100      		.word	1
+ 334 0118 0000      		.word	0
+ 335 011a 0100      		.word	1
+ 336 011c 0000      		.word	0
+ 337 011e 0100      		.word	1
+ 338 0120 0000      		.word	0
+ 339 0122 0100      		.word	1
+ 340 0124 0100      		.word	1
+ 341 0126 0100      		.word	1
+ 342 0128 0100      		.word	1
+ 343 012a 1050      		.word	20496
+ 344 012c 3500      		.word	53
+ 345 012e 3A00      		.word	58
+ 346 0130 3B00      		.word	59
+ 347 0132 3C00      		.word	60
+ 348 0134 3D00      		.word	61
+ 349 0136 3E00      		.word	62
+ 350 0138 3F00      		.word	63
+ 351 013a 4000      		.word	64
+ 352 013c 4100      		.word	65
+ 353 013e 4200      		.word	66
+ 354 0140 4300      		.word	67
+ 355 0142 4400      		.word	68
+ 356 0144 4500      		.word	69
+ 357 0146 4C00      		.word	76
+ 358 0148 4C00      		.word	76
+ 359 014a C45C      		.word	23748
+ 360 014c 0000      		.word	0
+ 361 014e C35C      		.word	23747
+ 362 0150 C65C      		.word	23750
+ 363 0152 C75C      		.word	23751
+ 364 0154 C85C      		.word	23752
+ 365 0156 C95C      		.word	23753
+ 366 0158 0100      		.word	1
+ 367 015a 0100      		.word	1
+ 368 015c 0100      		.word	1
+ 369 015e 0100      		.word	1
+ 370 0160 0100      		.word	1
+ 371 0162 A600      		.word	166
+ 372 0164 A700      		.word	167
+ 373 0166 4600      		.word	70
+ 374 0168 0100      		.word	1
+ 375 016a 0000      		.word	0
+ 376 016c 0100      		.word	1
+ 377 016e 0100      		.word	1
+ 378 0170 0100      		.word	1
+ 379 0172 0100      		.word	1
+ 380 0174 0100      		.word	1
+ 381 0176 0100      		.word	1
+ 382 0178 0100      		.word	1
+ 383 017a 0100      		.word	1
+ 384 017c 0100      		.word	1
+ 385 017e 0100      		.word	1
+ 386 0180 0100      		.word	1
+ 387 0182 005C      		.word	23552
+ 388 0184 0000      		.word	0
+ 389 0186 0100      		.word	1
+ 390 0188 0100      		.word	1
+ 391 018a 0100      		.word	1
+ 392 018c 0100      		.word	1
+ 393 018e 0100      		.word	1
+ 394 0190 0100      		.word	1
+ 395 0192 AA00      		.word	170
+ 396 0194 A900      		.word	169
+ 397 0196 AE00      		.word	174
+ 398 0198 AC00      		.word	172
+ 399 019a AB00      		.word	171
+ 400 019c A800      		.word	168
+ 401 019e 0000      		.word	0
+ 402 01a0 0100      		.word	1
+ 403 01a2 0100      		.word	1
+ 404 01a4 0100      		.word	1
+ 405 01a6 0100      		.word	1
+ 406 01a8 0000      		.word	0
+ 407 01aa 0100      		.word	1
+ 408 01ac 0100      		.word	1
+ 409 01ae 0000      		.word	0
+ 410 01b0 0100      		.word	1
+ 411 01b2 0000      		.word	0
+ 412 01b4 0100      		.word	1
+ 413 01b6 0000      		.word	0
+ 414 01b8 5200      		.word	82
+ 415 01ba 0100      		.word	1
+ 416 01bc 0100      		.word	1
+ 417 01be 5100      		.word	81
+ 418 01c0 1050      		.word	20496
+ 419               	.global	tap_dance_actions
+ 420               		.section	.bss.tap_dance_actions,"aw",@nobits
+ 423               	tap_dance_actions:
+ 424               	.global	unicode_map
+ 425               		.section	.progmem.data.unicode_map,"a"
+ 428               	unicode_map:
+ 429 0000 9E        		.byte	-98
+ 430 0001 B6        		.byte	-74
+ 431 0002 E0        		.byte	-32
+ 432 0003 00        		.byte	0
+ 433               		.text
+ 434               	.Letext0:
+ 435               		.file 2 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdint.h"
+ 436               		.file 3 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/lib/avr-gcc/8/gcc/avr/8.4.0/include/stddef.h"
+ 437               		.file 4 "tmk_core/common/keyboard.h"
+ 438               		.file 5 "tmk_core/common/keycode.h"
+ 439               		.file 6 "tmk_core/common/action_code.h"
+ 440               		.file 7 "tmk_core/common/action.h"
+ 441               		.file 8 "lib/lufa/LUFA/Drivers/USB/Core/AVR8/../StdRequestType.h"
+ 442               		.file 9 "lib/lufa/LUFA/Drivers/USB/Core/AVR8/../DeviceStandardReq.h"
+ 443               		.file 10 "lib/lufa/LUFA/Drivers/USB/Core/USBTask.h"
+ 444               		.file 11 "lib/lufa/LUFA/Drivers/USB/Core/HostStandardReq.h"
+ 445               		.file 12 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdio.h"
+ 446               		.file 13 "tmk_core/common/report.h"
+ 447               		.file 14 "tmk_core/common/host.h"
+ 448               		.file 15 "tmk_core/common/debug.h"
+ 449               		.file 16 "quantum/keycode_config.h"
+ 450               		.file 17 "quantum/quantum_keycodes.h"
+ 451               		.file 18 "quantum/keymap.h"
+ 452               		.file 19 "./quantum/color.h"
+ 453               		.file 20 "quantum/rgblight.h"
+ 454               		.file 21 "tmk_core/common/action_layer.h"
+ 455               		.file 22 "tmk_core/common/timer.h"
+ 456               		.file 23 "tmk_core/common/action_util.h"
+ 457               		.file 24 "quantum/send_string.h"
+ 458               		.file 25 "/usr/local/Cellar/avr-gcc@8/8.4.0_1/avr/include/stdlib.h"
+ 459               		.file 26 "quantum/process_keycode/process_unicode_common.h"
+ 460               		.file 27 "quantum/process_keycode/process_unicodemap.h"
+ 461               		.file 28 "quantum/process_keycode/process_tap_dance.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 keymap.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPZ7RBB.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPZ7RBB.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPZ7RBB.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPZ7RBB.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPZ7RBB.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPZ7RBB.s:13     .text.td_toggle_layers:0000000000000000 td_toggle_layers
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPZ7RBB.s:44     .progmem.data.keymaps:0000000000000000 keymaps
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPZ7RBB.s:199    .data.tap_dance_actions:0000000000000000 tap_dance_actions
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccPZ7RBB.s:209    .progmem.data.unicode_map:0000000000000000 unicode_map
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:13     .text.td_toggle_layers:0000000000000000 td_toggle_layers
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:34     .text.process_record_user:0000000000000000 process_record_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:181    .bss.timer:0000000000000000 timer
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:187    .bss.counter:0000000000000000 counter
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:148    .text.matrix_scan_user:0000000000000000 matrix_scan_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:193    .progmem.data.keymaps:0000000000000000 keymaps
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:423    .bss.tap_dance_actions:0000000000000000 tap_dance_actions
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:428    .progmem.data.unicode_map:0000000000000000 unicode_map
 
 UNDEFINED SYMBOLS
-backlight_toggle
-__do_copy_data
+tap_code_delay
+timer_read
+layer_off
+layer_on
+timer_elapsed
+__do_clear_bss

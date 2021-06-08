@@ -2,14 +2,21 @@
 /*----------------------*/
 /*------- ENUMS --------*/
 /*----------------------*/
+
 enum unicode_names
 {
-    B,
+    AMOGUS,
 };
 
 enum tap_dance_names
 {
-    TD_SWITCH_LAYERS
+    TD_SWITCH_LAYERS,
+};
+
+enum custom_keycodes
+{
+    MACRO_CLICK = SAFE_RANGE,
+    TOGGLE_MC_LAYER = 0xaf,
 };
 
 /*----------------------*/
@@ -18,24 +25,28 @@ enum tap_dance_names
 
 void td_toggle_layers(qk_tap_dance_state_t *state, void *user_data)
 {
-    switch (state->count)
+    if (state->count == 1)
     {
-    case 2:
-        backlight_toggle();
-    default:
-        break;
+        // send_unicode_string("ඞ");
+        // reset_tap_dance(state);
+    }
+    else if (state->count == 2)
+    {
+        // layer_on(2);
+        // reset_tap_dance(state);
     }
 }
 
 /*----------------------*/
 /*---- DEFINITIONS -----*/
 /*----------------------*/
+
 const uint32_t PROGMEM unicode_map[] = {
-    [B] = 0x1F171,
+    [AMOGUS] = 0xe0b69e,
 };
 
 qk_tap_dance_action_t tap_dance_actions[] = {
-    [TD_SWITCH_LAYERS] = ACTION_TAP_DANCE_FN(td_toggle_layers),
+    //[TD_SWITCH_LAYERS] = ACTION_TAP_DANCE_LAYER_TOGGLE(KC_RCTL, 2),
 };
 
 /*----------------------*/
@@ -62,8 +73,34 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_EQL, KC_BSPC, KC_BSPC,
         KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRC, KC_RBRC, KC_BSLS,
         KC_CAPS, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, KC_ENT,
-        KC_LSFT, XXXXXXX, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_RSFT, XXXXXXX,
-        KC_LCTL, KC_LGUI, KC_LALT, KC_SPC, KC_SPC, KC_SPC, KC_LEFT, TT(1), XXXXXXX, KC_RIGHT, KC_RCTL),
+        KC_LSFT, XXXXXXX, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, TOGGLE_MC_LAYER, XXXXXXX,
+        KC_LCTL, KC_LGUI, KC_LALT, KC_SPC, KC_SPC, KC_SPC, KC_LEFT, TT(2), XXXXXXX, KC_RIGHT, KC_RCTL),
+
+    /* --------------------------- ALL SPECIAL LAYERS GO UNDER HERE --------------------------- */
+
+    /* Minecraft CPS Layer
+    *
+    * MS = Mouse Button 1 (aka left click)
+    * 
+    * ,-----------------------------------------------------------------------------------------.
+    * |     |     |     |     |     |     |     |     |     |     |     |     |     |   Delete  |
+    * |-----------------------------------------------------------------------------------------+
+    * |        |  MS  |     |     |     |     |     |     |     |     |     |     |     |       |
+    * |-----------------------------------------------------------------------------------------+
+    * |   MS    |     |     |     |  MS  |     |     |     |     |     |     |     |            |
+    * |-----------------------------------------------------------------------------------------+
+    * |             |     |     |     |     |     |     |     |     |     |     |               |
+    * |-----------------------------------------------------------------------------------------+
+    * |       |       |       |                                   |       |      |      |       |
+    *  `----------------------------------------------------------------------------------------'
+    */
+
+    LAYOUT(
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, MACRO_CLICK, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        MACRO_CLICK, KC_TRNS, KC_TRNS, KC_TRNS, MACRO_CLICK, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, _______, KC_TRNS, KC_TRNS, TO(0)),
 
     /* FN Layer
     * ,-----------------------------------------------------------------------------------------.
@@ -86,3 +123,63 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______, _______, _______, KC_VOLD, KC_VOLU, KC_MPLY, KC_MPRV, KC_MNXT, KC_MUTE, _______, _______,
         _______, _______, _______, _______, _______, _______, KC_UP, _______, _______, KC_DOWN, TO(0)),
 };
+
+/*----------------------*/
+/*------- MACROS -------*/
+/*----------------------*/
+
+uint16_t counter = 0;
+uint16_t timer = 0;
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record)
+{
+    switch (keycode)
+    {
+    case MACRO_CLICK:
+        if (record->event.pressed)
+        {
+            // Pressed
+            tap_code_delay(KC_BTN1, 82);
+            tap_code_delay(KC_BTN1, 91);
+            tap_code_delay(KC_BTN1, 74);
+            tap_code_delay(KC_BTN1, 78);
+            tap_code_delay(KC_BTN1, 69);
+        }
+        else
+        {
+            // Released
+        }
+        break;
+    case TOGGLE_MC_LAYER:
+        if (record->event.pressed)
+        {
+
+            // Make timer to ensure pressed within 350ms
+            timer = timer_read();
+            if (counter > 1)
+            {
+                layer_off(2);
+                layer_on(1);
+                counter = 0;
+            }
+            else
+            {
+                counter++;
+            }
+        }
+        else
+        {
+            // Released
+        }
+    }
+    return true;
+};
+
+// Reset counter if not pressed fast enough
+void matrix_scan_user(void)
+{
+    if (timer_elapsed(timer) > 350)
+    {
+        counter = 0;
+    }
+}

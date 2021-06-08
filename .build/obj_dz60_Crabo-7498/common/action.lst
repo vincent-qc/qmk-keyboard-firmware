@@ -4423,38 +4423,38 @@
  2495               		.file 22 "tmk_core/common/action_tapping.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 action.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:13     .text.action_exec:0000000000000000 action_exec
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:132    .text.process_record_quantum:0000000000000000 process_record_quantum
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:154    .text.post_process_record_quantum:0000000000000000 post_process_record_quantum
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:173    .text.process_record_tap_hint:0000000000000000 process_record_tap_hint
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:198    .text.register_code:0000000000000000 register_code
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:2465   .rodata.CSWTCH.11:0000000000000000 CSWTCH.11
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:2438   .rodata.CSWTCH.12:0000000000000000 CSWTCH.12
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:514    .text.unregister_code:0000000000000000 unregister_code
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:682    .text.tap_code_delay:0000000000000000 tap_code_delay
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:768    .text.tap_code:0000000000000000 tap_code
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:795    .text.register_mods:0000000000000000 register_mods
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:824    .text.unregister_mods:0000000000000000 unregister_mods
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:853    .text.process_action:0000000000000000 process_action
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:1956   .text.process_record:0000000000000000 process_record
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:1884   .text.process_record_handler:0000000000000000 process_record_handler
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:2056   .text.process_record_nocache:0000000000000000 process_record_nocache
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:2473   .bss.disable_action_cache:0000000000000000 disable_action_cache
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:2084   .text.register_weak_mods:0000000000000000 register_weak_mods
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:2113   .text.unregister_weak_mods:0000000000000000 unregister_weak_mods
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:2142   .text.clear_keyboard_but_mods_and_keys:0000000000000000 clear_keyboard_but_mods_and_keys
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:2181   .text.clear_keyboard_but_mods:0000000000000000 clear_keyboard_but_mods
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:2201   .text.clear_keyboard:0000000000000000 clear_keyboard
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:2221   .text.is_tap_action:0000000000000000 is_tap_action
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:2309   .text.is_tap_key:0000000000000000 is_tap_key
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:2332   .text.debug_event:0000000000000000 debug_event
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:2374   .text.debug_record:0000000000000000 debug_record
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyMLDLR.s:2418   .text.debug_action:0000000000000000 debug_action
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:13     .text.action_exec:0000000000000000 action_exec
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:132    .text.process_record_quantum:0000000000000000 process_record_quantum
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:154    .text.post_process_record_quantum:0000000000000000 post_process_record_quantum
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:173    .text.process_record_tap_hint:0000000000000000 process_record_tap_hint
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:198    .text.register_code:0000000000000000 register_code
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:2465   .rodata.CSWTCH.11:0000000000000000 CSWTCH.11
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:2438   .rodata.CSWTCH.12:0000000000000000 CSWTCH.12
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:514    .text.unregister_code:0000000000000000 unregister_code
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:682    .text.tap_code_delay:0000000000000000 tap_code_delay
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:768    .text.tap_code:0000000000000000 tap_code
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:795    .text.register_mods:0000000000000000 register_mods
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:824    .text.unregister_mods:0000000000000000 unregister_mods
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:853    .text.process_action:0000000000000000 process_action
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:1956   .text.process_record:0000000000000000 process_record
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:1884   .text.process_record_handler:0000000000000000 process_record_handler
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:2056   .text.process_record_nocache:0000000000000000 process_record_nocache
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:2473   .bss.disable_action_cache:0000000000000000 disable_action_cache
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:2084   .text.register_weak_mods:0000000000000000 register_weak_mods
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:2113   .text.unregister_weak_mods:0000000000000000 unregister_weak_mods
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:2142   .text.clear_keyboard_but_mods_and_keys:0000000000000000 clear_keyboard_but_mods_and_keys
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:2181   .text.clear_keyboard_but_mods:0000000000000000 clear_keyboard_but_mods
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:2201   .text.clear_keyboard:0000000000000000 clear_keyboard
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:2221   .text.is_tap_action:0000000000000000 is_tap_action
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:2309   .text.is_tap_key:0000000000000000 is_tap_key
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:2332   .text.debug_event:0000000000000000 debug_event
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:2374   .text.debug_record:0000000000000000 debug_record
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//ccyH9CGT.s:2418   .text.debug_action:0000000000000000 debug_action
                             *COM*:0000000000000002 tp_buttons
 
 UNDEFINED SYMBOLS
