@@ -31,7 +31,7 @@
   16:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** enum custom_keycodes
   17:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** {
   18:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     MACRO_CLICK = SAFE_RANGE,
-  19:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     TOGGLE_MC_LAYER = 0xaf,
+  19:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     TOGGLE_MC_LAYER = 0xFF,
   20:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** };
   21:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
   22:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** /*----------------------*/
@@ -174,155 +174,158 @@
   42               	.L__stack_usage = 0
  136:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     switch (keycode)
   43               		.loc 1 136 5 view .LVU5
-  44 0000 8F3A      		cpi r24,-81
+  44 0000 8F3F      		cpi r24,-1
   45 0002 9105      		cpc r25,__zero_reg__
   46 0004 01F0      		breq .L3
   47 0006 8932      		cpi r24,41
   48 0008 9D45      		sbci r25,93
   49 000a 01F4      		brne .L4
  137:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     {
- 138:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     case MACRO_CLICK:
- 139:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         if (record->event.pressed)
-  50               		.loc 1 139 9 view .LVU6
-  51               		.loc 1 139 12 is_stmt 0 view .LVU7
+ 138:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     // FAST CLICK FOR MC PVP
+ 139:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     case MACRO_CLICK:
+ 140:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         if (record->event.pressed)
+  50               		.loc 1 140 9 view .LVU6
+  51               		.loc 1 140 12 is_stmt 0 view .LVU7
   52 000c FB01      		movw r30,r22
   53 000e 8281      		ldd r24,Z+2
   54               	.LVL2:
-  55               		.loc 1 139 12 view .LVU8
+  55               		.loc 1 140 12 view .LVU8
   56 0010 8823      		tst r24
   57 0012 01F0      		breq .L4
- 140:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
- 141:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             // Pressed
- 142:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             tap_code_delay(KC_BTN1, 82);
-  58               		.loc 1 142 13 is_stmt 1 view .LVU9
-  59 0014 62E5      		ldi r22,lo8(82)
+ 141:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
+ 142:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             // Pressed
+ 143:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             tap_code_delay(KC_BTN1, 92);
+  58               		.loc 1 143 13 is_stmt 1 view .LVU9
+  59 0014 6CE5      		ldi r22,lo8(92)
   60 0016 70E0      		ldi r23,0
   61               	.LVL3:
-  62               		.loc 1 142 13 is_stmt 0 view .LVU10
+  62               		.loc 1 143 13 is_stmt 0 view .LVU10
   63 0018 81EF      		ldi r24,lo8(-15)
   64 001a 0E94 0000 		call tap_code_delay
   65               	.LVL4:
- 143:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             tap_code_delay(KC_BTN1, 91);
-  66               		.loc 1 143 13 is_stmt 1 view .LVU11
-  67 001e 6BE5      		ldi r22,lo8(91)
+ 144:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             tap_code_delay(KC_BTN1, 101);
+  66               		.loc 1 144 13 is_stmt 1 view .LVU11
+  67 001e 65E6      		ldi r22,lo8(101)
   68 0020 70E0      		ldi r23,0
   69 0022 81EF      		ldi r24,lo8(-15)
   70 0024 0E94 0000 		call tap_code_delay
   71               	.LVL5:
- 144:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             tap_code_delay(KC_BTN1, 74);
-  72               		.loc 1 144 13 view .LVU12
-  73 0028 6AE4      		ldi r22,lo8(74)
+ 145:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             tap_code_delay(KC_BTN1, 84);
+  72               		.loc 1 145 13 view .LVU12
+  73 0028 64E5      		ldi r22,lo8(84)
   74 002a 70E0      		ldi r23,0
   75 002c 81EF      		ldi r24,lo8(-15)
   76 002e 0E94 0000 		call tap_code_delay
   77               	.LVL6:
- 145:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             tap_code_delay(KC_BTN1, 78);
-  78               		.loc 1 145 13 view .LVU13
-  79 0032 6EE4      		ldi r22,lo8(78)
+ 146:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             tap_code_delay(KC_BTN1, 88);
+  78               		.loc 1 146 13 view .LVU13
+  79 0032 68E5      		ldi r22,lo8(88)
   80 0034 70E0      		ldi r23,0
   81 0036 81EF      		ldi r24,lo8(-15)
   82 0038 0E94 0000 		call tap_code_delay
   83               	.LVL7:
- 146:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             tap_code_delay(KC_BTN1, 69);
-  84               		.loc 1 146 13 view .LVU14
-  85 003c 65E4      		ldi r22,lo8(69)
+ 147:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             tap_code_delay(KC_BTN1, 79);
+  84               		.loc 1 147 13 view .LVU14
+  85 003c 6FE4      		ldi r22,lo8(79)
   86 003e 70E0      		ldi r23,0
   87 0040 81EF      		ldi r24,lo8(-15)
   88 0042 0E94 0000 		call tap_code_delay
   89               	.LVL8:
   90               	.L4:
- 147:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         }
- 148:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         else
- 149:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
- 150:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             // Released
- 151:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         }
- 152:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         break;
- 153:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     case TOGGLE_MC_LAYER:
- 154:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         if (record->event.pressed)
- 155:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
- 156:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
- 157:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             // Make timer to ensure pressed within 350ms
- 158:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             timer = timer_read();
- 159:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             if (counter > 1)
- 160:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             {
- 161:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****                 layer_off(2);
- 162:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****                 layer_on(1);
- 163:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****                 counter = 0;
- 164:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             }
- 165:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             else
- 166:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             {
- 167:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****                 counter++;
- 168:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             }
- 169:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         }
- 170:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         else
- 171:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
- 172:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             // Released
- 173:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         }
-  91               		.loc 1 173 9 view .LVU15
- 174:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     }
- 175:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     return true;
-  92               		.loc 1 175 5 view .LVU16
- 176:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** };
-  93               		.loc 1 176 1 is_stmt 0 view .LVU17
+ 148:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         }
+ 149:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         else
+ 150:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
+ 151:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             // Released
+ 152:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         }
+ 153:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         break;
+ 154:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+ 155:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     // TOGGLES MACRO LAYERS
+ 156:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     case TOGGLE_MC_LAYER:
+ 157:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         if (record->event.pressed)
+ 158:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
+ 159:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+ 160:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             // Make timer to ensure pressed within 350ms
+ 161:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             timer = timer_read();
+ 162:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             if (counter > 1)
+ 163:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             {
+ 164:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****                 layer_off(2);
+ 165:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****                 layer_on(1);
+ 166:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****                 counter = 0;
+ 167:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             }
+ 168:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             else
+ 169:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             {
+ 170:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****                 counter++;
+ 171:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             }
+ 172:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         }
+ 173:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         else
+ 174:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
+ 175:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             // Released
+ 176:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         }
+  91               		.loc 1 176 9 view .LVU15
+ 177:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     }
+ 178:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     return true;
+  92               		.loc 1 178 5 view .LVU16
+ 179:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** };
+  93               		.loc 1 179 1 is_stmt 0 view .LVU17
   94 0046 81E0      		ldi r24,lo8(1)
   95               	/* epilogue start */
   96 0048 0895      		ret
   97               	.LVL9:
   98               	.L3:
- 154:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
-  99               		.loc 1 154 9 is_stmt 1 view .LVU18
- 154:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
- 100               		.loc 1 154 12 is_stmt 0 view .LVU19
+ 157:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
+  99               		.loc 1 157 9 is_stmt 1 view .LVU18
+ 157:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
+ 100               		.loc 1 157 12 is_stmt 0 view .LVU19
  101 004a FB01      		movw r30,r22
  102 004c 8281      		ldd r24,Z+2
  103               	.LVL10:
- 154:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
- 104               		.loc 1 154 12 view .LVU20
+ 157:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         {
+ 104               		.loc 1 157 12 view .LVU20
  105 004e 8823      		tst r24
  106 0050 01F0      		breq .L4
- 158:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             if (counter > 1)
- 107               		.loc 1 158 13 is_stmt 1 view .LVU21
- 158:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             if (counter > 1)
- 108               		.loc 1 158 21 is_stmt 0 view .LVU22
+ 161:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             if (counter > 1)
+ 107               		.loc 1 161 13 is_stmt 1 view .LVU21
+ 161:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             if (counter > 1)
+ 108               		.loc 1 161 21 is_stmt 0 view .LVU22
  109 0052 0E94 0000 		call timer_read
  110               	.LVL11:
- 158:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             if (counter > 1)
- 111               		.loc 1 158 19 view .LVU23
+ 161:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             if (counter > 1)
+ 111               		.loc 1 161 19 view .LVU23
  112 0056 9093 0000 		sts timer+1,r25
  113 005a 8093 0000 		sts timer,r24
- 159:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             {
- 114               		.loc 1 159 13 is_stmt 1 view .LVU24
- 159:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             {
- 115               		.loc 1 159 25 is_stmt 0 view .LVU25
+ 162:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             {
+ 114               		.loc 1 162 13 is_stmt 1 view .LVU24
+ 162:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             {
+ 115               		.loc 1 162 25 is_stmt 0 view .LVU25
  116 005e 8091 0000 		lds r24,counter
  117 0062 9091 0000 		lds r25,counter+1
- 159:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             {
- 118               		.loc 1 159 16 view .LVU26
+ 162:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             {
+ 118               		.loc 1 162 16 view .LVU26
  119 0066 8230      		cpi r24,2
  120 0068 9105      		cpc r25,__zero_reg__
  121 006a 00F0      		brlo .L5
- 161:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****                 layer_on(1);
- 122               		.loc 1 161 17 is_stmt 1 view .LVU27
+ 164:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****                 layer_on(1);
+ 122               		.loc 1 164 17 is_stmt 1 view .LVU27
  123 006c 82E0      		ldi r24,lo8(2)
  124 006e 0E94 0000 		call layer_off
  125               	.LVL12:
- 162:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****                 counter = 0;
- 126               		.loc 1 162 17 view .LVU28
+ 165:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****                 counter = 0;
+ 126               		.loc 1 165 17 view .LVU28
  127 0072 81E0      		ldi r24,lo8(1)
  128 0074 0E94 0000 		call layer_on
  129               	.LVL13:
- 163:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             }
- 130               		.loc 1 163 17 view .LVU29
- 163:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             }
- 131               		.loc 1 163 25 is_stmt 0 view .LVU30
+ 166:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             }
+ 130               		.loc 1 166 17 view .LVU29
+ 166:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             }
+ 131               		.loc 1 166 25 is_stmt 0 view .LVU30
  132 0078 1092 0000 		sts counter+1,__zero_reg__
  133 007c 1092 0000 		sts counter,__zero_reg__
  134 0080 00C0      		rjmp .L4
  135               	.L5:
- 167:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             }
- 136               		.loc 1 167 17 is_stmt 1 view .LVU31
- 167:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             }
- 137               		.loc 1 167 24 is_stmt 0 view .LVU32
+ 170:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             }
+ 136               		.loc 1 170 17 is_stmt 1 view .LVU31
+ 170:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****             }
+ 137               		.loc 1 170 24 is_stmt 0 view .LVU32
  138 0082 0196      		adiw r24,1
  139 0084 9093 0000 		sts counter+1,r25
  140 0088 8093 0000 		sts counter,r24
@@ -333,38 +336,38 @@
  146               	.global	matrix_scan_user
  148               	matrix_scan_user:
  149               	.LFB119:
- 177:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
- 178:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** // Reset counter if not pressed fast enough
- 179:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** void matrix_scan_user(void)
- 180:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** {
- 150               		.loc 1 180 1 is_stmt 1 view -0
+ 180:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** 
+ 181:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** // Reset counter if not pressed fast enough
+ 182:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** void matrix_scan_user(void)
+ 183:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** {
+ 150               		.loc 1 183 1 is_stmt 1 view -0
  151               		.cfi_startproc
  152               	/* prologue: function */
  153               	/* frame size = 0 */
  154               	/* stack size = 0 */
  155               	.L__stack_usage = 0
- 181:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     if (timer_elapsed(timer) > 350)
- 156               		.loc 1 181 5 view .LVU34
- 157               		.loc 1 181 9 is_stmt 0 view .LVU35
+ 184:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     if (timer_elapsed(timer) > 350)
+ 156               		.loc 1 184 5 view .LVU34
+ 157               		.loc 1 184 9 is_stmt 0 view .LVU35
  158 0000 8091 0000 		lds r24,timer
  159 0004 9091 0000 		lds r25,timer+1
  160 0008 0E94 0000 		call timer_elapsed
  161               	.LVL14:
- 162               		.loc 1 181 8 view .LVU36
+ 162               		.loc 1 184 8 view .LVU36
  163 000c 8F35      		cpi r24,95
  164 000e 9140      		sbci r25,1
  165 0010 00F0      		brlo .L12
- 182:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     {
- 183:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         counter = 0;
- 166               		.loc 1 183 9 is_stmt 1 view .LVU37
- 167               		.loc 1 183 17 is_stmt 0 view .LVU38
+ 185:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     {
+ 186:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****         counter = 0;
+ 166               		.loc 1 186 9 is_stmt 1 view .LVU37
+ 167               		.loc 1 186 17 is_stmt 0 view .LVU38
  168 0012 1092 0000 		sts counter+1,__zero_reg__
  169 0016 1092 0000 		sts counter,__zero_reg__
  170               	.L12:
  171               	/* epilogue start */
- 184:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     }
- 185:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** }...
- 172               		.loc 1 185 1 view .LVU39
+ 187:keyboards/dz60/keymaps/Crabo-7498/keymap.c ****     }
+ 188:keyboards/dz60/keymaps/Crabo-7498/keymap.c **** }...
+ 172               		.loc 1 188 1 view .LVU39
  173 001a 0895      		ret
  174               		.cfi_endproc
  175               	.LFE119:
@@ -437,7 +440,7 @@
  249 006e 3700      		.word	55
  250 0070 3800      		.word	56
  251 0072 0000      		.word	0
- 252 0074 AF00      		.word	175
+ 252 0074 FF00      		.word	255
  253 0076 0000      		.word	0
  254 0078 E000      		.word	224
  255 007a E300      		.word	227
@@ -645,19 +648,19 @@
  461               		.file 28 "quantum/process_keycode/process_tap_dance.h"
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 keymap.c
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:2      *ABS*:000000000000003e __SP_H__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:3      *ABS*:000000000000003d __SP_L__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:4      *ABS*:000000000000003f __SREG__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:5      *ABS*:0000000000000000 __tmp_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:6      *ABS*:0000000000000001 __zero_reg__
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:13     .text.td_toggle_layers:0000000000000000 td_toggle_layers
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:34     .text.process_record_user:0000000000000000 process_record_user
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:181    .bss.timer:0000000000000000 timer
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:187    .bss.counter:0000000000000000 counter
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:148    .text.matrix_scan_user:0000000000000000 matrix_scan_user
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:193    .progmem.data.keymaps:0000000000000000 keymaps
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:423    .bss.tap_dance_actions:0000000000000000 tap_dance_actions
-/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cc0IkAEl.s:428    .progmem.data.unicode_map:0000000000000000 unicode_map
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cczkecff.s:2      *ABS*:000000000000003e __SP_H__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cczkecff.s:3      *ABS*:000000000000003d __SP_L__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cczkecff.s:4      *ABS*:000000000000003f __SREG__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cczkecff.s:5      *ABS*:0000000000000000 __tmp_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cczkecff.s:6      *ABS*:0000000000000001 __zero_reg__
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cczkecff.s:13     .text.td_toggle_layers:0000000000000000 td_toggle_layers
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cczkecff.s:34     .text.process_record_user:0000000000000000 process_record_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cczkecff.s:181    .bss.timer:0000000000000000 timer
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cczkecff.s:187    .bss.counter:0000000000000000 counter
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cczkecff.s:148    .text.matrix_scan_user:0000000000000000 matrix_scan_user
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cczkecff.s:193    .progmem.data.keymaps:0000000000000000 keymaps
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cczkecff.s:423    .bss.tap_dance_actions:0000000000000000 tap_dance_actions
+/var/folders/_7/b1vvw0zx42g3yw9l_q10bzth0000gn/T//cczkecff.s:428    .progmem.data.unicode_map:0000000000000000 unicode_map
 
 UNDEFINED SYMBOLS
 tap_code_delay

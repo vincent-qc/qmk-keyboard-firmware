@@ -16,7 +16,7 @@ enum tap_dance_names
 enum custom_keycodes
 {
     MACRO_CLICK = SAFE_RANGE,
-    TOGGLE_MC_LAYER = 0xaf,
+    TOGGLE_MC_LAYER = 0xFF,
 };
 
 /*----------------------*/
@@ -135,21 +135,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
     switch (keycode)
     {
+    // FAST CLICK FOR MC PVP
     case MACRO_CLICK:
         if (record->event.pressed)
         {
             // Pressed
-            tap_code_delay(KC_BTN1, 82);
-            tap_code_delay(KC_BTN1, 91);
-            tap_code_delay(KC_BTN1, 74);
-            tap_code_delay(KC_BTN1, 78);
-            tap_code_delay(KC_BTN1, 69);
+            tap_code_delay(KC_BTN1, 92);
+            tap_code_delay(KC_BTN1, 101);
+            tap_code_delay(KC_BTN1, 84);
+            tap_code_delay(KC_BTN1, 88);
+            tap_code_delay(KC_BTN1, 79);
         }
         else
         {
             // Released
         }
         break;
+
+    // TOGGLES MACRO LAYERS
     case TOGGLE_MC_LAYER:
         if (record->event.pressed)
         {
