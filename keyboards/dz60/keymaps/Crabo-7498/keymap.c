@@ -130,6 +130,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 uint16_t counter = 0;
 uint16_t timer = 0;
+bool triggered = false;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record)
 {
@@ -140,14 +141,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
         if (record->event.pressed)
         {
             // Pressed
-            tap_code_delay(KC_BTN1, 92);
-            tap_code_delay(KC_BTN1, 101);
-            tap_code_delay(KC_BTN1, 84);
-            tap_code_delay(KC_BTN1, 88);
-            tap_code_delay(KC_BTN1, 79);
+            triggered = true;
         }
         else
         {
+            triggered = false;
             // Released
         }
         break;
@@ -178,11 +176,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
     return true;
 };
 
+uint16_t trigger_timer = 0;
+
 // Reset counter if not pressed fast enough
 void matrix_scan_user(void)
 {
     if (timer_elapsed(timer) > 350)
     {
         counter = 0;
+    }
+
+    if (triggered && timer_elapsed(trigger_timer) > 250)
+    {
+        trigger_timer = timer_read();
+        tap_code_delay(KC_BTN1, 42);
+        tap_code_delay(KC_BTN1, 31);
+        tap_code_delay(KC_BTN1, 54);
+        tap_code_delay(KC_BTN1, 28);
+        tap_code_delay(KC_BTN1, 49);
     }
 }
